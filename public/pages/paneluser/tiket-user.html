@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تیکت های شما</title>
+    <link rel="stylesheet" href="./../../style/app.css" />
+    <link rel="stylesheet" href="./../../style/style.css" />
+    <link rel="stylesheet" href="./../../style/reset.css" />
+  </head>
+  <body class="font-Dana  bg-slate-100">
+    <svg class="hidden ">
+    <symbol id="check-circle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+		<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+	</symbol>
+  <symbol id="chevron-down" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+  </symbol>
+  
+    </svg>
+
+     <!-- Start Code Header Mobile   -->
+     
+     <div
+     class="xs:hidden whs pt-3 sm:b-b bg-none dark:bg-zinc-700 bg-white s flex justify-between items-center pr-4 pb-3 pl-4"
+   >
+     <div
+       id="menu-user__panel"
+       class="w-11 h-11 bg-slate-100 flex items-center justify-center rounded-full cursor-pointer"
+     >
+       <div class="menu-line"></div>
+     </div>
+     <div class="cursor-pointer" id="toggle-theme">
+       <svg class="inline-block dark:hidden w-8 h-6">
+         <use xlink:href="#moon"></use>
+       </svg>
+       <svg class="hidden dark:inline-block w-8 h-6">
+         <use xlink:href="#sun"></use>
+       </svg>
+     </div>
+   </div>
+
+   <!-- Finish Code Header Mobile   -->
+
+   <!-- Start Code Mobile Modal Panel User -->
+
+   <div class="">
+     <div
+       id="wrapper-modal__userPanel"
+       class="flex xs:hidden fixed top-0 -right-72 z-50 h-full w-[12.1rem] xs:w-72"
+     >
+       <div
+         class="bg-zinc-500 flex flex-col w-[12rem] fixed h-full shadow-custom"
+       >
+         <div
+           class="flex justify-between items-center p-5 gap-2 text-center bg-lime-600 b-b"
+         >
+           <div class="flex gap-2 justify-center items-center">
+             <img
+               class="rounded-full w-[3rem] h-[3rem] x:w-16 x:h-16"
+               src="https://secure.gravatar.com/avatar/7cc3744776786e69ba44033e063546ca?s=96&amp;d=mm&amp;r=g"
+               alt=""
+             />
+             <div class="flex flex-col xs:text-xl items-start gap-2">
+               <span class="font-MorabbaBold text-xs" id="name-user"
+                 >مبین
+               </span>
+               <span class="font-MorabbaBold text-x">مشتری</span>
+             </div>
+           </div>
+           <svg
+             onclick=""
+             id="close-menu__user-panel"
+             class="w-[1.5rem] h-[1.5rem] bg-slate-500 text-white rounded-full cursor-pointer"
+           >
+             <use xlink:href="#x-mark"></use>
+           </svg>
+         </div>
+         <div class="h-full flex flex-col justify-between">
+           <div
+             class="flex flex-col child:rounded-md child-hover:text-zinc-800 child:h-10 child:pr-2 child:text-white child:font-bold child-hover:bg-white text-base pr-1 child:items-center child:pt-1 child:pb-2 child:m-2 child:gap-1 child:font-Dana child:flex child:text-xs child:xs:text-[16px]"
+           >
+             <a href="./../listed-orders.html" class="-mt-1">
+               <svg class="w-5 h-5">
+                 <use xlink:href="#credit-card"></use>
+               </svg>
+               <span>لیست سفارشات من</span>
+             </a>
+             <a href="#" class="">
+               <svg class="w-5 h-5">
+                 <use xlink:href="#basket-user-icon"></use>
+               </svg>
+               <span href="#">سبد خرید </span>
+             </a>
+
+             <a href="../paneluser/details-users.html" class="">
+               <svg class="w-5 h-5">
+                 <use xlink:href="#user-icon"></use>
+               </svg>
+               <span href="#">ویرایش مشخصات </span>
+             </a>
+
+             <a href="#" class="">
+               <svg class="w-5 h-5">
+                 <use xlink:href="#ticket"></use>
+               </svg>
+               <span href="#">تیکت به پشتیبانی </span>
+             </a>
+           </div>
+           <a href="#" class="cursor-pointer">
+             <span
+               href="#"
+               class="bg-red-800 transition-all flex items-center justify-center pt-2 pb-2 font-MorabbaBold"
+             >
+               خروج از حساب کاربری
+             </span>
+           </a>
+         </div>
+       </div>
+       <div class="h-[100vh]"></div>
+     </div>
+   </div>
+   <!-- Finish Code Mobile Modal Panel User -->
+
+   <div class="xs:flex xs:justify-between cont-wrapdetails">
+     <!-- Start Code Pc Modal Panel User -->
+
+     <div class="hidden xs:flex gap-5 h-full w-72 z-50 top-0">
+       <div
+         class="bg-zinc-500 flex flex-col w-[12rem] fixed h-full shadow-custom"
+       >
+         <div
+           class="flex justify-between items-center pr-2 pt-2 pl-2 gap-2 text-center bg-lime-600 b-b"
+         >
+           <div class="flex gap-2 justify-center items-center">
+             <img
+               class="rounded-full w-[2rem] h-[2rem] x:w-16 x:h-16"
+               src="https://secure.gravatar.com/avatar/7cc3744776786e69ba44033e063546ca?s=96&amp;d=mm&amp;r=g"
+               alt=""
+             />
+             <div
+               class="flex flex-col text-[14px] xs:text-xl items-start gap-4"
+             >
+               <span class="font-MorabbaBold text-xs" id="name-user"
+                 >مبین</span
+               >
+             </div>
+           </div>
+           <!-- <svg class="w-[1.5rem] h-[1.5rem]  bg-slate-500 text-white rounded-full cursor-pointer">
+               <use xlink:href="#x-mark"></use>
+             </svg> -->
+         </div>
+         <div class="h-full flex flex-col justify-between">
+           <div
+             class="flex flex-col child:rounded-md child-hover:text-zinc-800 child:h-10 child:pr-2 child:text-white child:font-bold child-hover:bg-white text-base pr-1 child:items-center child:pt-1 child:pb-2 child:m-2 child:gap-1 child:font-Dana child:flex child:text-xs child:xs:text-[16px]"
+           >
+             <a href="/user-panel.html" class="-mt-1 focus:bg-red-800">
+               <svg class="w-5 h-5">
+                 <use xlink:href="#credit-card"></use>
+               </svg>
+               <span>پیشخوان</span>
+             </a>
+             <a href="./../listed-orders.html" class="-mt-1 focus:bg-red-800">
+               <svg class="w-5 h-5">
+                 <use xlink:href="#credit-card"></use>
+               </svg>
+               <span>لیست سفارشات من</span>
+             </a>
+             <a href="#" class="">
+               <svg class="w-5 h-5">
+                 <use xlink:href="#basket-user-icon"></use>
+               </svg>
+               <span>سبد خرید </span>
+             </a>
+
+             <a href="./paneluser/details-users.html" class="">
+               <svg class="w-5 h-5">
+                 <use xlink:href="#user-icon"></use>
+               </svg>
+               <span>ویرایش مشخصات </span>
+             </a>
+
+             <a href="#" class="">
+               <svg class="w-5 h-5">
+                 <use xlink:href="#ticket"></use>
+               </svg>
+               <span>تیکت به پشتیبانی </span>
+             </a>
+           </div>
+           <a href="#" class="cursor-pointer">
+             <span
+               href="#"
+               class="bg-red-800 transition-all flex items-center justify-center pt-2 pb-2 font-MorabbaBold"
+             >
+               خروج از حساب کاربری
+             </span>
+           </a>
+         </div>
+       </div>
+     </div>
+
+     <!-- Finish Code Pc Modal Panel User -->
+
+
+     <!-- Start Main Code  -->
+
+     <div class="xs:flex gap-5  flex-col container xs:justify-between w-full">
+
+         <div class="cont-wrapTiket">
+          <div class="grid gap-3 grid-cols-1 xs:grid-cols-2">
+             <div class="flex gap-3 bg-white p-3 font-bold rounded-md">
+                 <svg
+                   id="icon-email__answers"
+                   class="w-10 h-10"
+                   width="48"
+                   height="48"
+                   viewBox="0 0 48 48"
+                   fill="none"
+                   xmlns="http://www.w3.org/2000/svg"
+                 >
+                   <path
+                     d="M33.625 4C27.3428 3.99992 22.2499 9.04408 22.2498 15.2664C22.2497 21.4888 27.3424 26.5332 33.6246 26.5333C36.3902 26.5334 39.0612 25.5354 41.1377 23.7262C41.5114 23.4227 41.5659 22.8766 41.2595 22.5065C40.9531 22.1364 40.4018 22.0823 40.0281 22.3858C40.0122 22.3987 39.9967 22.4121 39.9818 22.4262C35.9904 25.9035 29.9086 25.5177 26.3978 21.5643C22.887 17.6109 23.2766 11.587 27.268 8.10971C31.2594 4.63237 37.3412 5.01823 40.852 8.97161C42.3971 10.7116 43.2496 12.9494 43.2499 15.2667V38.6667C43.2499 40.1026 42.0747 41.2667 40.6249 41.2667H7.37498C5.92524 41.2667 4.74998 40.1026 4.74998 38.6667V16.2945L19.4019 25.5288L10.2564 34.5873C9.90885 34.9198 9.89925 35.4684 10.2349 35.8128C10.5707 36.157 11.1246 36.1665 11.4722 35.8341C11.4795 35.8271 11.4866 35.82 11.4937 35.8128L20.9139 26.4823L23.5302 28.129C23.938 28.386 24.479 28.2669 24.7386 27.8629C24.9981 27.4589 24.8778 26.9231 24.4699 26.666L5.28548 14.5733C5.77775 13.9201 6.55196 13.5347 7.37498 13.5333H19.625C20.1082 13.5333 20.5 13.1453 20.5 12.6666C20.5 12.188 20.1082 11.7999 19.625 11.7999H7.37498C4.95998 11.8028 3.00287 13.7413 3 16.1333V38.6666C3.00287 41.0587 4.95998 42.9972 7.37498 43H40.625C43.0401 42.9972 44.9971 41.0587 45 38.6667V15.2667C44.9929 9.04725 39.9043 4.00715 33.625 4Z"
+                     fill="#22C55E"
+                   ></path>
+                   <path
+                     d="M38.2564 11.1877L31 18.375L28.9936 16.3877C28.6461 16.0551 28.0921 16.0647 27.7563 16.4089C27.4289 16.7448 27.4289 17.2773 27.7563 17.6132L30.3814 20.2132C30.723 20.5515 31.2769 20.5515 31.6186 20.2132L39.4936 12.4132C39.8294 12.0689 39.8197 11.5202 39.4722 11.1877C39.1331 10.8632 38.5956 10.8632 38.2564 11.1877Z"
+                     fill="#22C55E"
+                   ></path>
+                 </svg>
+                 <div class="flex flex-col text-x justify-between">
+                   <span>تیکت پاسخ داده شده </span>
+                   <span>2</span>
+                 </div>
+               </div>
+               <div class="flex gap-3 bg-white p-3 font-bold rounded-md">
+                 <svg
+                   class="w-10 h-10"
+                   width="48"
+                   height="48"
+                   viewBox="0 0 48 48"
+                   fill="none"
+                   xmlns="http://www.w3.org/2000/svg"
+                 >
+                   <path
+                     d="M44.1243 23.5065C43.641 23.5065 43.2493 23.8889 43.2493 24.3605V39.7309C43.2493 41.1457 42.074 42.2926 40.6243 42.2926H7.3749C5.92518 42.2926 4.74994 41.1457 4.74994 39.7309V17.3977L19.4409 26.7514L10.2536 35.7175C9.90601 36.0452 9.89641 36.5857 10.2321 36.925C10.5677 37.2642 11.1217 37.2735 11.4693 36.9459C11.4766 36.9391 11.4838 36.9321 11.4908 36.925L20.9371 27.7018L23.5201 29.3456C23.8667 29.5659 24.3241 29.5192 24.6164 29.2338L27.2414 26.672C27.577 26.3328 27.5674 25.7922 27.2199 25.4646C26.8808 25.145 26.3432 25.145 26.0042 25.4646L23.8815 27.5361L5.25656 15.6804L8.24991 12.7592V14.9674C8.24991 15.439 8.64168 15.8213 9.12492 15.8213C9.60816 15.8213 9.99993 15.439 9.99993 14.9674V4.72046H23.9997C24.483 4.72046 24.8747 4.33812 24.8747 3.86652C24.8747 3.39492 24.483 3.01259 23.9997 3.01259H9.99985C9.05339 2.99313 8.26993 3.72603 8.24991 4.64969C8.24942 4.67331 8.24942 4.69685 8.24991 4.72046V10.3443L3.25634 15.2176C3.09228 15.3778 3 15.5949 3 15.8213V39.7309C3.00287 42.0877 4.95994 43.9976 7.3749 44.0004H40.6243C43.0393 43.9976 44.9963 42.0877 44.9992 39.7309V24.3605C44.9993 23.8889 44.6075 23.5065 44.1243 23.5065Z"
+                     fill="#FBBF24"
+                   ></path>
+                   <path
+                     d="M22.2835 14.9553C22.7149 20.4124 27.1578 24.7483 32.7496 25.1693V28.7711C31.6668 29.0903 30.9453 30.0876 30.9997 31.1902V38.0215C30.9585 39.3961 32.0669 40.543 33.4754 40.5832C33.5251 40.5847 33.5749 40.5847 33.6247 40.5832H34.7184C34.8192 40.5832 34.9192 40.5662 35.0141 40.5329C36.2693 40.3408 37.1772 39.2604 37.1245 38.0215V31.1902C37.1245 30.7186 36.7328 30.3363 36.2495 30.3363C35.7663 30.3363 35.3745 30.7186 35.3745 31.1902V38.0215C35.4177 38.451 35.096 38.8333 34.6559 38.8754C34.6039 38.8804 34.5515 38.8804 34.4995 38.8754H33.6247C33.1846 38.9176 32.7929 38.6037 32.7496 38.1742C32.7446 38.1234 32.7446 38.0723 32.7496 38.0215V31.1902C32.7064 30.7608 33.0281 30.3785 33.4682 30.3363C33.5202 30.3313 33.5726 30.3313 33.6247 30.3363C34.1079 30.3363 34.4997 29.954 34.4997 29.4824V25.1693C40.7632 24.6977 45.449 19.3601 44.9658 13.2475C44.4825 7.13477 39.0132 2.56183 32.7496 3.03343C26.4861 3.50503 21.8003 8.84264 22.2835 14.9553ZM33.6247 4.71897C38.9403 4.71897 43.2495 8.92438 43.2495 14.112C43.2495 19.2996 38.9403 23.505 33.6247 23.505C28.309 23.505 23.9998 19.2996 23.9998 14.112C24.0061 8.92694 28.3116 4.72514 33.6247 4.71897Z"
+                     fill="#FBBF24"
+                   ></path>
+                   <path
+                     d="M27.4994 14.9651C27.9827 14.9651 28.3745 14.5827 28.3745 14.1111C28.3773 11.2827 30.7261 8.99046 33.6244 8.98766C34.1076 8.98766 34.4994 8.60532 34.4994 8.13372C34.4994 7.66212 34.1076 7.27979 33.6244 7.27979C29.7603 7.28403 26.6289 10.34 26.6245 14.111C26.6245 14.5828 27.0162 14.9651 27.4994 14.9651Z"
+                     fill="#FBBF24"
+                   ></path>
+                 </svg>
+                 <div class="flex flex-col text-x justify-between">
+                   <span>تیکت های در حال بررسی </span>
+                   <span>0</span>
+                 </div>
+               </div>
+               <div class="flex gap-3 bg-white p-3 font-bold rounded-md">
+                 <svg
+                   class="w-10 h-10"
+                   width="48"
+                   height="48"
+                   viewBox="0 0 48 48"
+                   fill="none"
+                   xmlns="http://www.w3.org/2000/svg"
+                 >
+                   <path
+                     d="M33.625 4C27.3428 3.99992 22.2499 9.04408 22.2498 15.2664C22.2497 21.4888 27.3424 26.5332 33.6246 26.5333C36.3902 26.5334 39.0612 25.5354 41.1377 23.7262C41.5114 23.4227 41.5659 22.8766 41.2595 22.5065C40.9531 22.1364 40.4018 22.0823 40.0281 22.3858C40.0122 22.3987 39.9967 22.4121 39.9818 22.4262C35.9904 25.9035 29.9086 25.5177 26.3978 21.5643C22.887 17.6109 23.2766 11.587 27.268 8.10971C31.2594 4.63237 37.3412 5.01823 40.852 8.97161C42.3971 10.7116 43.2496 12.9494 43.2499 15.2667V38.6667C43.2499 40.1026 42.0747 41.2667 40.6249 41.2667H7.37498C5.92524 41.2667 4.74998 40.1026 4.74998 38.6667V16.2945L19.4019 25.5288L10.2564 34.5873C9.90885 34.9198 9.89925 35.4684 10.2349 35.8128C10.5707 36.157 11.1246 36.1665 11.4722 35.8341C11.4795 35.8271 11.4866 35.82 11.4937 35.8128L20.9139 26.4823L23.5302 28.129C23.938 28.386 24.479 28.2669 24.7386 27.8629C24.9981 27.4589 24.8778 26.9231 24.4699 26.666L5.28548 14.5733C5.77775 13.9201 6.55196 13.5347 7.37498 13.5333H19.625C20.1082 13.5333 20.5 13.1453 20.5 12.6666C20.5 12.188 20.1082 11.7999 19.625 11.7999H7.37498C4.95998 11.8028 3.00287 13.7413 3 16.1333V38.6666C3.00287 41.0587 4.95998 42.9972 7.37498 43H40.625C43.0401 42.9972 44.9971 41.0587 45 38.6667V15.2667C44.9929 9.04725 39.9043 4.00715 33.625 4Z"
+                     fill="#EF4444"
+                   ></path>
+                   <path
+                     d="M37.744 11.1868C37.4024 10.8485 36.8485 10.8485 36.5067 11.1868L33.6254 14.0408L30.744 11.1868C30.3965 10.8543 29.8425 10.8639 29.5067 11.2081C29.1793 11.544 29.1793 12.0765 29.5067 12.4123L32.3881 15.2662L29.5067 18.1202C29.1592 18.4526 29.1495 19.0013 29.4853 19.3456C29.8209 19.6899 30.3749 19.6995 30.7225 19.3669C30.7298 19.3599 30.7371 19.3529 30.744 19.3456L33.6254 16.4917L36.5067 19.3456C36.8543 19.6782 37.4083 19.6686 37.744 19.3244C38.0716 18.9885 38.0716 18.456 37.744 18.1202L34.8627 15.2662L37.744 12.4123C38.0856 12.0739 38.0856 11.5253 37.744 11.1868Z"
+                     fill="#EF4444"
+                   ></path>
+                 </svg>
+                 <div class="flex flex-col text-x justify-between">
+                   <span>تیکت بسته شده</span>
+                   <span>12</span>
+                 </div>
+               </div>
+          </div>
+         </div>
+     
+         <div class="bg-white header-main__tiket  pt-2 mt-5 pb-2 pl-3 pr-3 rounded-md flex items-center justify-between">
+             <div class="text-sky-500 text-base font-MorabbaBold flex gap-1">
+                 <span>تیکت های من</span>
+                 <span>(6)</span>
+             </div>
+             <div class="">
+                 <ul  class="outline-0 relative bg-slate-200 border-none w-48 text-sm group  font-DanaDemiBold border-l-slate-100"  name="" id="">
+                    <div class="flex justify-between items-center">
+                      <li class="selector-typeTiket-input pt-1 pb-1 pr-1" data-key="defult" >مرتب سازی بر اساس : </li>
+                      <svg class="pl-2 w-5 h-5">
+                        <use xlink:href="#chevron-down"></use>
+                      </svg> 
+                    </div>
+                    <div class="mt-2 absolute w-full pt-2 flex flex-col gap-2 border-b-2 border-b-amber-200 opacity-0 invisible group-hover:transition-all group-hover:opacity-100 group-hover:visible pr-3 pb-2 right-0 bg-slate-200">
+                         <li class="selector-typeTiket" data-key="with-answers" >منتظر پاسخ</li>
+                         <li class="selector-typeTiket" data-key="answered" >پاسخ داده شده</li>
+                         <li class="selector-typeTiket" data-key="newsed" >جدیدترین</li>
+                         <li class="selector-typeTiket" data-key="olded" >قدیمی ترین</li>
+                    </div>
+                 </ul>
+             </div>
+         </div>
+
+       <div class="wrapper-allTiket">
+        <div class="bg-white flex mt-3 justify-between rounded-md p-6 tiketBox">
+          <div class="flex justify-between flex-col">
+              <span class="text-xs">سلام سفارش من کی ...</span>
+              <span class="text-xs">پشتیبانی</span>
+          </div>
+          <div class="flex gap-3 tiketTime">
+              <div class="text-xs">
+                  <span>1403/08/27</span>
+                  <span>12:37</span>
+              </div>
+              <svg class="w-5 h-5 text-green-500">
+                  <use xlink:href="#check-circle"></use>
+              </svg>
+          </div>
+   </div>
+       </div>
+     </div>
+
+     <!-- Finish Main Code  -->
+
+    <div id="layer" class="active-layer"></div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../../js/panel/utils/utils.js" type="module"></script>
+    <script src="./../../js/panel/tiket.user.js" type="module"></script>
+</body>
+</html>

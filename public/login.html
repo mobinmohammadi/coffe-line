@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" class="hidden" href="style/app.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" class="" href="style/reset.css">
+    <title>Document</title>
+</head>
+<body class=" bg-gray-200 font-Dana text-x p-2.5 ">
+
+    <svg class="">
+        <symbol id="phone-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+          </symbol>
+    </svg>
+
+    <div class="w-[90%] flex flex-col justify-center mx-auto">
+       <div class="flex flex-col  gap-6 items-center justify-center">
+        <a href="index.html" class="flex gap-3 items-center">
+            <span class="text-lg font-MorabbaBold">کافه لاین</span>
+            <img class="w-10 h-10" src="club/diamond.png" alt="">
+        </a>
+        <div class="bg-white p-5 flex items-center justify-center w-80 text-xs rounded-2xl">
+
+            <div class="flex flex-col justify-center w-[70%] items-center gap-5">
+                <h3 class="text-black text-[16px] font-bold pb-2">ورود با موبایل</h3>
+                    <div class="">
+                        <span class="text-gray-500">حساب کاربری ندارید؟</span>
+                        <a href="../sign-up.html" class="text-green-500 font-bold">  ثبت نام کنید</a>
+                    </div>
+            <div class="relative rounded-xl overflow-hidden h-11 w-full ">
+                <input dir="rtl" id="identifier"  class="bg-gray-100 h-full w-full border-0 outline-none pr-2" placeholder="شماره موبایل"  type="text" name="" id="">
+                <svg class="absolute text-gray-500 top-3.5 left-2 w-4 h-4">
+                    <use xlink:href="#phone-icon" ></use>
+                </svg>
+            </div>
+            <div class="relative rounded-xl overflow-hidden h-11 w-full ">
+                <input dir="rtl"  id="password" class="bg-gray-100 h-full w-full border-0 outline-none pr-2" placeholder="پسوورد"  type="text" name="" id="">
+                <svg class="absolute text-gray-500 top-3.5 left-2 w-4 h-4">
+                    <use xlink:href="#password-icon" ></use>
+                </svg>
+            </div>
+            <button id="btn-verifay" class="w-full bg-green-500  text-white rounded-full flex items-center justify-center p-[0.7rem] font-bold" type="submit">ادامه</button>
+            <div class="flex justify-between w-full">
+                <a class="underline" href="#">حریم خصوصی</a>
+                <a href="#">ورود با ایمیل</a>
+            </div>
+            </div>
+        </div>
+        <div class="flex flex-col text-center text-sm">
+            <span>با عضویت در سایت، تمامی قوانین و شرایط استفاده</span>
+            <span class="min-w-8"><a class="text-green-400 font-bold" href="index.html">کافه لاین</a> را پذیرفته اید</span>
+        </div>
+       </div>
+    </div>
+
+    <script src="js/login.js" type="module"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</body>
+</html>
