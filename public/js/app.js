@@ -33,7 +33,8 @@ let openUsermodal = document.querySelector("#open-user__modal");
 let closeAdsBtn = document.querySelector("#close-ads__btn");
 let closeAdsBtnPc = document.querySelector("#close-ads__btnPc");
 
-let closeMenu = document.querySelector("#close-menu");
+let closeMenuMobile = document.querySelector("#close-menu-moblie");
+let closeUserBasket = document.querySelector("#close-user__basket");
 
 menuOpenBtn.addEventListener("click", () => {
   layer.style.transition = "all 0.5 ease-in-out";
@@ -83,11 +84,22 @@ submenuSub.addEventListener("click", () => {
   submenuSubOpen.style.transition = "all 0.5s ease";
 });
 
-closeMenu.addEventListener("click", () => {
+closeMenuMobile.addEventListener("click", () => {
+  console.log("ss");
+  
   menuMobile.style.right = "-320px";
   menuMobile.style.transition = "all 0.5s ease";
   layer.style.position = "inherit";
   boxBasket.style.left = "-20rem";
+});
+
+closeUserBasket.addEventListener("click", () => {
+  console.log("ss");
+  
+  boxBasket.style.left = "-20rem";
+  boxBasket.style.transition = "all 0.5s ease";
+  layer.style.transition = "all 0.5s ease";
+  layer.style.position = "inherit";
 });
 
 // saveNotIcon.addEventListener("click" , () => {

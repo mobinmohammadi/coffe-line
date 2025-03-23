@@ -519,16 +519,31 @@ body {
   }
 }
 
+.wrapper-filter__products{
+  margin-top: 1rem!important;
+  z-index: 10!important;
+}
+
+
+.selectBox-allProducts li{
+  padding: 10px;
+  
+}
+
+
+
 
 .ads-products{
   margin: 0 auto;
 }
 
-.active-ads{
-
-}
 
 .container-custom {
   width: 100%;
 
+}
+
+.container-products{
+  width: 97%;
+  margin: 0 auto;
 }

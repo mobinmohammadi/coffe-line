@@ -44,14 +44,14 @@ let prodactsByComments = [
 ]
 
 let prodacts = [
-    {id: 1 , name : "cafe1" ,title: "قهوه برزیلی بن مانو مقدار 800 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" : "all",  offer:null , price: 129000 ,seller : "دیجی کالا",status : "Available" , img : "../../public/products/p1.png"},
-    {id: 2 , name : "cafe2" ,title: "قهوه ایسلندی مقدار 250 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" : "best-selling-prudacts",offer:null,seller : "ترب",status : "Non-existent" , price: 265000 , img : "../../public/products/p2.png"},
-    {id: 3 , name : "cafe3" ,title: "قهوه ایرانی مقدار 280 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" : "prudacts-offer", offer:null,seller : "مجموعه کافه لاین" ,status : "Available" , price: 638000 , img : "../../public/products/p3.png"},
-    {id: 4 , name : "cafe4" ,title: "قهوه ترکی مقدار 362 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" :  "cafe", offer:null , price: 98500 ,seller : "مجموعه کافه لاین" ,status : "Available" , img : "../../public/products/p4.png"},
-    {id: 5 , name : "cafe5" ,title: "قهوه برزیلی مقدار 500 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" :  "cafe", offer:"20%" ,seller : "مجموعه کافه لاین" ,status : "Available" ,  price: 200000 , img : "../../public/products/p5.png"},
-    {id: 6 , name : "cafe6" ,title: "قهوه مصری مقدار 429 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" :  "cafe", offer:"20%" ,seller : "مجموعه کافه لاین" ,  price: 60000 , img : "../../public/products/p5.png"},
-    {id: 7 , name : "cafe7" ,title: "قهوه نیوزلندی مقدار 201 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" :  "cafe", offer:"20%" ,seller : "مجموعه کافه لاین" ,  price: 850000 , img : "../../public/products/p5.png"},
-    {id: 8 , name : "cafe8" ,title: "قهوه فرانسه مقدار 600 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" :  "cafe", offer:"20%" ,seller : "مجموعه کافه لاین" ,  price: 198000 , img : "../../public/products/p5.png"},
+    {id: 1 , name : "cafe1" ,filter_mod: "best-seller" ,title: "قهوه برزیلی بن مانو مقدار 800 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" : "all",  offer:null , price: 129000 ,seller : "دیجی کالا",status : "Available" , img : "../../public/products/p1.png"},
+    {id: 2 , name : "cafe2" ,filter_mod: "best-seller",title: "قهوه ایسلندی مقدار 250 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" : "best-selling-prudacts",offer:null,seller : "ترب",status : "Non-existent" , price: 265000 , img : "../../public/products/p2.png"},
+    {id: 3 , name : "cafe3" ,filter_mod: "papular",title: "قهوه ایرانی مقدار 280 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" : "prudacts-offer", offer:null,seller : "مجموعه کافه لاین" ,status : "Available" , price: 638000 , img : "../../public/products/p3.png"},
+    {id: 4 , name : "cafe4" ,filter_mod: "papular",title: "قهوه ترکی مقدار 362 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" :  "cafe", offer:null , price: 98500 ,seller : "مجموعه کافه لاین" ,status : "Available" , img : "../../public/products/p4.png"},
+    {id: 5 , name : "cafe5" ,filter_mod: "offer",title: "قهوه برزیلی مقدار 500 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" :  "cafe", offer:"20%" ,seller : "مجموعه کافه لاین" ,status : "Available" ,  price: 200000 , img : "../../public/products/p5.png"},
+    {id: 6 , name : "cafe6" ,filter_mod: "offer",title: "قهوه مصری مقدار 429 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" :  "cafe", offer:"20%" ,seller : "مجموعه کافه لاین" ,  price: 60000 , img : "../../public/products/p5.png"},
+    {id: 7 , name : "cafe7" ,filter_mod: "offer",title: "قهوه نیوزلندی مقدار 201 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" :  "cafe", offer:"20%" ,seller : "مجموعه کافه لاین" ,  price: 850000 , img : "../../public/products/p5.png"},
+    {id: 8 , name : "cafe8" ,filter_mod: "offer",title: "قهوه فرانسه مقدار 600 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" :  "cafe", offer:"20%" ,seller : "مجموعه کافه لاین" ,  price: 198000 , img : "../../public/products/p5.png"},
 ]
 
 const menus = [
