@@ -3,6 +3,10 @@ import { prodacts } from "../Data.js";
 const wrapperAllProductsFilterd = document.querySelector(
   "#wrapper-allProducts__filterd-columns"
 );
+const wrapperSucssusAlarm = document.querySelector("#wrapper-sucssus__alarm");
+const progresAddProductBasket = document.querySelector(
+  ".progres-addProduct__basket"
+);
 const countProducts = document.querySelector("#count-products");
 const wrapperFilter = document.querySelector("#wrapper-filter");
 const selectorFilterValue = document.querySelectorAll(
@@ -83,10 +87,9 @@ const showAllProducts = () => {
   });
 };
 
-
-
 let useBasket = [];
 function addPrudactsToUserBaskets(productID) {
+  changeProgresStatus();
   const findProductsForBasketUser = prodacts.find(
     (product) => product.id == productID
   );
@@ -165,8 +168,6 @@ const basktUser = (id) => {
   }
 };
 
-
-
 const filtredProducts = () => {
   let valueSelectorFilter = null;
   selectorFilterValue.forEach((selector) =>
@@ -232,7 +233,7 @@ const generatorTheCodeHtmlFiltered = (htmlCode, titleValueForFilter) => {
     wrapperAllProductsFilterd.insertAdjacentHTML(
       "beforeend",
       `
-    <div class="wrapper-loader">
+    <div class="wrapper-loader dark:bg-zinc-600">
 
              <span class="loader"></span>
     </div>
@@ -463,6 +464,26 @@ const changeTypeByShowBtnHandler = (showBtnType) => {
     });
   }
 };
+
+const changeProgresStatus = () => {
+  setTimeout(() => {
+    console.log(wrapperSucssusAlarm);
+  }, 2000);
+
+  wrapperSucssusAlarm.classList.add("active-succus__alarm");
+  wrapperSucssusAlarm.style.transition = "all 0.5s ease";
+  progresAddProductBasket.classList.add(
+    "progressbar-add__prodactsTo__userBasket"
+  );
+  console.log(progresAddProductBasket);
+  setTimeout(() => {
+    wrapperSucssusAlarm.classList.remove("active-succus__alarm");
+    progresAddProductBasket.classList.remove(
+      "progressbar-add__prodactsTo__userBasket"
+    );
+  }, 4200);
+};
+
 window.addPrudactsToUserBaskets = addPrudactsToUserBaskets;
 // const filtredPoducts = () => {
 
@@ -477,4 +498,5 @@ export {
   ganeratorUserBasket,
   culcoutorPricProductBasket,
   basktUser,
+  changeProgresStatus,
 };

@@ -476,6 +476,16 @@ body {
   margin-right: -10px;
 }
 
+.progressbar-add__prodactsTo__userBasket{
+  width: 94%;
+  transition: all 4s ease;
+}
+
+.active-succus__alarm {
+  right: 20px;
+  transition: all 0.5s ease-in;
+}
+
 .remove-loader {
   display: none;
 }

@@ -1,5 +1,6 @@
 import {
   basktUser,
+  changeProgresStatus,
   culcoutorPricProductBasket,
   filterTitleHandler,
   filtredProducts,
@@ -18,4 +19,5 @@ window.addEventListener("load", () => {
   ganeratorUserBasket();
   culcoutorPricProductBasket();
   basktUser();
+  changeProgresStatus()
 });
