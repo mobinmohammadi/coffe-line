@@ -3,10 +3,14 @@ import { prodacts } from "../Data.js";
 const wrapperAllProductsFilterd = document.querySelector(
   "#wrapper-allProducts__filterd-columns"
 );
+const mainProdactsBaskets = document.querySelector(".main-prudacts__baskets")
 const wrapperSucssusAlarm = document.querySelector("#wrapper-sucssus__alarm");
 const progresAddProductBasket = document.querySelector(
   ".progres-addProduct__basket"
 );
+let openUserBasketBtn = document.querySelector(".open-user__baskets");
+let boxBasket = document.querySelector("#box-basket");
+
 const countProducts = document.querySelector("#count-products");
 const wrapperFilter = document.querySelector("#wrapper-filter");
 const selectorFilterValue = document.querySelectorAll(
@@ -87,6 +91,15 @@ const showAllProducts = () => {
   });
 };
 
+
+
+openUserBasketBtn.addEventListener("click", () => {
+  boxBasket.style.left = "0rem";
+  layer.style.position = "fixed";
+  boxBasket.style.transition = "all 0.5s ease";
+  layer.style.transition = "all 0.5s ease-in-out";
+});
+
 let useBasket = [];
 function addPrudactsToUserBaskets(productID) {
   changeProgresStatus();
@@ -99,8 +112,16 @@ function addPrudactsToUserBaskets(productID) {
   console.log("useBasket ===> ", useBasket);
 }
 
+
 const ganeratorUserBasket = (arryUserBasket) => {
-  console.log(arryUserBasket);
+  
+  
+  if(arryUserBasket.length > 2) {
+    mainProdactsBaskets.classList += " active-style__mainProducts ";
+    
+  } else {
+    mainProdactsBaskets.classList.remove("active-style__mainProducts");
+  }
   const wrapperBasketUser = document.querySelector("#wrapper-basket__user");
   wrapperBasketUser.innerHTML = "";
   arryUserBasket.map((item) =>
@@ -466,16 +487,13 @@ const changeTypeByShowBtnHandler = (showBtnType) => {
 };
 
 const changeProgresStatus = () => {
-  setTimeout(() => {
-    console.log(wrapperSucssusAlarm);
-  }, 2000);
+
 
   wrapperSucssusAlarm.classList.add("active-succus__alarm");
   wrapperSucssusAlarm.style.transition = "all 0.5s ease";
   progresAddProductBasket.classList.add(
     "progressbar-add__prodactsTo__userBasket"
   );
-  console.log(progresAddProductBasket);
   setTimeout(() => {
     wrapperSucssusAlarm.classList.remove("active-succus__alarm");
     progresAddProductBasket.classList.remove(

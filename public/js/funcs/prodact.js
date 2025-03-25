@@ -1,11 +1,36 @@
 import { prodacts } from "../Data.js"
-
+const wrapperSucssusAlarm = document.querySelector("#wrapper-sucssus__alarm");
+const progresAddProductBasket = document.querySelector(
+  ".progres-addProduct__basket"
+);
 let iconBaskets = document.querySelectorAll(".icon-basket")
 let icons = iconBaskets.forEach(shop => {
     // return shop
     
 })
 
+const mainProdactsBaskets = document.querySelector(".main-prudacts__baskets")
+
+const changeProgresStatus = () => {
+  setTimeout(() => {
+    console.log(wrapperSucssusAlarm);
+  }, 2000);
+  console.log("محسن حریری");
+  
+
+  wrapperSucssusAlarm.classList.add("active-succus__alarm");
+  wrapperSucssusAlarm.style.transition = "all 0.5s ease";
+  progresAddProductBasket.classList.add(
+    "progressbar-add__prodactsTo__userBasket"
+  );
+  console.log(progresAddProductBasket);
+  setTimeout(() => {
+    wrapperSucssusAlarm.classList.remove("active-succus__alarm");
+    progresAddProductBasket.classList.remove(
+      "progressbar-add__prodactsTo__userBasket"
+    );
+  }, 4200);
+};
 
 
 
@@ -184,10 +209,12 @@ let prodactSection = () => {
 
 const useBasket = []
 function addPrudactsToUserBaskets (productID){
+    changeProgresStatus()
    
 const findProductsForBasketUser = prodacts.find(product => (
      product.id == productID
 ))
+
 
 
 useBasket.push(findProductsForBasketUser)
@@ -196,7 +223,18 @@ console.log("useBasket ===> " ,useBasket);
     
 }
 
+
+
 const ganeratorUserBasket = (arryUserBasket) => {
+    if(arryUserBasket.length > 2){
+        mainProdactsBaskets.classList += " active-style__mainProducts "
+    }
+    else{
+        mainProdactsBaskets.classList.remove("active-style__mainProducts")
+
+    }
+    
+    
 
     console.log(arryUserBasket);
     const wrapperBasketUser = document.querySelector("#wrapper-basket__user")
@@ -204,8 +242,8 @@ const ganeratorUserBasket = (arryUserBasket) => {
     arryUserBasket.map(item => (
         wrapperBasketUser.insertAdjacentHTML("beforeend" , `
             <div class="flex pt-5 b-b ">
-                            <div class="img">
-                                <img class="w-24 h-[80px] " src="${item.img}" alt=""> 
+                            <div class="img flex">
+                                <img class="w-24 h-[80px] object-cover " src="${item.img}" alt=""> 
                             </div>
                             <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[140px]">
                                 <span class="leading-6 text-x min-w-full">${item.title}</span>
@@ -238,6 +276,7 @@ const culcoutorPricProductBasket = (priceProducts) => {
 }
 
 const basktUser = (id) => {
+    changeProgresStatus  
 
     let mainPrudactsBaskets = document.querySelector(".main-prudacts__baskets")
     let basketIcons = document.querySelectorAll(".icon-basket")

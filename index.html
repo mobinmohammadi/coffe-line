@@ -364,8 +364,8 @@
             class="z-index-s  fixed z-40! left-[-20rem] w-48 x:w-56 sm:w-80 h-full pt-5 pr-4 pl-4  dark:text-white top-0 bg-white dark:bg-zinc-700 z-50">
             <div id="id-for__scroll" class="flex  flex-col justify-between h-full pb-5">
                 <div class="">
-                    <div id="close-menu" class="flex items-center justify-between b-b">
-                        <div class="bg-slate-100 dark:bg-gray-500 p-1 rounded-full">
+                    <div id="" class="flex items-center justify-between b-b">
+                        <div id="close-user__baskets" class="bg-slate-100 dark:bg-gray-500 p-1 rounded-full">
                             <svg class="cursor-pointer w-4 h-4 text-zinc-700 dark:text-white">
                                 <use xlink:href="#x-mark"></use>
                             </svg>
@@ -409,8 +409,8 @@
                 <img class="" src="./public/svg/svgs/app-logo-type.svg" alt="">
             </div>
             <div class="flex gap-2">
-                <div id="open-user__basket" data-count="0"
-                    class="w-11 h-11 flex items-center justify-center cursor-pointer rounded-full bg-slate-100">
+                <div id=""  data-count="0"
+                    class="w-11 open-user__baskets h-11 flex items-center justify-center cursor-pointer rounded-full bg-slate-100">
                     <svg class="w-10 h-5 ">
                         <use xlink:href="#basket-user-icon"></use>
                     </svg>
@@ -487,7 +487,7 @@
             <div class="flex b-b justify-between items-center">
                 <img class="w-8 sm:w-14" src="public/svgs/logo.svg" alt="">
                 <img class="w-11 sm:w-14" src="public/svgs/logo-type.svg" alt="">
-                <div id="close-menu"
+                <div id="close-menu__mobile"
                     class="w-8 sm:w-11 h-8 sm:h-11 flex items-center justify-center  cursor-pointer rounded-full dark:bg-zinc-500 bg-slate-100">
                     <svg class="text-zinc-700 dark:text-white w-4 sm:w-5 h-4 sm:h-5">
                         <use xlink:href="#x-mark"></use>
@@ -505,7 +505,7 @@
 
                 <div class="w-full flex flex-col  mt-4  text-orange-300 ">
                     <div class="w-full">
-                        <div class="flex justify-between ">
+                        <div id="openSubmenu" class="flex justify-between ">
 
                             <div class="flex  items-center gap-1 justify-center">
                                 <svg class="w-5 h-5">
@@ -598,12 +598,6 @@
 
 
         <!-- Start Slider Pc -->
-
-
-
-
-
-
 
         <!-- Finish Slider Pc -->
 
@@ -906,7 +900,19 @@
 
         <!-- Finish Categury Filter -->
 
-        <!--  -->
+        <!-- Start ModalBox Succuss -->
+        <div class="fixed top-10">
+
+        <div id="wrapper-sucssus__alarm" class="flex shadow-2xl relative bg-white pt-2 pb-2 pr-3 pl-3 rounded-md -right-[260px] w-[260px]">
+          <img class="w-20" src="./public/svg/svgs/varifay.gif" alt="">
+          <div class="flex flex-col justify-between">
+            <span class="text-sm font-MorabbaBold text-green-600">موفق</span>
+            <span class="text-slate-400 text-xs min-w-10 font-MorabbaBold leading-4 pt-2">محصول باموفقیت به سبد خرید شما اضافه شد</span>
+          </div>
+          <span class="progres-addProduct__basket absolute pl-5  w-10 h-[3px] right-2 bg-green-600 bottom-0" ></span>
+        </div>
+        </div>
+      <!-- Finish ModalBox Succuss -->
         <!-- Start Footer -->
 
         <footer>

@@ -1,5 +1,5 @@
-import { getLocationParam } from "./funcs/onsTiket-user.js"
+import { tiketGenareatorToHtmlCode } from "./funcs/onsTiket-user.js"
 
 window.addEventListener("load" , () => {
-    getLocationParam()
+    tiketGenareatorToHtmlCode()
 })

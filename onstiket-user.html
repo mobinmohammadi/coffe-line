@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تیکت به پشتیبانی</title>
+    <link rel="stylesheet" href="./public/style/app.css" />
+    <link rel="stylesheet" href="./public/style/style.css" />
+    <link rel="stylesheet" href="./public/style/reset.css" />
+  </head>
+  <body class="bg-slate-200">
+    <svg class="hidden">
+      <symbol
+        id="check-badge"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"
+        />
+      </symbol>
+      <symbol
+        id="paper-airplane"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+        />
+      </symbol>
+    </svg>
+    <div
+      class="h-15 w-full pt-4 pr-3 border-b-2 border-solid border-zinc-500 pb-5"
+    >
+      <span class="font-MorabbaBold">تیکت به پشتیبانی</span>
+    </div>
+
+    <div class="m-5 pt-3 pb-3 pr-2 pl-2 rounded-md bg-white h-[100vh]">
+      <div class="flex flex-col justify-between h-full">
+        <div class="">
+          <div
+            class="font-DanaDemiBold flex justify-between border-b-2 border-solid border-slate-200 pb-2 items-center pt-2 pr-3 pl-3"
+          >
+            <div class="text-x xs:text-sm flex sm:text-base gap-1">
+              <span class="text-lg">#1785</span>
+              <span class="leading-6">گروه پشتیبانی کافه لاین</span>
+            </div>
+            <div class="flex text-green-500 gap-1">
+              <svg class="w-5 h-5">
+                <use xlink:href="#check-badge"></use>
+              </svg>
+              <span class="text-x xs:text-sm sm:text-base">در حال بررسی</span>
+            </div>
+          </div>
+          <div
+            id="wrapper-qustions"
+            class=""
+          >
+          <!-- Loaded From Js -->
+          </div>
+          <div
+            id="wrapper-answers"
+          >
+            <!-- Loaded From Js -->
+          </div>
+        </div>
+        <div
+          class="relative right-0 h-14 items-center rounded-xl pr-3 font-Dana mr-5 ml-5 flex bg-slate-100"
+        >
+          <input
+            class="outline-0 bg-slate-100 h-full w-[60%]"
+            type="text"
+            placeholder="متن پیغام خود را وارد نمایید ...."
+          />
+          <button type="submit" class="group">
+            <svg
+              class="absolute group-hover:transition-all group-hover:text-sky-600 top-[8px] left-2 w-10 h-10"
+            >
+              <use xlink:href="#paper-airplane"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="../public/js/panel/onsTiket-user.js" type="module"></script>
+  </body>
+</html>

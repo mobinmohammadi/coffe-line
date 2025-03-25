@@ -11,7 +11,9 @@ let layer = document.querySelector("#layer");
 let progresAdsMobile = document.querySelector("#progres-ads__mobile");
 let progresAdsPc = document.querySelector("#progres-ads__Pc");
 
-let submenuSub = document.querySelector("#submenu-sub svg");
+let submenuSvg = document.querySelector("#submenu-sub svg")
+let submenuSub = document.querySelector("#openSubmenu");
+
 let menuMobile = document.querySelector("#menu-mobile");
 let wrapperLoader = document.querySelector(".loader");
 
@@ -24,7 +26,7 @@ let saveIcon = document.querySelectorAll("#save-icon");
 let saveNotIcon = document.querySelectorAll("#save-not-icon");
 let showResultSave = document.querySelector(".show-result__save");
 
-let openUserBasketBtn = document.querySelector("#open-user__basket");
+let openUserBasketBtn = document.querySelector(".open-user__baskets");
 let boxBasket = document.querySelector("#box-basket");
 let layerBasket = document.querySelector("#layer-basket");
 
@@ -33,8 +35,8 @@ let openUsermodal = document.querySelector("#open-user__modal");
 let closeAdsBtn = document.querySelector("#close-ads__btn");
 let closeAdsBtnPc = document.querySelector("#close-ads__btnPc");
 
-let closeMenuMobile = document.querySelector("#close-menu-moblie");
-let closeUserBasket = document.querySelector("#close-user__basket");
+let closeMenuMobile = document.querySelector("#close-menu__mobile");
+let closeUserBasket = document.querySelector("#close-user__baskets");
 
 menuOpenBtn.addEventListener("click", () => {
   layer.style.transition = "all 0.5 ease-in-out";
@@ -77,8 +79,8 @@ closeAdsBtnPc?.addEventListener("click", () => {
   layer.style.position = "inhirit";
 });
 
-submenuSub.addEventListener("click", () => {
-  submenuSub.classList.toggle("rotate-svg");
+submenuSub?.addEventListener("click", () => {
+  submenuSvg.classList.toggle("rotate-svg");
   submenuSubOpen.classList.toggle("submenu-sub__open-active");
   submenuSub.style.transition = "all 0.5s ease";
   submenuSubOpen.style.transition = "all 0.5s ease";
@@ -122,6 +124,7 @@ let saveIcons = () => {
 };
 
 openUserBasketBtn.addEventListener("click", () => {
+  
   boxBasket.style.left = "0rem";
   layer.style.position = "fixed";
   boxBasket.style.transition = "all 0.5s ease";
