@@ -2,6 +2,10 @@ import { dataTicketUserPanel } from "../DatePanel.js";
 
 const wrapperQustions = document.querySelector("#wrapper-qustions");
 const wrapperAnswers = document.querySelector("#wrapper-answers");
+const inputForSendTiket = document.querySelector("#input-for__send--tiket");
+const btnForSendTiket = document.querySelector("#btn-for__send--tiket");
+const wrapperLoaderTiketPanel = document.querySelector(".wrapper-loader_tiketPanel")
+
 const getLocationParam = () => {
   const url = new URL(location.href);
   const searchParams = url.searchParams.toString();
@@ -24,12 +28,11 @@ const tiketGenareatorToHtmlCode = (resultTiket) => {
   console.log("resultTiket ==> ", resultTiket);
   resultTiket.map((tiket) => {
     wrapperQustions.innerHTML = "";
-    if (tiket.answers) {
-      wrapperQustions.insertAdjacentHTML(
-        "beforeend",
-        `
+    wrapperQustions.insertAdjacentHTML(
+      "beforeend",
+      `
                <div class="bg-slate-100 relative font-Dana text-sm mt-5 rounded-md pr-4 mr-5 ml-5 pl-4 pt-3 pb-2">
-              <div class="pb-3 border-b-[2px] border-slate-200 border-solid">
+              <div class="pb-3 b-b border-zinc-400">
                 <span class="text-xs font-bold"
                   >${tiket.title}</span
                 >
@@ -41,17 +44,13 @@ const tiketGenareatorToHtmlCode = (resultTiket) => {
                 <span>${tiket.hourse}</span>
               </div>
             </div>
-                `
-      );
-      wrapperAnswers.innerHTML = "";
-      wrapperAnswers.insertAdjacentHTML(
-        "beforeend",
-        `
+            ${
+              tiket.answers
+                ? `
                 <div class="bg-zinc-700 text-white text-sm mt-5 rounded-md mr-5 ml-5 pr-4 pl-4 pt-3 pb-2">
                 ${
                   tiket.answers[0].imgCreator
-                    ? (
-                        ` <div class="font-DanaDemiBold flex gap-2 text-xs pb-4">
+                    ? ` <div class="font-DanaDemiBold flex gap-2 text-xs pb-4">
                       <img
                         class="w-10 h-10 rounded-full object-cover"
                         src="${tiket.answers[0].imgCreator}"
@@ -60,17 +59,16 @@ const tiketGenareatorToHtmlCode = (resultTiket) => {
                       <span>${tiket.answers[0].nameCreator}</span>
                       <span class="text-x">پشتیبان</span>
                       </div>
-                    </div>`)
+                    </div>`
                     : `<div class="font-DanaDemiBold text-xs pb-4">
                      
                       <span class="w-2 h-2 rounded-full bg-green-500 inline-block mt-1"></span>
                       <span>${tiket.answers[0].nameCreator}</span>
                       <span>پشتیبان</span>
                     </div>`
-                    
                 }
               <div class="font-Dana">
-                <div class="pb-4 border-b-[2px] border-slate-200 border-solid">
+                <div class="pb-4 b-b">
                 
                   <span class="text-xs font-bold"
                     >${tiket.answers[0].answerText}</span
@@ -84,31 +82,61 @@ const tiketGenareatorToHtmlCode = (resultTiket) => {
                 </div>
               </div>
             </div>
+                
                 `
-      );
-    }
-    else{
-        wrapperAnswers.insertAdjacentHTML = ""
-        wrapperQustions.insertAdjacentHTML(
-            "beforeend",
-            `
-                   <div class="bg-slate-100 relative font-Dana text-sm mt-5 rounded-md pr-4 mr-5 ml-5 pl-4 pt-3 pb-2">
+                : ""
+            }
+        `
+    );
+  });
+};
+
+btnForSendTiket.addEventListener("click", (e) => {
+  createdNewTikets(inputForSendTiket.value);
+});
+
+const createdNewTikets = (value) => {
+  console.log(value);
+  if (!value) {
+    alert("لطفا مقدار پیامتان را بنویسید❌");
+  } else {
+    inputForSendTiket.value = "";
+    wrapperQustions.insertAdjacentHTML(
+      "beforeend",
+      `
+         <div class="bg-slate-100 relative font-Dana text-sm mt-5 rounded-md pr-4 mr-5 ml-5 pl-4 pt-3 pb-2">
                   <div class="pb-3 border-b-[2px] border-slate-200 border-solid">
                     <span class="text-xs font-bold"
-                      >${tiket.title}</span
+                      >${value}</span
                     >
                   </div>
                   <div
                     class="pt-3 font-bold text-slate-500 text-x flex items-center justify-between"
                   >
-                    <span>${tiket.time}</span>
-                    <span>${tiket.hourse}</span>
+                    <span></span>
+                    <span></span>
                   </div>
                 </div>
-                    `
-                );
-    }
-  });
+            `
+    );
+    setTimeout(() => {
+      wrapperQustions.insertAdjacentHTML(
+        "beforeend",
+        `
+            <div class="bg-zinc-700 flex justify-between items-center wrapper-loader_tiketPanel text-white text-sm mt-5 rounded-md mr-5 ml-5 pr-4 pl-4 pt-3 pb-2">
+            <span class="font-Dana">در حال بررسی</span>
+            <span class="loader-in__tiket--panel "></span>
+            </div>
+            `
+      );
+      console.log("شد");
+    }, 1000);
+    setTimeout(() => {
+        // wrapperLoaderTiketPanel.classList += "hidden"
+        console.log(wrapperLoaderTiketPanel);
+        
+    }, 3000);
+  }
 };
 
 export { tiketGenareatorToHtmlCode };
