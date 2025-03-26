@@ -279,48 +279,51 @@
                     </nav>
 
                     <!-- Cart & Them & Login -->
-                    <div class="flex items-center leading-[54px] text-orange-200 gap-3">
+                    <div class="flex items-center sbsize text-orange-200 gap-3">
                         <!-- Cart & ThemSwich -->
 
                         <!-- Cart -->
-                        <div class="cursor-pointer relative group ">
-                            <svg class=" w-8 h-6 ">
-                                <use xlink:href="#basket-user-icon"></use>
-                            </svg>
-                            <div
-                                class="absolute shadow-custom z-50 hidden opacity-0  text-xs lg:text-sm leading-none group-hover:transition-all group-hover:flex group-hover:opacity-100 shadow-normal  bor-t left-0 w-[200px] lg:w-[400px] p-5 rounded-2xl pt-5 pr-5 pb-5  bg-white dark:bg-zinc-700 flex-col">
-                                <div class="wrapper-products__basketPc">
-                                    <div class="flex justify-between">
-                                        <span id="count-products__in--baskets" class="dark:text-gray-300 text-zinc-700 text-xs lg:text-sm ">0 مورد</span>
-                                        <div class="flex items-center text-orange-300">
-                                            <span class="text-[8px] font-bold  lg:text-sm ">مشاهده سبد خرید</span>
-                                            <svg class="w-6 h-5">
-                                                <use xlink:href="#arrow-left"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div  class="wrapper-allProducts__inBaskets--pc">
-                                        <div class="w-full rounded-lg space-y-8 mt-5 mb-5 bg-red-700 flex justify-center text-white font-MorabbaBold pt-5 pb-5">
-                                            <span class="text-center text-basket">سبد خرید شما خالی میباشد😭</span>
-                                        </div>
-                                       <!-- Loaded from JS -->
-                                    </div>
-    
-                                    <div class="flex justify-between pt-5">
-                                        <div class="flex justify-between flex-col gap-1">
-                                            <span class="text-gray-400 dark:text-gray-300 text-[10px] sm:text-xs lg:text-sm">مبلغ قابل
-                                                پرداخت</span>
-                                            <div
-                                                class="text-xl text-zinc-700 font-Dana dark:text-white text-[10px] sm:text-xs lg:text-sm">
-                                                <span id="prices__allProducts-inBasketPc">😴</span>
-                                                <span>تومان</span>
-                                                
+                        <div class="  cursor-pointer  transition-all  ">
+                            <div class="relative h-[54px] flex items-center group ">
+                                
+                                <svg class=" w-8 h-6">
+                                    <use xlink:href="#basket-user-icon"></use>
+                                </svg>
+                                <div
+                                    class="absolute shadow-custom top-full z-50 border-b-4 border-solid border-sky-500   text-xs lg:text-sm leading-none group-hover:transition-all group-hover:flex group-hover:opacity-100 shadow-normal  bor-t left-0 w-[300px] lg:w-[400px] p-5 rounded-2xl pt-5 pr-5 pb-5  bg-white dark:bg-zinc-700 flex-col">
+                                    <div class="wrapper-products__basketPc ">
+                                        <div class="flex justify-between">
+                                            <span id="count-products__in--baskets" class="dark:text-gray-300 text-zinc-700 text-xs lg:text-sm ">0 مورد</span>
+                                            <div class="flex items-center text-orange-300">
+                                                <span class="text-[8px] font-bold  lg:text-sm ">مشاهده سبد خرید</span>
+                                                <svg class="w-6 h-5">
+                                                    <use xlink:href="#arrow-left"></use>
+                                                </svg>
                                             </div>
                                         </div>
-                                        <div id="btn-orders__pc" class=" cursor-text ">
-                                            <span class="items-center flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold bg-slate-400 dark:bg-salte-400 text-zinc-700 pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
-                                                >ثبت سفارش
-                                            </span>
+                                        <div  class="wrapper-allProducts__inBaskets--pc">
+                                            <div class="w-full rounded-lg space-y-8 mt-5 mb-5 bg-red-700 flex justify-center text-white font-MorabbaBold pt-5 pb-5">
+                                                <span class="text-center text-basket">سبد خرید شما خالی میباشد😭</span>
+                                            </div>
+                                           <!-- Loaded from JS -->
+                                        </div>
+        
+                                        <div class="flex justify-between pt-5">
+                                            <div class="flex justify-between flex-col gap-1">
+                                                <span class="text-gray-400 dark:text-gray-300 text-[10px] sm:text-xs lg:text-sm">مبلغ قابل
+                                                    پرداخت</span>
+                                                <div
+                                                    class="text-xl text-zinc-700 font-Dana dark:text-white text-[10px] sm:text-xs lg:text-sm">
+                                                    <span id="prices__allProducts-inBasketPc">😴</span>
+                                                    <span>تومان</span>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div id="btn-orders__pc" class=" cursor-text ">
+                                                <span class="items-center flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold bg-slate-400 dark:bg-salte-400 text-zinc-700 pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
+                                                    >ثبت سفارش
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -508,7 +511,7 @@
                                 <svg class="w-5 h-5">
                                     <use xlink:href="#basket-user-icon"></use>
                                 </svg>
-                                <a href="./allProducts.html">فروشگاه</a>
+                                <a href="./public/pages/allProducts.html">فروشگاه</a>
                             </div>
                             <div id="submenu-sub" class="cursor-pointer w-7 h-7  flex items-center justify-center">
                                 <svg class="w-5 h-5">
@@ -615,7 +618,7 @@
                     </div>
                     <div
                         class="flex text-end dark:text-orange-300 hover:bg-zinc-500 p-3 dark:hover:bg-cyan-300 rounded-xl dark:hover:text-zinc-700 hover:text-green-400 hover:transition-colors  items-center justify-center">
-                        <a href="#" class=" text-xs sm:text-sm">مشاهده همه</a>
+                        <a href="./public/pages/allProducts.html" class=" text-xs sm:text-sm">مشاهده همه</a>
                         <svg class="w-5 h-5">
                             <use xlink:href="#chevron-left"></use>
                         </svg>

@@ -518,7 +518,9 @@ body {
   }
       
       
-      
+.sbsize{
+  line-height: 54px!important;
+}
 
 .active-style__mainProducts {
   max-height: 25rem;

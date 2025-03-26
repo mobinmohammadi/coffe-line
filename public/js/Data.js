@@ -54,14 +54,16 @@ let prodacts = [
     {id: 8 , name : "cafe8" ,filter_mod: "offer",title: "قهوه فرانسه مقدار 600 گرم خط دوم اسم ..." , "shopingCart": "#shopping-cart" ,"status-type" :  "cafe", offer:"20%" ,seller : "مجموعه کافه لاین" ,  price: 198000 , img : "../../public/products/p5.png"},
 ]
 
+// submenus : [
+//     {id : 1 , title : "قهوه ویژه" , href : "/vipCofee" },
+//     {id : 2 , title : "ویژه در سطح جهانی" , href : "/vipfortheworld"},
+//     {id : 3 , title : "قهوه درجه یک" , href : "/coffeeEvereons"},
+//     {id : 4 , title : "ترکیبات تجاری" , href : "/"},
+//     {id : 5 , title : "کپسول قهوه" , href : "/tabletCoffe"},]
+
 const menus = [
-    {id: "1" , title : "فروشگاه " ,href : "./public/pages/allProducts.html" , submenus : [
-        {id : 1 , title : "قهوه ویژه" , href : "/vipCofee" },
-        {id : 2 , title : "ویژه در سطح جهانی" , href : "/vipfortheworld"},
-        {id : 3 , title : "قهوه درجه یک" , href : "/coffeeEvereons"},
-        {id : 4 , title : "ترکیبات تجاری" , href : "/"},
-        {id : 5 , title : "کپسول قهوه" , href : "/tabletCoffe"},
-    ]},
+    {id: "1" , title : "فروشگاه " ,href : "./public/pages/allProducts.html" , 
+    },
     {id: "2" , title : "لوازم جانبی " ,href : "/accessories" ,submenus : [
         {id : "1" , title : "دسته قهوه ساز"},
         {id : "2" , title : "قهوه ساز صنعتی"},

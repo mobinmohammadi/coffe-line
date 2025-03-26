@@ -4,15 +4,29 @@ import { getFromLocalStorage, saveInToLocalStorege } from "../utils/utils.js";
 const wrapperAllProductsFilterd = document.querySelector(
   "#wrapper-allProducts__filterd-columns"
 );
+const wrapperTotalPrice = document.querySelector("#wrapper-total__price");
+
 const mainProdactsBaskets = document.querySelector(".main-prudacts__baskets");
 const wrapperSucssusAlarm = document.querySelector("#wrapper-sucssus__alarm");
 const progresAddProductBasket = document.querySelector(
   ".progres-addProduct__basket"
 );
+let mainPrudactsBaskets = document.querySelector(".main-prudacts__baskets");
+
+const pricesAllProductsInBasketPc = document.querySelector(
+  "#prices__allProducts-inBasketPc"
+);
+const btnOrdersPc = document.querySelector("#btn-orders__pc");
+
+const countProductsInBaskets = document.querySelector(
+  "#count-products__in--baskets"
+);
+const wrapperAllProductsInBasketsPc = document.querySelector(
+  ".wrapper-allProducts__inBaskets--pc"
+);
 let openUserBasketBtn = document.querySelector(".open-user__baskets");
 let boxBasket = document.querySelector("#box-basket");
 const wrapperBasketUser = document.querySelector("#wrapper-basket__user");
-
 
 const countProducts = document.querySelector("#count-products");
 const wrapperFilter = document.querySelector("#wrapper-filter");
@@ -96,7 +110,6 @@ const showAllProducts = () => {
   });
 };
 
-
 openUserBasketBtn.addEventListener("click", () => {
   boxBasket.style.left = "0rem";
   layer.style.position = "fixed";
@@ -104,41 +117,44 @@ openUserBasketBtn.addEventListener("click", () => {
   layer.style.transition = "all 0.5s ease-in-out";
 });
 
+const useBasket = [];
 
-let useBasket = [];
 function addPrudactsToUserBaskets(productID) {
+  // statusInUserBasket(productID , useBasket)
   changeProgresStatus();
+
   const findProductsForBasketUser = prodacts.find(
     (product) => product.id == productID
   );
 
   useBasket.push(findProductsForBasketUser);
   ganeratorUserBasket(useBasket);
-
-  console.log("useBasket ===> ", useBasket);
   saveInToLocalStorege("basket", useBasket);
-
 }
+
 
 const ganeratorUserBasket = (arryUserBasket) => {
 
+  // statusInUserBasket(arryUserBasket)
   if (arryUserBasket.length > 2) {
     mainProdactsBaskets.classList += " active-style__mainProducts ";
   } else {
     mainProdactsBaskets.classList.remove("active-style__mainProducts");
   }
+
+  console.log(arryUserBasket);
   wrapperBasketUser.innerHTML = "";
   arryUserBasket.map((item) =>
     wrapperBasketUser.insertAdjacentHTML(
       "beforeend",
       `
-            <div class="flex pt-5 b-b ">
-                            <div class="img ml-3">
-                                <img class="w-24 h-[5rem] object-cover  " src="${
+            <div class="flex pt-5 border-b-2 border-solid border-zinc-500 ">
+                            <div class="img flex">
+                                <img class="w-24 h-[80px] object-cover " src="${
                                   item.img
                                 }" alt=""> 
                             </div>
-                            <div class="mr-2 flex flex-col justify-between  min-w-[100px] x:min-w-[140px]">
+                            <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[140px]">
                                 <span class="leading-6 text-x min-w-full">${
                                   item.title
                                 }</span>
@@ -158,19 +174,63 @@ const ganeratorUserBasket = (arryUserBasket) => {
     )
   );
 
+  if (arryUserBasket.length > 1) {
+    wrapperAllProductsInBasketsPc.classList += " active-style__mainProducts ";
+  } else {
+    wrapperAllProductsInBasketsPc.classList.remove(
+      "active-style__mainProducts"
+    );
+  }
+
+  wrapperAllProductsInBasketsPc.innerHTML = "";
+  countProductsInBaskets.innerHTML = arryUserBasket.length + " مورد";
+
+  if (arryUserBasket.length) {
+    // btnOrdersPc.innerHTML = ""
+    btnOrdersPc.innerHTML = ` <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
+                                                >ثبت سفارش
+                              </span>`;
+    console.log(btnOrdersPc);
+
+    arryUserBasket.map((product) =>
+      wrapperAllProductsInBasketsPc.insertAdjacentHTML(
+        "beforeend",
+        `
+              <div class=" flex gap-3 pb-2 border-b-2 border-solid border-white pt-5 ">
+                                      <img class="w-12 h-12 lg:w-24 lg:h-24" src="${
+                                        product.img
+                                      }" alt="">
+                                      <div class="flex flex-col justify-between gap-3 lg:gap-6">
+                                          <span class="max-w-40 leading-normal text-[10px] lg:text-sm  text-zinc-700 dark:text-white">
+                                              ${product.title}
+                                          </span>
+                                          <div class="flex flex-col gap-0.5 lg:gap-2">
+                                              <span class="text-teal-600 dark:text-emerald-500 text-[9x] sm:text-base lg:text-sm text-xs font-Dana">
+                                              <span class="text-zinc-700 font-Dana text-[10x] sm:text-base lg:text-sm dark:text-white ">${product.price.toLocaleString()}
+                                                  تومان</span>
+                                          </div>
+                                      </div>
+                                  </div>
+              `
+      )
+    );
+  }
+
   culcoutorPricProductBasket(arryUserBasket);
 };
 
+
 const culcoutorPricProductBasket = (priceProducts) => {
-  const wrapperTotalPrice = document.querySelector("#wrapper-total__price");
+  // console.log(priceProducts);
+
   let sum = 0;
   priceProducts.map((price) => (sum += price.price));
 
-  wrapperTotalPrice.innerHTML = sum;
+  wrapperTotalPrice.innerHTML = sum
+  pricesAllProductsInBasketPc.innerHTML = sum;
 };
 
 const basktUser = (id) => {
-  let mainPrudactsBaskets = document.querySelector(".main-prudacts__baskets");
   let basketIcons = document.querySelectorAll(".icon-basket");
   let basketUser = document.querySelector("#open-user__basket");
 
@@ -504,16 +564,18 @@ const changeProgresStatus = () => {
   }, 4200);
 };
 
-const userBasketdataInLocalStorage =  getFromLocalStorage("basket")
+const userBasketdataInLocalStorage = getFromLocalStorage("basket");
+
 
 const handleUserBasketByLocalStorage = () => {
-  
-  console.log(userBasketdataInLocalStorage);
-  wrapperBasketUser.innerHTML = ""
-  userBasketdataInLocalStorage.map(item => {
+  culcoutorPriceProductsFromLocalStorage(userBasketdataInLocalStorage);
+
+  console.log("ss");
+  wrapperBasketUser.innerHTML = "";
+  userBasketdataInLocalStorage.map((item) => {
     wrapperBasketUser.insertAdjacentHTML(
-            "beforeend",
-            `
+      "beforeend",
+      `
                   <div class="flex pt-5 b-b ">
                                   <div class="img flex">
                                       <img class="w-24 h-[80px] object-cover " src="${
@@ -537,12 +599,9 @@ const handleUserBasketByLocalStorage = () => {
                                   </div>
                               </div>
                   `
-          )
-    
-})
-  
-  
-}
+    );
+  });
+};
 
 window.addPrudactsToUserBaskets = addPrudactsToUserBaskets;
 
@@ -556,4 +615,5 @@ export {
   basktUser,
   changeProgresStatus,
   handleUserBasketByLocalStorage,
+  
 };

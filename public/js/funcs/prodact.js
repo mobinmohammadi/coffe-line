@@ -23,17 +23,16 @@ let icons = iconBaskets.forEach((shop) => {
 });
 const wrapperBasketUser = document.querySelector("#wrapper-basket__user");
 
-const userBasketdataInLocalStorage =  getFromLocalStorage("basket")
-window.addEventListener("load" , () => {
-  handleUserBasketByLocalStorage()
-  
-})
+const wrapperTotalPrice = document.querySelector("#wrapper-total__price");
+
+const userBasketdataInLocalStorage = getFromLocalStorage("basket");
+window.addEventListener("load", () => {
+  handleUserBasketByLocalStorage();
+});
 
 const mainProdactsBaskets = document.querySelector(".main-prudacts__baskets");
 
 const changeProgresStatus = () => {
-
-
   wrapperSucssusAlarm.classList.add("active-succus__alarm");
   wrapperSucssusAlarm.style.transition = "all 0.5s ease";
   progresAddProductBasket.classList.add(
@@ -254,7 +253,7 @@ let prodactSection = () => {
 const useBasket = [];
 
 function addPrudactsToUserBaskets(productID) {
-    // statusInUserBasket(productID , useBasket)
+  // statusInUserBasket(productID , useBasket)
   changeProgresStatus();
 
   const findProductsForBasketUser = prodacts.find(
@@ -263,18 +262,11 @@ function addPrudactsToUserBaskets(productID) {
 
   useBasket.push(findProductsForBasketUser);
   ganeratorUserBasket(useBasket);
-  
-  
-
 }
 
 const ganeratorUserBasket = (arryUserBasket) => {
-  
-  saveInToLocalStorege("basket" , arryUserBasket)
+  saveInToLocalStorege("basket", arryUserBasket);
 
-  
-
-  
   // statusInUserBasket(arryUserBasket)
   if (arryUserBasket.length > 2) {
     mainProdactsBaskets.classList += " active-style__mainProducts ";
@@ -288,7 +280,7 @@ const ganeratorUserBasket = (arryUserBasket) => {
     wrapperBasketUser.insertAdjacentHTML(
       "beforeend",
       `
-            <div class="flex pt-5 b-b ">
+            <div class="flex pt-5 border-b-2 border-solid border-zinc-500 ">
                             <div class="img flex">
                                 <img class="w-24 h-[80px] object-cover " src="${
                                   item.img
@@ -327,18 +319,19 @@ const ganeratorUserBasket = (arryUserBasket) => {
 
   if (arryUserBasket.length) {
     // btnOrdersPc.innerHTML = ""
-    btnOrdersPc.innerHTML = ` <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-zinc-700 dark:text-white pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
+    btnOrdersPc.innerHTML = ` <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
                                                 >ثبت سفارش
                               </span>`;
     console.log(btnOrdersPc);
-
 
     arryUserBasket.map((product) =>
       wrapperAllProductsInBasketsPc.insertAdjacentHTML(
         "beforeend",
         `
-              <div class="bor-prud flex gap-3 pb-2 border-b-4 border-indigo-500 pt-5 ">
-                                      <img class="w-12 h-12 lg:w-24 lg:h-24" src="${product.img}" alt="">
+              <div class=" flex gap-3 pb-2 border-b-2 border-solid border-white pt-5 ">
+                                      <img class="w-12 h-12 lg:w-24 lg:h-24" src="${
+                                        product.img
+                                      }" alt="">
                                       <div class="flex flex-col justify-between gap-3 lg:gap-6">
                                           <span class="max-w-40 leading-normal text-[10px] lg:text-sm  text-zinc-700 dark:text-white">
                                               ${product.title}
@@ -355,19 +348,25 @@ const ganeratorUserBasket = (arryUserBasket) => {
     );
   }
 
-
   culcoutorPricProductBasket(arryUserBasket);
 };
 
 const handleUserBasketByLocalStorage = () => {
   
   console.log(userBasketdataInLocalStorage);
-  wrapperBasketUser.innerHTML = ""
-  userBasketdataInLocalStorage.map(item => (
+  countProductsInBaskets.innerHTML = userBasketdataInLocalStorage.length + " مورد"
+  btnOrdersPc.innerHTML = `
+  <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3">ثبت سفارش
+                              </span>
+  `
+  culcoutorPriceProductsFromLocalStorage(userBasketdataInLocalStorage);
+
+  wrapperBasketUser.innerHTML = "";
+  userBasketdataInLocalStorage.map((item) =>
     wrapperBasketUser.insertAdjacentHTML(
-            "beforeend",
-            `
-                  <div class="flex pt-5 b-b ">
+      "beforeend",
+      `
+                  <div class="flex pt-5 border-b-4 border-solid border-zinc-500">
                                   <div class="img flex">
                                       <img class="w-24 h-[80px] object-cover " src="${
                                         item.img
@@ -390,56 +389,73 @@ const handleUserBasketByLocalStorage = () => {
                                   </div>
                               </div>
                   `
-          )
-    
-  ))
-  
-  // if(userBasketdataInLocalStorage.length){
-  //   userBasketdataInLocalStorage.map((item) =>
-  //     wrapperBasketUser.insertAdjacentHTML(
-  //       "beforeend",
-  //       `
-  //             <div class="flex pt-5 b-b ">
-  //                             <div class="img flex">
-  //                                 <img class="w-24 h-[80px] object-cover " src="${
-  //                                   item.img
-  //                                 }" alt=""> 
-  //                             </div>
-  //                             <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[140px]">
-  //                                 <span class="leading-6 text-x min-w-full">${
-  //                                   item.title
-  //                                 }</span>
-  //                                 <div class="flex text-x flex-col">
-  //                                 ${
-  //                                   item.offer
-  //                                     ? `<span class="leading-4 text-green-500">14.500 تومان تخفیف</span>`
-  //                                     : ""
-  //                                 }
-  //                                     <span class="leading-4 ">${
-  //                                       item.price
-  //                                     }</span>
-  //                                 </div>
-  //                             </div>
-  //                         </div>
-  //             `
-  //     )
-  //   );
-    
-  // }
-}
+    )
+  );
+  wrapperAllProductsInBasketsPc.innerHTML = "";
+  userBasketdataInLocalStorage.map((item) => {
+    wrapperAllProductsInBasketsPc.insertAdjacentHTML(
+      "beforeend",
+      `
+                  <div class="flex pt-5 pb-5  border-b-2 border-solid dark:border-white border-zinc-500 ">
+                                  <div class="img flex">
+                                      <img class="w-24 h-[80px] object-cover " src="${
+                                        item.img
+                                      }" alt=""> 
+                                  </div>
+                                  <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[100px]">
+                                      <span class="leading-6 dark:text-white text-zinc-700 text-x min-w-full">${
+                                        item.title
+                                      }</span>
+                                      <div class="flex text-x flex-col">
+                                      ${
+                                        item.offer
+                                          ? `<span class="leading-4 text-green-500">14.500 تومان تخفیف</span>`
+                                          : ""
+                                      }
+                                          <span class="leading-4 dark:text-white text-zinc-700  ">${
+                                            item.price
+                                          }</span>
+                                      </div>
+                                  </div>
+                              </div>
+                  `
+    );
 
-// const statusInUserBasket = (productID , arrayBaskets) => {
-//     let resultData = arrayBaskets.filter(product => product.id == productID)
-//     console.log(resultData);
-    
-// }
+  });
+
+
+};
+
+
+const culcoutorPriceProductsFromLocalStorage = (products) => {
+  console.log(Object.entries(products));
+  
+  let sum = 0
+
+  let produtsPrices =  products.map((item) => (sum += item.price))
+
+
+  console.log(sum);
+  
+   
+
+  // const convertArrayPriceToNumber = Number(priceProducts);
+  // sum += Number(priceProducts);
+
+
+  // priceProducts.map((price) => (sum += price.price));
+
+  wrapperTotalPrice.innerHTML = sum;
+  pricesAllProductsInBasketPc.innerHTML = sum;
+};
 
 const culcoutorPricProductBasket = (priceProducts) => {
-  const wrapperTotalPrice = document.querySelector("#wrapper-total__price");
+  // console.log(priceProducts);
+
   let sum = 0;
   priceProducts.map((price) => (sum += price.price));
 
-  wrapperTotalPrice.innerHTML = sum;
+  wrapperTotalPrice.innerHTML = sum
   pricesAllProductsInBasketPc.innerHTML = sum;
 };
 
@@ -469,4 +485,9 @@ const culcoutorPricProductBasket = (priceProducts) => {
 //   }
 // };
 
-export { prodactSection, mainPrudacts, addPrudactsToUserBaskets , handleUserBasketByLocalStorage};
+export {
+  prodactSection,
+  mainPrudacts,
+  addPrudactsToUserBaskets,
+  handleUserBasketByLocalStorage,
+};
