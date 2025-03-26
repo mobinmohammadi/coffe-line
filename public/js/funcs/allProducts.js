@@ -1,21 +1,25 @@
 import { prodacts } from "../Data.js";
+import { getFromLocalStorage, saveInToLocalStorege } from "../utils/utils.js";
 
 const wrapperAllProductsFilterd = document.querySelector(
   "#wrapper-allProducts__filterd-columns"
 );
-const mainProdactsBaskets = document.querySelector(".main-prudacts__baskets")
+const mainProdactsBaskets = document.querySelector(".main-prudacts__baskets");
 const wrapperSucssusAlarm = document.querySelector("#wrapper-sucssus__alarm");
 const progresAddProductBasket = document.querySelector(
   ".progres-addProduct__basket"
 );
 let openUserBasketBtn = document.querySelector(".open-user__baskets");
 let boxBasket = document.querySelector("#box-basket");
+const wrapperBasketUser = document.querySelector("#wrapper-basket__user");
+
 
 const countProducts = document.querySelector("#count-products");
 const wrapperFilter = document.querySelector("#wrapper-filter");
 const selectorFilterValue = document.querySelectorAll(
   "#selector-filter__value"
 );
+
 const forSelectorValue = document.querySelector("#for-Selector__value");
 wrapperFilter.addEventListener("click", () => {});
 
@@ -27,6 +31,7 @@ const filterTitleHandler = () => {
     )
   );
 };
+
 const showAllProducts = () => {
   countProducts.innerHTML = `(${prodacts.length}`;
   prodacts.map((product) => {
@@ -92,13 +97,13 @@ const showAllProducts = () => {
 };
 
 
-
 openUserBasketBtn.addEventListener("click", () => {
   boxBasket.style.left = "0rem";
   layer.style.position = "fixed";
   boxBasket.style.transition = "all 0.5s ease";
   layer.style.transition = "all 0.5s ease-in-out";
 });
+
 
 let useBasket = [];
 function addPrudactsToUserBaskets(productID) {
@@ -109,20 +114,19 @@ function addPrudactsToUserBaskets(productID) {
 
   useBasket.push(findProductsForBasketUser);
   ganeratorUserBasket(useBasket);
+
   console.log("useBasket ===> ", useBasket);
+  saveInToLocalStorege("basket", useBasket);
+
 }
 
-
 const ganeratorUserBasket = (arryUserBasket) => {
-  
-  
-  if(arryUserBasket.length > 2) {
+
+  if (arryUserBasket.length > 2) {
     mainProdactsBaskets.classList += " active-style__mainProducts ";
-    
   } else {
     mainProdactsBaskets.classList.remove("active-style__mainProducts");
   }
-  const wrapperBasketUser = document.querySelector("#wrapper-basket__user");
   wrapperBasketUser.innerHTML = "";
   arryUserBasket.map((item) =>
     wrapperBasketUser.insertAdjacentHTML(
@@ -487,8 +491,6 @@ const changeTypeByShowBtnHandler = (showBtnType) => {
 };
 
 const changeProgresStatus = () => {
-
-
   wrapperSucssusAlarm.classList.add("active-succus__alarm");
   wrapperSucssusAlarm.style.transition = "all 0.5s ease";
   progresAddProductBasket.classList.add(
@@ -502,11 +504,47 @@ const changeProgresStatus = () => {
   }, 4200);
 };
 
-window.addPrudactsToUserBaskets = addPrudactsToUserBaskets;
-// const filtredPoducts = () => {
+const userBasketdataInLocalStorage =  getFromLocalStorage("basket")
 
-//     prodacts
-// }
+const handleUserBasketByLocalStorage = () => {
+  
+  console.log(userBasketdataInLocalStorage);
+  wrapperBasketUser.innerHTML = ""
+  userBasketdataInLocalStorage.map(item => {
+    wrapperBasketUser.insertAdjacentHTML(
+            "beforeend",
+            `
+                  <div class="flex pt-5 b-b ">
+                                  <div class="img flex">
+                                      <img class="w-24 h-[80px] object-cover " src="${
+                                        item.img
+                                      }" alt=""> 
+                                  </div>
+                                  <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[100px]">
+                                      <span class="leading-6 text-x min-w-full">${
+                                        item.title
+                                      }</span>
+                                      <div class="flex text-x flex-col">
+                                      ${
+                                        item.offer
+                                          ? `<span class="leading-4 text-green-500">14.500 تومان تخفیف</span>`
+                                          : ""
+                                      }
+                                          <span class="leading-4 ">${
+                                            item.price
+                                          }</span>
+                                      </div>
+                                  </div>
+                              </div>
+                  `
+          )
+    
+})
+  
+  
+}
+
+window.addPrudactsToUserBaskets = addPrudactsToUserBaskets;
 
 export {
   filterTitleHandler,
@@ -517,4 +555,5 @@ export {
   culcoutorPricProductBasket,
   basktUser,
   changeProgresStatus,
+  handleUserBasketByLocalStorage,
 };

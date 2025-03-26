@@ -179,8 +179,6 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     homePageAdsMobileHandler();
     homePageAdsPcHandler()
-    console.log("ss");
-    // layer.style.position = "fixed";
 
     progresAdsMobile.style.width = "100%";
     progresAdsMobile.style.transition = "all 4s ease";

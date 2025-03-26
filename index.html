@@ -283,49 +283,46 @@
                         <!-- Cart & ThemSwich -->
 
                         <!-- Cart -->
-                        <div class="cursor-pointer relative group">
-                            <svg class=" w-8 h-6">
+                        <div class="cursor-pointer relative group ">
+                            <svg class=" w-8 h-6 ">
                                 <use xlink:href="#basket-user-icon"></use>
                             </svg>
                             <div
-                                class="absolute shadow-custom z-50 hidden opacity-0 text-xs lg:text-sm leading-none group-hover:transition-all group-hover:flex group-hover:opacity-100 shadow-normal  bor-t left-0 w-[200px] lg:w-[400px] p-5 rounded-2xl pt-5 pr-5 pb-5  bg-white dark:bg-zinc-700 flex-col">
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300  text-xs lg:text-sm ">1 مورد</span>
-                                    <div class="flex items-center text-orange-300">
-                                        <span class="text-[8px] font-bold  lg:text-sm ">مشاهده سبد خرید</span>
-                                        <svg class="w-6 h-5">
-                                            <use xlink:href="#arrow-left"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="bor-prud flex justify-between pb-2 border-b-4 border-indigo-500 pt-5 ">
-                                    <img class="w-12 h-12 lg:w-24 lg:h-24" src="./public/products/p3.png" alt="">
-                                    <div class="flex flex-col justify-between gap-3 lg:gap-6">
-                                        <span
-                                            class="max-w-60 leading-normal  text-[10px] lg:text-sm  text-zinc-700 dark:text-white">
-                                            قهوه اسپرسو بن مانو مدل پریسکا 250 گرمی
-                                        </span>
-                                        <div class="flex flex-col gap-0.5 lg:gap-2">
-                                            <span
-                                                class="text-teal-600 dark:text-emerald-500 text-[9x] sm:text-base lg:text-sm text-xs font-Dana">14.500
-                                                تومان تخفیف</span>
-                                            <span
-                                                class="text-zinc-700 font-Dana text-[10x] sm:text-base lg:text-sm dark:text-white ">175,000
-                                                تومان</span>
+                                class="absolute shadow-custom z-50 hidden opacity-0  text-xs lg:text-sm leading-none group-hover:transition-all group-hover:flex group-hover:opacity-100 shadow-normal  bor-t left-0 w-[200px] lg:w-[400px] p-5 rounded-2xl pt-5 pr-5 pb-5  bg-white dark:bg-zinc-700 flex-col">
+                                <div class="wrapper-products__basketPc">
+                                    <div class="flex justify-between">
+                                        <span id="count-products__in--baskets" class="dark:text-gray-300 text-zinc-700 text-xs lg:text-sm ">0 مورد</span>
+                                        <div class="flex items-center text-orange-300">
+                                            <span class="text-[8px] font-bold  lg:text-sm ">مشاهده سبد خرید</span>
+                                            <svg class="w-6 h-5">
+                                                <use xlink:href="#arrow-left"></use>
+                                            </svg>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="flex justify-between pt-5">
-                                    <div class="flex justify-between flex-col gap-1">
-                                        <span class="text-gray-300 text-[10px] sm:text-xs lg:text-sm">مبلغ قابل
-                                            پرداخت</span>
-                                        <span
-                                            class="text-xl text-zinc-700 font-Dana dark:text-white text-[10px] sm:text-xs lg:text-sm">350,000
-                                            تومان</span>
+                                    <div  class="wrapper-allProducts__inBaskets--pc">
+                                        <div class="w-full rounded-lg space-y-8 mt-5 mb-5 bg-red-700 flex justify-center text-white font-MorabbaBold pt-5 pb-5">
+                                            <span class="text-center text-basket">سبد خرید شما خالی میباشد😭</span>
+                                        </div>
+                                       <!-- Loaded from JS -->
                                     </div>
-                                    <a class="flex items-center justify-center rounded-xl text-[8px] lg:text-sm text-white bg-teal-600 dark:bg-emerald-500 pt-1 pb-1 pl-1 pr-1 lg:pr-3 lg:pl-3"
-                                        href="#">ثبت سفارش</a>
+    
+                                    <div class="flex justify-between pt-5">
+                                        <div class="flex justify-between flex-col gap-1">
+                                            <span class="text-gray-400 dark:text-gray-300 text-[10px] sm:text-xs lg:text-sm">مبلغ قابل
+                                                پرداخت</span>
+                                            <div
+                                                class="text-xl text-zinc-700 font-Dana dark:text-white text-[10px] sm:text-xs lg:text-sm">
+                                                <span id="prices__allProducts-inBasketPc">😴</span>
+                                                <span>تومان</span>
+                                                
+                                            </div>
+                                        </div>
+                                        <div id="btn-orders__pc" class=" cursor-text ">
+                                            <span class="items-center flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold bg-slate-400 dark:bg-salte-400 text-zinc-700 pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
+                                                >ثبت سفارش
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

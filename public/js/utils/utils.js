@@ -13,6 +13,12 @@
 const saveInToLocalStorege = (key, value) =>{
     return localStorage.setItem(key , JSON.stringify(value))
 }
+
+const getFromLocalStorage = (key) => {
+    return JSON.parse(localStorage.getItem(key))
+    
+}
+
 const getUrlParam = (key) => {
     const urlParams = new URLSearchParams(location.search)
     return urlParams.get(key)
@@ -57,4 +63,4 @@ const filtredArray = (array , typeFitred) => {
 }
 
 
-export { saveInToLocalStorege , getUrlParam , filtredArray}
+export { saveInToLocalStorege , getUrlParam , filtredArray , getFromLocalStorage}

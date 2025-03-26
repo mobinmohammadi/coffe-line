@@ -5,6 +5,7 @@ import {
   filterTitleHandler,
   filtredProducts,
   ganeratorUserBasket,
+  handleUserBasketByLocalStorage,
   showAllProducts,
   showStatusByRowAndColumns,
 } from "./funcs/allProducts.js";
@@ -20,4 +21,5 @@ window.addEventListener("load", () => {
   culcoutorPricProductBasket();
   basktUser();
   changeProgresStatus()
+  handleUserBasketByLocalStorage()
 });
