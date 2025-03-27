@@ -1,14 +1,14 @@
 // import { getToken } from "../utils/utils";
 
 import { getUrlParam } from "../utils/utils.js";
-import {prodactsByComments  , prodacts} from "../Data.js";
+import { allProducts } from "../Data.js";
 
 const wrapperProductOns = document.querySelector(".main-prudact")
 
 let locationUrl = getUrlParam("name");
 
 const onsProducts = () => {
-  let mainProducts = prodacts.find(product => (
+  let mainProducts = allProducts.find(product => (
     product.id == locationUrl
   ))
   console.log(mainProducts);
@@ -75,7 +75,7 @@ const onsProducts = () => {
 const commentOnsPage = () => {
   console.log("locationUrl", locationUrl);
 
-  let mainComments = prodactsByComments.find(
+  let mainComments = allProducts.find(
     (comment) => comment.id == locationUrl
   );
 
