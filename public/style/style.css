@@ -599,7 +599,7 @@ body {
 }
 
 .container-products{
-  width: 97%;
+  width: 97%!important;
   margin: 0 auto;
 }
 

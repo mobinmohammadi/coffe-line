@@ -319,7 +319,7 @@ const ganeratorUserBasket = (arryUserBasket) => {
 
   if (arryUserBasket.length) {
     // btnOrdersPc.innerHTML = ""
-    btnOrdersPc.innerHTML = ` <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
+    btnOrdersPc.innerHTML = ` <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white p-3"
                                                 >ثبت سفارش
                               </span>`;
     console.log(btnOrdersPc);
@@ -328,21 +328,19 @@ const ganeratorUserBasket = (arryUserBasket) => {
       wrapperAllProductsInBasketsPc.insertAdjacentHTML(
         "beforeend",
         `
-              <div class=" flex gap-3 pb-2 border-b-2 border-solid border-white pt-5 ">
-                                      <img class="w-12 h-12 lg:w-24 lg:h-24" src="${
-                                        product.img
-                                      }" alt="">
-                                      <div class="flex flex-col justify-between gap-3 lg:gap-6">
-                                          <span class="max-w-40 leading-normal text-[10px] lg:text-sm  text-zinc-700 dark:text-white">
-                                              ${product.title}
-                                          </span>
-                                          <div class="flex flex-col gap-0.5 lg:gap-2">
-                                              <span class="text-teal-600 dark:text-emerald-500 text-[9x] sm:text-base lg:text-sm text-xs font-Dana">
-                                              <span class="text-zinc-700 font-Dana text-[10x] sm:text-base lg:text-sm dark:text-white ">${product.price.toLocaleString()}
-                                                  تومان</span>
-                                          </div>
+
+             <div class="flex pt-5 pb-5  border-b-2 border-solid dark:border-white border-zinc-500 ">
+                                  <div class="img flex">
+                                      <img class="w-24 h-[80px] object-cover " src="${product.img}" alt=""> 
+                                  </div>
+                                  <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[100px]">
+                                      <span class="leading-6 dark:text-white text-zinc-700 text-x min-w-full">${product.title}</span>
+                                      <div class="flex text-x flex-col">
+                                      
+                                          <span class="leading-4 dark:text-white text-zinc-700  ">129000</span>
                                       </div>
                                   </div>
+                              </div>
               `
       )
     );
@@ -356,7 +354,7 @@ const handleUserBasketByLocalStorage = () => {
   console.log(userBasketdataInLocalStorage);
   countProductsInBaskets.innerHTML = userBasketdataInLocalStorage.length + " مورد"
   btnOrdersPc.innerHTML = `
-  <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3">ثبت سفارش
+  <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white p-3">ثبت سفارش
                               </span>
   `
   culcoutorPriceProductsFromLocalStorage(userBasketdataInLocalStorage);
