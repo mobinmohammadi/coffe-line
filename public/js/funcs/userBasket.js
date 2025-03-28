@@ -201,6 +201,54 @@ const addCountProducts = (productID) => {
   
 }
 
+//  Sucssus Alarm
+
+const wrapperSucssus = document.querySelector("#wrapper-sucssus")
+const btnBuyingFainal = document.querySelector("#btn-buyingFainal")
+
+btnBuyingFainal.addEventListener("click" , () => {
+  showSwal("آیا شما کد تخفیف دارید؟",
+    "warning",
+    ["خیر","بله دارم"],
+    (res) => {
+      if(res){
+        swal({
+          text: 'کد تخفیفتان را وارد نمایید',
+          content: "input",
+          button: {
+            text: "اوکی کن",
+            closeModal: true,
+          },
+        }).then(result => {
+          if(result == "js20"){ 
+            
+            wrapperSucssus.style.top = "0"
+            wrapperSucssus.style.transition = "all 0.5s ease"
+            setTimeout(() => {
+                          wrapperSucssus.style.top = "-400px"
+            wrapperSucssus.style.transition = "all 0.5s ease"
+            }, 2000);
+          }
+          else{
+            showSwal(" کد تخفیف نامعتبر است با مهلت استفاده آن به سر رسید است"  , "error" , "باشه" , () => {})
+          }
+        }
+          
+        )
+      }
+    }
+
+  )
+})
+
+
+
+// 
+
+
+
+
+
 window.addCountProducts = addCountProducts
 
 export { handleUserBasketByLocalStorage, deletAllProductsInUserBasket };
