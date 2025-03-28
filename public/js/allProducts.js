@@ -22,4 +22,5 @@ window.addEventListener("load", () => {
   basktUser();
   changeProgresStatus()
   handleUserBasketByLocalStorage()
+  
 });

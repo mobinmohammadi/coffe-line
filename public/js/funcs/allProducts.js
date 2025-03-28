@@ -1,6 +1,159 @@
 import { allProducts } from "../Data.js";
 import { getFromLocalStorage, saveInToLocalStorege } from "../utils/utils.js";
 
+const btnDeleteAllProductsUserBasket = document.querySelector(
+  "#btn-delete__allProducts--userBasket"
+);
+const wrapperAllProductsInBasketsPc = document.querySelector(
+  ".wrapper-allProducts__inBaskets--pc"
+);
+const wrapperBasketUser = document.querySelector("#wrapper-basket__user");
+
+// Start User Basket Local Storage
+
+const userBasketdataInLocalStorage = getFromLocalStorage("basket");
+console.log(userBasketdataInLocalStorage);
+window.addEventListener("load", () => {
+  handleUserBasketByLocalStorage();
+  console.log("Sss");
+});
+
+const handleUserBasketByLocalStorage = () => {
+  culcoutorPriceProductsFromLocalStorage(userBasketdataInLocalStorage);
+
+  countProductsInBaskets.innerHTML =
+    userBasketdataInLocalStorage.length + " مورد";
+
+  if (userBasketdataInLocalStorage.length) {
+    // btnOrdersPc.innerHTML = ""
+    wrapperAllProductsInBasketsPc.innerHTML = "";
+
+    btnOrdersPc.innerHTML = ` <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders  bg-gre text-white dark:text-white pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
+                                                >ثبت سفارش
+                              </span>`;
+    console.log(btnOrdersPc);
+    wrapperBasketUser.innerHTML = "";
+    userBasketdataInLocalStorage.map((item) =>
+      wrapperBasketUser.insertAdjacentHTML(
+        "beforeend",
+        `
+                    <div class="flex pt-5 border-b-4 border-solid border-zinc-500">
+                                    <div class="img flex">
+                                        <img class="w-24 h-[80px] object-cover " src="${
+                                          item.img
+                                        }" alt=""> 
+                                    </div>
+                                    <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[100px]">
+                                        <span class="leading-6 text-x min-w-full">${
+                                          item.title
+                                        }</span>
+                                        <div class="flex text-x flex-col">
+
+                                          ${
+                                            item.offer
+                                              ? `
+                                            <div class="flex flex-col gap-2 ">
+                                            <div class="leading-4 dark:text-white text-zinc-700 relative">
+                                              <span class=" absolute w-full border-offer__custom bg-red-700 "></span>
+                                              <span>${item.price}</span>
+                                            </div>
+                                              <span>${
+                                                item.price -
+                                                (item.price * item.offer) / 100
+                                              }</span>
+                                            </div>
+                                            `
+                                              : `<span class="leading-4 dark:text-white text-zinc-700  ">${item.price}</span>`
+                                          }
+                                        </div>
+                                    </div>
+                                </div>
+                    `
+      )
+    );
+    
+
+    userBasketdataInLocalStorage.map((item) =>
+      wrapperAllProductsInBasketsPc.insertAdjacentHTML(
+        "beforeend",
+        `
+             <div class="flex pt-5 pb-5  border-b-2 border-solid dark:border-white border-zinc-500 ">
+                                  <div class="img flex">
+                                      <img class="w-24 h-[80px] object-cover " src="../../public/products/p1.png" alt="">
+                                  </div>
+                                  <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[100px]">
+                                      <span class="leading-6 dark:text-white text-zinc-700 text-x min-w-full">قهوه برزیلی بن مانو مقدار 800 گرم خط دوم اسم ...</span>
+                                      <div class="flex text-x flex-col">
+
+                                          <span class="leading-4 dark:text-white text-zinc-700  ">129000</span>
+                                      </div>
+                                  </div>
+                              </div>
+              `
+      )
+    );
+
+
+  }
+
+  if (userBasketdataInLocalStorage.length) {
+    wrapperAllProductsInBasketsPc.innerHTML = "";
+    userBasketdataInLocalStorage.map((item) => {
+      wrapperAllProductsInBasketsPc.insertAdjacentHTML(
+        "beforeend",
+        `
+        <div class="flex pt-5 pb-5  border-b-2 border-solid dark:border-white border-zinc-500 ">
+                                  <div class="img flex">
+                                      <img class="w-24 h-[80px] object-cover " src="${
+                                        item.img
+                                      }" alt=""> 
+                                  </div>
+                                  <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[100px]">
+                                      <span class="leading-6 dark:text-white text-zinc-700 text-x min-w-full">${
+                                        item.title
+                                      }</span>
+                                      <div class="flex text-x flex-col">
+                                      
+                                          ${
+                                            item.offer
+                                              ? `
+                                            <div class="flex flex-col gap-2 ">
+                                            <div class="leading-4 dark:text-white text-zinc-700 relative">
+                                              <span class=" absolute w-full border-offer__custom bg-red-700 "></span>
+                                              <span>${item.price}</span>
+                                            </div>
+                                              <span>${
+                                                item.price -
+                                                (item.price * item.offer) / 100
+                                              }</span>
+                                            </div>
+                                            `
+                                              : `<span class="leading-4 dark:text-white text-zinc-700  ">${item.price}</span>`
+                                          }
+                                      </div>
+                                  </div>
+                              </div>
+      
+      `
+      );
+    });
+  } else {
+  }
+};
+
+const culcoutorPriceProductsFromLocalStorage = (products) => {
+  let sum = 0;
+
+  let produtsPrices = products.map((item) => (sum += item.price));
+
+  console.log(sum);
+
+  wrapperTotalPrice.innerHTML = sum;
+  pricesAllProductsInBasketPc.innerHTML = sum;
+};
+
+// Finish User Basket Local Storage
+
 const wrapperAllProductsFilterd = document.querySelector(
   "#wrapper-allProducts__filterd-columns"
 );
@@ -21,12 +174,9 @@ const btnOrdersPc = document.querySelector("#btn-orders__pc");
 const countProductsInBaskets = document.querySelector(
   "#count-products__in--baskets"
 );
-const wrapperAllProductsInBasketsPc = document.querySelector(
-  ".wrapper-allProducts__inBaskets--pc"
-);
+
 let openUserBasketBtn = document.querySelector(".open-user__baskets");
 let boxBasket = document.querySelector("#box-basket");
-const wrapperBasketUser = document.querySelector("#wrapper-basket__user");
 
 const countProducts = document.querySelector("#count-products");
 const wrapperFilter = document.querySelector("#wrapper-filter");
@@ -120,7 +270,6 @@ openUserBasketBtn.addEventListener("click", () => {
 const useBasket = [];
 
 function addPrudactsToUserBaskets(productID) {
-  // statusInUserBasket(productID , useBasket)
   changeProgresStatus();
 
   const findProductsForBasketUser = allProducts.find(
@@ -129,13 +278,14 @@ function addPrudactsToUserBaskets(productID) {
 
   useBasket.push(findProductsForBasketUser);
   ganeratorUserBasket(useBasket);
+  console.log("  ganeratorUserBasket ==> ", findProductsForBasketUser);
+
   saveInToLocalStorege("basket", useBasket);
 }
 
-
 const ganeratorUserBasket = (arryUserBasket) => {
+  console.log(arryUserBasket);
 
-  // statusInUserBasket(arryUserBasket)
   if (arryUserBasket.length > 2) {
     mainProdactsBaskets.classList += " active-style__mainProducts ";
   } else {
@@ -158,15 +308,24 @@ const ganeratorUserBasket = (arryUserBasket) => {
                                 <span class="leading-6 text-x min-w-full">${
                                   item.title
                                 }</span>
-                                <div class="flex text-x flex-col">
+                                <div class="flex text-x flex-col ">
+                                ${item.offer ? `
+                                  <div class="relative">
+                                <span class="absolute w-full border-offer__custom  bg-red-700"></span>
                                 ${
                                   item.offer
-                                    ? `<span class="leading-4 text-green-500">14.500 تومان تخفیف</span>`
-                                    : ""
-                                }
-                                    <span class="leading-4 ">${
+                                    ? `<span class="leading-4 text-green-500">${
                                       item.price
+                                      }</span>`
+                                    : ""
+                                }</div>
+                                    <span class="leading-4 ">${
+                                        item.price -
+                                        (item.price * item.offer) / 100
                                     }</span>
+                                  ` : `  <span class="leading-4 ">${
+                                      item.price
+                                    }</span>`}
                                 </div>
                             </div>
                         </div>
@@ -219,14 +378,13 @@ const ganeratorUserBasket = (arryUserBasket) => {
   culcoutorPricProductBasket(arryUserBasket);
 };
 
-
 const culcoutorPricProductBasket = (priceProducts) => {
   // console.log(priceProducts);
 
   let sum = 0;
   priceProducts.map((price) => (sum += price.price));
 
-  wrapperTotalPrice.innerHTML = sum
+  wrapperTotalPrice.innerHTML = sum;
   pricesAllProductsInBasketPc.innerHTML = sum;
 };
 
@@ -261,7 +419,6 @@ const filtredProducts = () => {
       console.log(valueSelectorFilter);
       filterGenereator(allProducts, valueSelectorFilter);
       console.log(allProducts);
-      
     })
   );
 };
@@ -566,45 +723,6 @@ const changeProgresStatus = () => {
   }, 4200);
 };
 
-const userBasketdataInLocalStorage = getFromLocalStorage("basket");
-
-
-const handleUserBasketByLocalStorage = () => {
-  culcoutorPriceProductsFromLocalStorage(userBasketdataInLocalStorage);
-
-  console.log("ss");
-  wrapperBasketUser.innerHTML = "";
-  userBasketdataInLocalStorage.map((item) => {
-    wrapperBasketUser.insertAdjacentHTML(
-      "beforeend",
-      `
-                  <div class="flex pt-5 b-b ">
-                                  <div class="img flex">
-                                      <img class="w-24 h-[80px] object-cover " src="${
-                                        item.img
-                                      }" alt=""> 
-                                  </div>
-                                  <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[100px]">
-                                      <span class="leading-6 text-x min-w-full">${
-                                        item.title
-                                      }</span>
-                                      <div class="flex text-x flex-col">
-                                      ${
-                                        item.offer
-                                          ? `<span class="leading-4 text-green-500">14.500 تومان تخفیف</span>`
-                                          : ""
-                                      }
-                                          <span class="leading-4 ">${
-                                            item.price
-                                          }</span>
-                                      </div>
-                                  </div>
-                              </div>
-                  `
-    );
-  });
-};
-
 window.addPrudactsToUserBaskets = addPrudactsToUserBaskets;
 
 export {
@@ -617,5 +735,4 @@ export {
   basktUser,
   changeProgresStatus,
   handleUserBasketByLocalStorage,
-  
 };

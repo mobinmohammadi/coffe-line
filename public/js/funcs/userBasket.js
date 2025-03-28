@@ -170,10 +170,7 @@ const culcoutorPriceProductsFromLocalStorage = (products) => {
 
   console.log(sum);
 
-  // const convertArrayPriceToNumber = Number(priceProducts);
-  // sum += Number(priceProducts);
 
-  // priceProducts.map((price) => (sum += price.price));
 
   //   wrapperTotalPrice.innerHTML = sum;
   //   pricesAllProductsInBasketPc.innerHTML = sum;

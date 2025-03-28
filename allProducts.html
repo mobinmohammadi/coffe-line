@@ -1,4 +1,4 @@
-a<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="dark" lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
@@ -601,7 +601,7 @@ a<!DOCTYPE html>
             </svg>
             <img
               class="w-[90px] xs:w-24 h-[90px] object-cover xs:h-24 rounded-md mr-4 bg-white"
-              src="./public/products/p2.png"
+              src="./../products/p2.png"
               alt=""
             />
           </div>
@@ -642,21 +642,9 @@ a<!DOCTYPE html>
                 id="wrapper-menus"
                 class="flex text-xs md:text-sm items-center gap-4 text-gray-300 child:leading-[54px]"
               >
-                <li class="text-orange-300">صفحه اصلی</li>
+                <li class="text-orange-300 ">صفحه اصلی</li>
                 <!-- Has Sub -->
-                <!-- <li
-                              class="relative cursor-pointer group transition-all border-yellow-300 hover:text-orange-300">
-                              فروشگاه
-                              <ul
-                                  class="absolute z-40 shadow-custom bor-t hidden opacity-0 group-hover:opacity-100 bg-white dark:bg-zinc-700 dark:child:text-white child:text-zinc-700 dark:child-hover:text-green-300  border-t-8 text-base tracking-normal border-t-orange-300 group-hover:flex pt-2 pr-4 pb-2 space-y-4 child:transition-colors  border-yellow-400 rounded-2xl flex-col w-[204px] child:font-Dana ">
-                                  <li>قهوه ویژه</li>
-                                  <li>ویژه در سطح جهانی</li>
-                                  <li>قهوه درجه یک</li>
-                                  <li>ترکیبات تجاری</li>
-                                  <li>کپسول قهوه</li>
-                                  <li>قهوه زینو برزیلی</li>
-                              </ul>
-                          </li> -->
+
                 <!-- Loaded Form Js -->
               </ul>
             </nav>
@@ -667,68 +655,50 @@ a<!DOCTYPE html>
 
               <!-- Cart -->
               <div class="cursor-pointer relative group">
-                <svg class="w-8 h-6">
-                  <use xlink:href="#basket-user-icon"></use>
-                </svg>
-                <div
-                  class="absolute shadow-custom z-50 hidden opacity-0 text-xs lg:text-sm leading-none group-hover:transition-all group-hover:flex group-hover:opacity-100 shadow-normal bor-t left-0 w-[200px] lg:w-[400px] p-5 rounded-2xl pt-5 pr-5 pb-5 bg-white dark:bg-zinc-700 flex-col"
-                >
-                  <div class="flex justify-between">
-                    <span class="text-gray-300 text-xs lg:text-sm">1 مورد</span>
-                    <div class="flex items-center text-orange-300">
-                      <span class="text-[8px] font-bold lg:text-sm"
-                        >مشاهده سبد خرید</span
-                      >
-                      <svg class="w-6 h-5">
-                        <use xlink:href="#arrow-left"></use>
-                      </svg>
-                    </div>
-                  </div>
+                <div class="relative h-[54px] flex items-center group ">
+                                
+                  <svg class=" w-8 h-6">
+                      <use xlink:href="#basket-user-icon"></use>
+                  </svg>
                   <div
-                    class="bor-prud flex justify-between pb-2 border-b-4 border-indigo-500 pt-5"
-                  >
-                    <img
-                      class="w-12 h-12 lg:w-24 lg:h-24"
-                      src="./public/products/p3.png"
-                      alt=""
-                    />
-                    <div class="flex flex-col justify-between gap-3 lg:gap-6">
-                      <span
-                        class="max-w-60 leading-normal text-[10px] lg:text-sm text-zinc-700 dark:text-white"
-                      >
-                        قهوه اسپرسو بن مانو مدل پریسکا 250 گرمی
-                      </span>
-                      <div class="flex flex-col gap-0.5 lg:gap-2">
-                        <span
-                          class="text-teal-600 dark:text-emerald-500 text-[9x] sm:text-base lg:text-sm text-xs font-Dana"
-                          >14.500 تومان تخفیف</span
-                        >
-                        <span
-                          class="text-zinc-700 font-Dana text-[10x] sm:text-base lg:text-sm dark:text-white"
-                          >175,000 تومان</span
-                        >
-                      </div>
-                    </div>
-                  </div>
+                      class="absolute shadow-custom top-full z-50 border-b-4 border-solid border-sky-500   text-xs lg:text-sm leading-none group-hover:transition-all group-hover:flex group-hover:opacity-100 shadow-normal  bor-t left-0 w-[300px] lg:w-[400px] p-5 rounded-2xl pt-5 pr-5 pb-5  bg-white dark:bg-zinc-700 flex-col">
+                      <div class="wrapper-products__basketPc ">
+                          <div class="flex justify-between">
+                              <span id="count-products__in--baskets" class="dark:text-gray-300 text-zinc-700 text-xs lg:text-sm ">0 مورد</span>
+                              <div class="flex items-center text-orange-300">
+                                  <span class="text-[8px] font-bold  lg:text-sm ">مشاهده سبد خرید</span>
+                                  <svg class="w-6 h-5">
+                                      <use xlink:href="#arrow-left"></use>
+                                  </svg>
+                              </div>
+                          </div>
+                          <div  class="wrapper-allProducts__inBaskets--pc">
+                              <div class="w-full rounded-lg space-y-8 mt-5 mb-5 bg-red-700 flex justify-center text-white font-MorabbaBold pt-5 pb-5">
+                                  <span class="text-center text-basket">سبد خرید شما خالی میباشد😭</span>
+                              </div>
+                             <!-- Loaded from JS -->
+                          </div>
 
-                  <div class="flex justify-between pt-5">
-                    <div class="flex justify-between flex-col gap-1">
-                      <span
-                        class="text-gray-300 text-[10px] sm:text-xs lg:text-sm"
-                        >مبلغ قابل پرداخت</span
-                      >
-                      <span
-                        class="text-xl text-zinc-700 font-Dana dark:text-white text-[10px] sm:text-xs lg:text-sm"
-                        >350,000 تومان</span
-                      >
-                    </div>
-                    <a
-                      class="flex items-center justify-center rounded-xl text-[8px] lg:text-sm text-white bg-teal-600 dark:bg-emerald-500 pt-1 pb-1 pl-1 pr-1 lg:pr-3 lg:pl-3"
-                      href="#"
-                      >ثبت سفارش</a
-                    >
+                          <div class="flex justify-between pt-5">
+                              <div class="flex justify-between flex-col gap-1">
+                                  <span class="text-gray-400 dark:text-gray-300 text-[10px] sm:text-xs lg:text-sm">مبلغ قابل
+                                      پرداخت</span>
+                                  <div
+                                      class="text-xl text-zinc-700 font-Dana dark:text-white text-[10px] sm:text-xs lg:text-sm">
+                                      <span id="prices__allProducts-inBasketPc">😴</span>
+                                      <span>تومان</span>
+                                      
+                                  </div>
+                              </div>
+                              <div id="btn-orders__pc" class=" cursor-text ">
+                                  <span class="items-center flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold bg-slate-400 dark:bg-salte-400 text-zinc-700 pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
+                                      >ثبت سفارش
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
                   </div>
-                </div>
+              </div>
               </div>
 
               <!-- ThemSwich -->
@@ -822,7 +792,7 @@ a<!DOCTYPE html>
           <div class="menu-line"></div>
         </div>
         <div class="hidden x:block">
-          <img class="" src="/public/svg/svgs/app-logo-type.svg" alt="" />
+          <img class="" src="/../svg/svgs/app-logo-type.svg" alt="" />
         </div>
         <div class="flex gap-2">
           <div
@@ -875,7 +845,7 @@ a<!DOCTYPE html>
                   </svg>
                   <span>ورود به حساب کاربری</span>
                 </a>
-                <a href="public/pages/listed-orders.html">
+                <a href="../pages/listed-orders.html">
                   <svg class="w-5 h-5">
                     <use xlink:href="#credit-card"></use>
                   </svg>
@@ -887,7 +857,7 @@ a<!DOCTYPE html>
                   </svg>
                   <span>تیکت به پشتیبانی</span>
                 </a>
-                <a href="./public/pages/paneluser/details-users.html" class="">
+                <a href="./../pages/paneluser/details-users.html" class="">
                   <svg class="w-5 h-5">
                     <use xlink:href="#user-icon"></use>
                   </svg>
@@ -914,8 +884,8 @@ a<!DOCTYPE html>
         class="fixed sm:hidden top-0 bg-white dark:text-white dark:bg-zinc-700 w-36 x:w-52 sm:w-80 h-[100vh] pt-3 pr-4 pb-3 pl-4"
       >
         <div class="flex b-b justify-between items-center">
-          <img class="w-8 sm:w-14" src="public/svgs/logo.svg" alt="" />
-          <img class="w-11 sm:w-14" src="public/svgs/logo-type.svg" alt="" />
+          <img class="w-8 sm:w-14" src="./../svgs/logo.svg" alt="" />
+          <img class="w-11 sm:w-14" src="./../svgs/logo-type.svg" alt="" />
           <div
             id="close-menu__mobile"
             class="w-8 sm:w-11 h-8 sm:h-11 flex items-center justify-center cursor-pointer rounded-full dark:bg-zinc-500 bg-slate-100"
@@ -1064,7 +1034,7 @@ a<!DOCTYPE html>
                 دسته بندی مورد نظر را نتخاب کنید
               </li>
               <div
-                class="absolute child:font-bold child:text-[8px] xs:child:text-x z-10 transition-all top-[100%] opacity-0 invisible group-hover:opacity-100 group-hover:visible child:text-xs child:pt-2 dark:bg-zinc-500 bg-slate-200 w-[103.5%] right-0 selectBox-allProducts dark:border-solid dark:text-white dark:border-b-[2px] dark:border-b-yellow-300 flex flex-col gap-1 rounded-b-2xl"
+                class="absolute child:font-bold z-999 child:text-[8px] xs:child:text-x transition-all top-[100%] opacity-0 invisible group-hover:opacity-100 group-hover:visible child:text-xs child:pt-2 dark:bg-zinc-500 bg-slate-200 w-[103.5%] right-0 selectBox-allProducts dark:border-solid dark:text-white dark:border-b-[2px] dark:border-b-yellow-300 flex flex-col gap-1 rounded-b-2xl"
               >
                 <li
                   id="selector-filter__value"
@@ -1134,7 +1104,7 @@ a<!DOCTYPE html>
       <div class="fixed top-10">
 
         <div id="wrapper-sucssus__alarm" class="flex shadow-2xl relative bg-white pt-2 pb-2 pr-3 pl-3 rounded-md -right-[260px] w-[260px]">
-          <img class="w-20" src="./public/svg/svgs/varifay.gif" alt="">
+          <img class="w-20" src="./../svg/svgs/varifay.gif" alt="">
           <div class="flex flex-col justify-between">
             <span class="text-sm font-MorabbaBold text-green-600">موفق</span>
             <span class="text-slate-400 text-xs min-w-10 font-MorabbaBold leading-4 pt-2">محصول باموفقیت به سبد خرید شما اضافه شد</span>
@@ -1204,8 +1174,8 @@ a<!DOCTYPE html>
           >
             <div class="flex flex-col min-w-52">
               <div class="flex gap-5 md:gap-2">
-                <img src="./public/svg/app-logo.png" alt="" />
-                <img src="./public/svg/svgs/app-logo-type.svg" alt="" />
+                <img src="./../svg/app-logo.png" alt="" />
+                <img src="./../svg/svgs/app-logo-type.svg" alt="" />
               </div>
               <span class="mt-4 leading-8 max-w-full md:min-w-52">
                 ما برآنیم تا با پیشرو بودن در فرآیند تولید، نوع و کیفیت محصول،
@@ -1286,7 +1256,7 @@ a<!DOCTYPE html>
         <!-- Start Ads Pc -->
         <div
           id="wrapper-ads__pc"
-          class="hidden container-custom fixed top-[80%] -mr-[100%] sm:flex justify-center z-10 bg-slate-100"
+          class="hidden container-custom fixed top-[80%] -mr-[100%] sm:flex justify-center z-50 bg-slate-100"
         >
           <div
             class="absolute box justify-center mr-5 ml-5 w-[16rem] xs:w-[24rem] sm:w-[32rem] shadow-2xl flex gap-5 max-w-auto rounded-md h-[115px] pt-2 pb-2 pr-3 pl-3 z-50 bg-slate-100 ads-products"
@@ -1300,7 +1270,7 @@ a<!DOCTYPE html>
               </svg>
               <img
                 class="w-[90px] xs:w-24 h-[90px] object-cover xs:h-24 rounded-md mr-4 bg-white"
-                src="./public/products/p2.png"
+                src="./../products/p2.png"
                 alt=""
               />
             </div>

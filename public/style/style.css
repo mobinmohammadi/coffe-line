@@ -473,7 +473,13 @@ body {
 }
 
 .btn-style__colorOrders {
-  background-color: #16a34a;
+  background-color: #16a34a!important;
+}
+
+.border-offer__custom{
+  height: 2px;
+  top: 38%;
+  width: 35px;
 }
 
 .loader-in__tiket--panel {
@@ -594,6 +600,10 @@ body {
 
 .w-w-cus{
   width: 123px;
+}
+
+.z-999{
+  z-index: 999;
 }
 
 .loader-userBasketPage {
