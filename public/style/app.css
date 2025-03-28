@@ -1555,6 +1555,19 @@ video {
   background-color: rgb(63 63 70 / var(--tw-bg-opacity, 1));
 }
 
+.bg-\[\#223c78\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 60 120 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[bg-\[\#223c78\]\] {
+  background-color: bg-[#223c78];
+}
+
+.bg-\[\] {
+  background-color: ;
+}
+
 .bg-none {
   background-image: none;
 }
@@ -2011,6 +2024,16 @@ video {
 .hover\:bg-zinc-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(113 113 122 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-\[\#223c78\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 60 120 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-\[\#14213f\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 33 63 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:text-green-400:hover {

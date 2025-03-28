@@ -1,3 +1,4 @@
+import { allProducts } from "../Data.js";
 import {
   getFromLocalStorage,
   saveInToLocalStorege,
@@ -7,6 +8,10 @@ const wrapperBasketUser = document.querySelector("#wrapper-basket__user");
 const wrapperAllProductsInBasketsPc = document.querySelector(
   "#wrapper-allProducts__inBaskets--pc"
 );
+const allPriceProducts = document.querySelector("#allPrice__products")
+const lengthAddCountOrders = document.querySelectorAll(".length-add__count-orders")
+
+let countProduct = document.querySelector(".count-product")
 
 const btnDeleteAllProductsUserBasket = document.querySelector(
   "#btn-delete__allProducts--userBasket"
@@ -54,6 +59,9 @@ const handleUserBasketByLocalStorage = () => {
   );
   if (userBasketdataInLocalStorage.length) {
     wrapperAllProductsInBasketsPc.innerHTML = "";
+    lengthAddCountOrders.forEach(count =>(
+      count.innerHTML = userBasketdataInLocalStorage.length
+    ))
     userBasketdataInLocalStorage.map((item) => {
       wrapperAllProductsInBasketsPc.insertAdjacentHTML(
         "beforeend",
@@ -126,11 +134,12 @@ const handleUserBasketByLocalStorage = () => {
                 class="flex gap-2 mt-2 items-center bg-slate-200 w-32 justify-center rounded-sm pt-2 pb-2 pr-4 pl-4"
               >
                 <svg
+                  onclick="addCountProducts('${item.id}')"
                   class="w-5 h-5 child:cursor-pointer hover:text-green-600 transition-all"
                 >
                   <use xlink:href="#plus-circle"></use>
                 </svg>
-                <span>2 عدد</span>
+                <div class="count-product">${item.count} عدد</div>
                 <svg
                   class="w-5 h-5 child:cursor-pointer hover:text-red-700 transition-all"
                 >
@@ -169,11 +178,29 @@ const culcoutorPriceProductsFromLocalStorage = (products) => {
   let produtsPrices = products.map((item) => (sum += item.price));
 
   console.log(sum);
+  allPriceProducts.innerHTML = sum
+  
 
 
 
   //   wrapperTotalPrice.innerHTML = sum;
   //   pricesAllProductsInBasketPc.innerHTML = sum;
 };
+
+let sum = 0
+const addCountProducts = (productID) => {
+  let resultSearchForAddCountProduct = allProducts.filter(prod => prod.id == productID)
+  let result = resultSearchForAddCountProduct.count = sum += 1
+    
+  // countProduct.innerHTML = result
+  console.log(countProduct);
+  
+  
+  // console.log(productID);
+  
+  
+}
+
+window.addCountProducts = addCountProducts
 
 export { handleUserBasketByLocalStorage, deletAllProductsInUserBasket };

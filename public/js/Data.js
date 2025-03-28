@@ -61,6 +61,7 @@ let allProducts = [
         role: "USER",
       },
     ],
+    count : 1
   },
 
   {
@@ -85,6 +86,7 @@ let allProducts = [
         role: "USER",
       },
     ],
+    count : 1
   },
   {
     id: 3,
@@ -101,6 +103,7 @@ let allProducts = [
     seller: "مجموعه کافه لاین",
     status: "Available",
     comment: [],
+    count : 1
   },
   {
     id: 4,
@@ -116,6 +119,7 @@ let allProducts = [
     price: 98500,
     img: "../../public/products/p4.png",
     comment: [],
+    count : 1
   },
   {
     id: 5,
@@ -132,6 +136,7 @@ let allProducts = [
     price: 2000000,
     img: "../../public/products/p5.png",
     comment: [],
+    count : 1
   },
   {
     id: 6,
@@ -147,6 +152,7 @@ let allProducts = [
     price: 600000,
     img: "../../public/products/p5.png",
     comment: [],
+    count : 1
   },
   {
     id: 7,
@@ -162,6 +168,7 @@ let allProducts = [
     price: 858000,
     img: "../../public/products/p5.png",
     comment: [],
+    count : 1
   },
   {
     id: 8,
@@ -177,6 +184,7 @@ let allProducts = [
     price: 2480000,
     img: "../../public/products/p5.png",
     comment: [],
+    count : 1
   },
 ];
 
