@@ -1,4 +1,4 @@
-import { prodacts } from "../Data.js";
+import { allProducts } from "../Data.js";
 import { getFromLocalStorage, saveInToLocalStorege } from "../utils/utils.js";
 
 const wrapperAllProductsFilterd = document.querySelector(
@@ -47,8 +47,8 @@ const filterTitleHandler = () => {
 };
 
 const showAllProducts = () => {
-  countProducts.innerHTML = `(${prodacts.length}`;
-  prodacts.map((product) => {
+  countProducts.innerHTML = `(${allProducts.length}`;
+  allProducts.map((product) => {
     wrapperAllProductsFilterd.insertAdjacentHTML(
       "beforeend",
       `
@@ -123,7 +123,7 @@ function addPrudactsToUserBaskets(productID) {
   // statusInUserBasket(productID , useBasket)
   changeProgresStatus();
 
-  const findProductsForBasketUser = prodacts.find(
+  const findProductsForBasketUser = allProducts.find(
     (product) => product.id == productID
   );
 
@@ -259,7 +259,9 @@ const filtredProducts = () => {
     selector.addEventListener("click", (e) => {
       valueSelectorFilter = e.target.innerText;
       console.log(valueSelectorFilter);
-      filterGenereator(prodacts, valueSelectorFilter);
+      filterGenereator(allProducts, valueSelectorFilter);
+      console.log(allProducts);
+      
     })
   );
 };
@@ -277,7 +279,7 @@ const filterGenereator = (array, valueSelectorFilter) => {
       break;
     case "پرفروش":
       {
-        findProductsInfilterSelectedUser = prodacts.filter(
+        findProductsInfilterSelectedUser = allProducts.filter(
           (product) => product.filter_mod == "best-seller"
         );
         titleValueForFilter = "پرفروش";
@@ -286,7 +288,7 @@ const filterGenereator = (array, valueSelectorFilter) => {
       break;
     case "تخفیف خورده":
       {
-        findProductsInfilterSelectedUser = prodacts.filter(
+        findProductsInfilterSelectedUser = allProducts.filter(
           (product) => product.filter_mod == "offer"
         );
         titleValueForFilter = "تخفیف خورده";
@@ -295,7 +297,7 @@ const filterGenereator = (array, valueSelectorFilter) => {
       break;
     case "پر بازدید":
       {
-        findProductsInfilterSelectedUser = prodacts.filter(
+        findProductsInfilterSelectedUser = allProducts.filter(
           (product) => product.filter_mod == "papular"
         );
         titleValueForFilter = "پر بازدید";
@@ -422,7 +424,7 @@ const changeTypeByShowBtnHandler = (showBtnType) => {
   if (showBtnType) {
     wrapperAllProductsFilterd.innerHTML = "";
 
-    prodacts.map((product) => {
+    allProducts.map((product) => {
       wrapperAllProductsFilterd.insertAdjacentHTML(
         "beforeend",
         `
@@ -485,7 +487,7 @@ const changeTypeByShowBtnHandler = (showBtnType) => {
   } else {
     wrapperAllProductsFilterd.innerHTML = "";
     wrapperAllProductsFilterd.classList = "flex flex-col gap-3 mt-5";
-    prodacts.map((product) => {
+    allProducts.map((product) => {
       wrapperAllProductsFilterd.insertAdjacentHTML(
         "beforeend",
         `
