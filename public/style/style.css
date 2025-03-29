@@ -623,6 +623,15 @@ body {
   width: 3.5rem;
 }
 
+.text-red-500-custom{
+  color: rgb(239 68 68 / var(--tw-text-opacity, 1)) /* #ef4444 */;
+}
+
+.text-sky-700-custom{
+  color: rgb(3 105 161 / var(--tw-text-opacity, 1)) /* #0369a1 */;
+}
+
+
 .top-medium-custom{
   top :40%
 }

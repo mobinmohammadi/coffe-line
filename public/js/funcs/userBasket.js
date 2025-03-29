@@ -8,6 +8,8 @@ const wrapperBasketUser = document.querySelector("#wrapper-basket__user");
 const wrapperAllProductsInBasketsPc = document.querySelector(
   "#wrapper-allProducts__inBaskets--pc"
 );
+
+const priceOffers = document.querySelector("#price-offers")
 const allPriceProducts = document.querySelector("#allPrice__products");
 const lengthAddCountOrders = document.querySelectorAll(
   ".length-add__count-orders"
@@ -186,18 +188,47 @@ const deletAllProductsInUserBasket = () => {
 
 let calculatedPricedOffers = 0;
 let notPercentOffer = 0;
+let calculaterValueAllPercentInUserBaskets = 0
+let kom = 0
+let tom = 0
+let priceRelative = 0
+
+const newPriceBeforeThePercents  = 0
 
 const culcoutorPriceProductsFromLocalStorage = (products) => {
   // Claculated By Percent Products
+  products.map(item => (
+
+    priceRelative += item.price
+  ))
   const resultPercentProducts = products.filter((product) => {
     if (product.offer) {
-      calculatedPricedOffers +=
-        product.price - (product.price * product.offer) / 100;
+      calculatedPricedOffers += product.price - (product.price * product.offer) / 100;
+
     } else {
       // Not Claculated By Percent Products
       notPercentOffer += product.price;
-    }
+  }
+
+  const calculatorHowMathPercentUserBasket = () => {
+console.log("priceRelative ==>" , priceRelative);
+console.log(calculatedPricedOffers);
+
+console.log("calculatedPricedOffers ==> ", kom = priceRelative - calculatedPricedOffers);
+// console.log(kom - );
+
+
+
+    console.log(priceRelative - calculatedPricedOffers);
+  }
+    
+  calculatorHowMathPercentUserBasket()
+    
+    
+    
+    
   });
+
 
   let sum = 0;
 
@@ -209,6 +240,8 @@ const culcoutorPriceProductsFromLocalStorage = (products) => {
       sum += item.price;
     }
   });
+  priceOffers.innerHTML  = priceRelative - sum
+   
 
   allPriceProducts.innerHTML = calculatedPricedOffers + notPercentOffer;
 
