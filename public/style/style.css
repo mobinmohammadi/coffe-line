@@ -481,6 +481,10 @@ body {
   top: -500px;
 }
 
+.m-autos{
+  margin: 0 auto;
+}
+
 .btn-style__colorOrders {
   background-color: #16a34a!important;
 }
@@ -613,6 +617,14 @@ body {
 
 .z-999{
   z-index: 999;
+}
+.top-custom-full{
+  transition: all 0.5s ease;
+  bottom: 0;
+}
+
+.mt-custom{
+  margin-top: 40px;
 }
 
 .loader-userBasketPage {

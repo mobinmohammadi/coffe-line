@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" class="hidden" href="./public/style/app.css" />
-    <link rel="stylesheet" href="./public/style/style.css" />
-    <link rel="stylesheet" class="" href="./public/style/reset.css" />
+    <link rel="stylesheet" class="hidden" href="./../style/app.css" />
+    <link rel="stylesheet" href="./../style/style.css" />
+    <link rel="stylesheet" class="" href="./../style/reset.css" />
+    <link rel="icon" href="./../svg/app-logo.png">
     <title>سبد خرید شما</title>
   </head>
   <body class="bg-slate-100">
     <div id="wrapper-sucssus"  class="h-96 dfn bg-white p-5 rounded-b-3xl shadow-buy flex-col items-center flex justify-center fixed z-50 w-full">
-        <img class="w-60" src="public/imgs/verifyBuy.gif " alt="">
+        <img class="w-60" src="./../imgs/verifyBuy.gif " alt="">
         <span class="font-MorabbaBold ">پرداخت شما با <span class="text-green-700">موفقیت</span> انجام شد</span>
         <span class="pt-4 text-xs font-DanaDemiBold text-cyan-700 font-bold"> کافه لاین</span>
     </div>
@@ -567,7 +568,7 @@
             </svg>
             <img
               class="w-[90px] xs:w-24 h-[90px] object-cover xs:h-24 rounded-md mr-4 bg-white"
-              src="./public/products/p2.png"
+              src="./../products/p2.png"
               alt=""
             />
           </div>
@@ -787,7 +788,7 @@
           <div class="menu-line"></div>
         </div>
         <div class="hidden x:block">
-          <img class="" src="./public/svg/svgs/app-logo-type.svg" alt="" />
+          <img class="" src="./..//svg/svgs/app-logo-type.svg" alt="" />
         </div>
         <div class="flex gap-2">
           <div
@@ -840,7 +841,7 @@
                   </svg>
                   <span>ورود به حساب کاربری</span>
                 </a>
-                <a href="public/pages/listed-orders.html">
+                <a href="../pages/listed-orders.html">
                   <svg class="w-5 h-5">
                     <use xlink:href="#credit-card"></use>
                   </svg>
@@ -852,7 +853,7 @@
                   </svg>
                   <span>تیکت به پشتیبانی</span>
                 </a>
-                <a href="./public/pages/paneluser/details-users.html" class="">
+                <a href="./../pages/paneluser/details-users.html" class="">
                   <svg class="w-5 h-5">
                     <use xlink:href="#user-icon"></use>
                   </svg>
@@ -879,8 +880,8 @@
         class="fixed sm:hidden top-0 bg-white dark:text-white dark:bg-zinc-700 w-36 x:w-52 sm:w-80 h-[100vh] pt-3 pr-4 pb-3 pl-4"
       >
         <div class="flex b-b justify-between items-center">
-          <img class="w-8 sm:w-14" src="public/svgs/logo.svg" alt="" />
-          <img class="w-11 sm:w-14" src="public/svgs/logo-type.svg" alt="" />
+          <img class="w-8 sm:w-14" src="./../svgs/logo.svg" alt="" />
+          <img class="w-11 sm:w-14" src="./../svgs/logo-type.svg" alt="" />
           <div
             id="close-menu__mobile"
             class="w-8 sm:w-11 h-8 sm:h-11 flex items-center justify-center cursor-pointer rounded-full dark:bg-zinc-500 bg-slate-100"
@@ -907,7 +908,7 @@
                   <svg class="w-5 h-5">
                     <use xlink:href="#basket-user-icon"></use>
                   </svg>
-                  <a href="./public/pages/allProducts.html">فروشگاه</a>
+                  <a href="./allProducts.html">فروشگاه</a>
                 </div>
                 <div
                   id="submenu-sub"
@@ -1030,10 +1031,10 @@
           class="font-Dana rounded-md  flex gap-3 flex-col "
           >
           <div class="flex items-center justify-center flex-col">
-            <img class="w-52 h-52" src="./public/imgs/empty-userBasket.webp" alt="">
+            <img class="w-52 h-52" src="./../imgs/empty-userBasket.webp" alt="">
             <div class="text-center font-Dana leading-5 max-w-[240px] xs:max-w-[350px] text-xs md:text-sm">
               <span>کاربر گرامی سبد خرید شما خالی مباشد برای انتخاب محصولات روی </span>
-              <a href="./public/pages/allProducts.html" class="text-red-700 font-bold">این متن </a>
+              <a href="./../pages/allProducts.html" class="text-red-700 font-bold">این متن </a>
               <span>کلیک کنید</span>
             </div>
           </div>
@@ -1044,7 +1045,7 @@
 
             <!-- Start Buying Main  -->
 
-            <div class="container-products gap-3 text-sm bg-white child:flex child:justify-between font-DanaDemiBold flex flex-col p-5 items-center justify-center">
+            <div id="wrapper-details__buying" class="container-products hidden  gap-3 text-sm bg-white child:flex child:justify-between font-DanaDemiBold  flex-col p-5 items-center justify-center">
               <div class="w-full">
                 <span>تعداد محصولات</span>
                 <span class="length-add__count-orders">1 عدد</span>
@@ -1078,8 +1079,8 @@
           >
             <div class="flex flex-col min-w-52">
               <div class="flex gap-5 md:gap-2">
-                <img src="./public/svg/app-logo.png" alt="" />
-                <img src="./public/svg/svgs/app-logo-type.svg" alt="" />
+                <img src="./../svg/app-logo.png" alt="" />
+                <img src="./../svg/svgs/app-logo-type.svg" alt="" />
               </div>
               <span class="mt-4 leading-8 max-w-full md:min-w-52">
                 ما برآنیم تا با پیشرو بودن در فرآیند تولید، نوع و کیفیت محصول،
@@ -1174,7 +1175,7 @@
               </svg>
               <img
                 class="w-[90px] xs:w-24 h-[90px] object-cover xs:h-24 rounded-md mr-4 bg-white"
-                src="./public/products/p2.png"
+                src="./../products/p2.png"
                 alt=""
               />
             </div>
@@ -1206,10 +1207,10 @@
     <div id="layer" class="w-full h-full top-0 right-0 bg-black/50"></div>
     <div id="layer-basket"></div>
 
-    <script src="./public/js/tailwind-mod.js" type="module"></script>
-    <script src="./public/js/app.js" type="module"></script>
-    <script src="./public/js/userBasket.js" type="module"></script>
-    <script src="./public/js/index.js" type="module"></script>
+    <script src="./../js/tailwind-mod.js" type="module"></script>
+    <script src="./../js/app.js" type="module"></script>
+    <script src="./../js/userBasket.js" type="module"></script>
+    <script src="./../js/index.js" type="module"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>

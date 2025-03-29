@@ -8,10 +8,13 @@ const wrapperBasketUser = document.querySelector("#wrapper-basket__user");
 const wrapperAllProductsInBasketsPc = document.querySelector(
   "#wrapper-allProducts__inBaskets--pc"
 );
-const allPriceProducts = document.querySelector("#allPrice__products")
-const lengthAddCountOrders = document.querySelectorAll(".length-add__count-orders")
+const allPriceProducts = document.querySelector("#allPrice__products");
+const lengthAddCountOrders = document.querySelectorAll(
+  ".length-add__count-orders"
+);
+const wrapperDetailsBuying = document.querySelector("#wrapper-details__buying")
 
-let countProduct = document.querySelector(".count-product")
+let countProduct = document.getElementsByName("span");
 
 const btnDeleteAllProductsUserBasket = document.querySelector(
   "#btn-delete__allProducts--userBasket"
@@ -19,12 +22,7 @@ const btnDeleteAllProductsUserBasket = document.querySelector(
 const userBasketdataInLocalStorage = getFromLocalStorage("basket");
 
 const handleUserBasketByLocalStorage = () => {
-  console.log(userBasketdataInLocalStorage);
-  if (!userBasketdataInLocalStorage.length) {
-    btnDeleteAllProductsUserBasket.style.display = "none";
-  } else {
-    btnDeleteAllProductsUserBasket.style.display = "block";
-  }
+
   culcoutorPriceProductsFromLocalStorage(userBasketdataInLocalStorage);
 
   wrapperBasketUser.innerHTML = "";
@@ -58,10 +56,13 @@ const handleUserBasketByLocalStorage = () => {
     )
   );
   if (userBasketdataInLocalStorage.length) {
+    wrapperDetailsBuying.style.display = "flex"
+    btnDeleteAllProductsUserBasket.style.display = "block";
+
     wrapperAllProductsInBasketsPc.innerHTML = "";
-    lengthAddCountOrders.forEach(count =>(
-      count.innerHTML = userBasketdataInLocalStorage.length
-    ))
+    lengthAddCountOrders.forEach(
+      (count) => (count.innerHTML = userBasketdataInLocalStorage.length)
+    );
     userBasketdataInLocalStorage.map((item) => {
       wrapperAllProductsInBasketsPc.insertAdjacentHTML(
         "beforeend",
@@ -131,26 +132,23 @@ const handleUserBasketByLocalStorage = () => {
                 </div>
               </div>
               <div
-                class="flex gap-2 mt-2 items-center bg-slate-200 w-32 justify-center rounded-sm pt-2 pb-2 pr-4 pl-4"
+              onclick="deleteOnsProduct('${item.id}')"
+              class="flex cursor-pointer gap-2 mt-2 items-center bg-slate-200 w-32 justify-center rounded-sm pt-2 pb-2 pr-4 pl-4"
               >
-                <svg
-                  onclick="addCountProducts('${item.id}')"
-                  class="w-5 h-5 child:cursor-pointer hover:text-green-600 transition-all"
-                >
-                  <use xlink:href="#plus-circle"></use>
-                </svg>
-                <div class="count-product">${item.count} عدد</div>
-                <svg
-                  class="w-5 h-5 child:cursor-pointer hover:text-red-700 transition-all"
-                >
-                  <use href="#trash"></use>
-                </svg>
+
+
+              <svg
+                class="w-5 h-5 child:cursor-pointer hover:text-red-700 transition-all"
+              >
+                <use href="#trash"></use>
+              </svg>
               </div>
               </div>
       `
       );
     });
   } else {
+    btnDeleteAllProductsUserBasket.style.display = "none";
   }
 };
 
@@ -178,77 +176,98 @@ const culcoutorPriceProductsFromLocalStorage = (products) => {
   let produtsPrices = products.map((item) => (sum += item.price));
 
   console.log(sum);
-  allPriceProducts.innerHTML = sum
-  
-
-
+  allPriceProducts.innerHTML = sum;
 
   //   wrapperTotalPrice.innerHTML = sum;
   //   pricesAllProductsInBasketPc.innerHTML = sum;
 };
 
-let sum = 0
+let sum = 1;
 const addCountProducts = (productID) => {
-  let resultSearchForAddCountProduct = allProducts.filter(prod => prod.id == productID)
-  let result = resultSearchForAddCountProduct.count = sum += 1
-    
-  // countProduct.innerHTML = result
+  let resultSearchForAddCountProduct = allProducts.filter(
+    (prod) => prod.id == productID
+  );
+  sum++;
+  resultSearchForAddCountProduct.count = sum;
+  countProduct;
   console.log(countProduct);
-  
-  
+
+  setTimeout(() => {
+    console.log(resultSearchForAddCountProduct);
+  }, 2000);
+
+  // countProduct.innerHTML = result
+
   // console.log(productID);
-  
-  
-}
+};
 
-//  Sucssus Alarm
+// Start Delete Os Product
 
-const wrapperSucssus = document.querySelector("#wrapper-sucssus")
-const btnBuyingFainal = document.querySelector("#btn-buyingFainal")
-
-btnBuyingFainal.addEventListener("click" , () => {
-  showSwal("آیا شما کد تخفیف دارید؟",
-    "warning",
-    ["خیر","بله دارم"],
+const deleteOnsProduct = (productID) => {
+  const arrayFromLocalStorage = getFromLocalStorage("basket");
+  showSwal(
+    "آیا از حذف این محصول از سید خریدتان مطمعن هستید؟!",
+    "info",
+    ["خیر", "بله"],
     (res) => {
-      if(res){
-        swal({
-          text: 'کد تخفیفتان را وارد نمایید',
-          content: "input",
-          button: {
-            text: "اوکی کن",
-            closeModal: true,
-          },
-        }).then(result => {
-          if(result == "js20"){ 
-            
-            wrapperSucssus.style.top = "0"
-            wrapperSucssus.style.transition = "all 0.5s ease"
-            setTimeout(() => {
-                          wrapperSucssus.style.top = "-400px"
-            wrapperSucssus.style.transition = "all 0.5s ease"
-            }, 2000);
-          }
-          else{
-            showSwal(" کد تخفیف نامعتبر است با مهلت استفاده آن به سر رسید است"  , "error" , "باشه" , () => {})
-          }
-        }
-          
-        )
+      if (res) {
+        const newResultForArrayLocalStorageThenDelete =
+        arrayFromLocalStorage.filter((product) => product.id != productID);
+        console.log(newResultForArrayLocalStorageThenDelete);
+        saveInToLocalStorege("basket" , newResultForArrayLocalStorageThenDelete)
+        location.reload()
       }
     }
+  );
+};
+window.deleteOnsProduct = deleteOnsProduct;
 
-  )
-})
+// Finish Delete Os Product
 
+// Start Sucssus Alarm
 
+const wrapperSucssus = document.querySelector("#wrapper-sucssus");
+const btnBuyingFainal = document.querySelector("#btn-buyingFainal");
 
-// 
+btnBuyingFainal.addEventListener("click", () => {
+  showSwal("آیا شما کد تخفیف دارید؟", "warning", ["خیر", "بله دارم"], (res) => {
+    if (res) {
+      swal({
+        text: "کد تخفیفتان را وارد نمایید",
+        content: "input",
+        button: {
+          text: "اوکی کن",
+          closeModal: true,
+        },
+      }).then((result) => {
+        if (result == "js20") {
+          wrapperSucssus.style.top = "0";
+          wrapperSucssus.style.transition = "all 0.5s ease";
+          setTimeout(() => {
+            wrapperSucssus.style.top = "-400px";
+            wrapperSucssus.style.transition = "all 0.5s ease";
+          }, 2000);
+          saveInToLocalStorege("basket" , [])
+          setTimeout(() => {
+            location.reload()
+          }, 2500);
+        } else {
+          showSwal(
+            " کد تخفیف نامعتبر است با مهلت استفاده آن به سر رسید است",
+            "error",
+            "باشه",
+            () => {}
+          );
+        }
+      });
+    }
+  });
+});
 
+// Finish Sucssus Alarm
 
-
-
-
-window.addCountProducts = addCountProducts
-
-export { handleUserBasketByLocalStorage, deletAllProductsInUserBasket };
+export {
+  handleUserBasketByLocalStorage,
+  deletAllProductsInUserBasket,
+  addCountProducts,
+};

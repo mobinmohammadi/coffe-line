@@ -1,6 +1,7 @@
 let allProducts = [
   {
     id: 1,
+    count : 2,
     title: "قهوه برزیلی بن مانو مقدار 800 گرم خط دوم اسم ...",
     shopingCart: "#shopping-cart",
     "status-type": "all",
@@ -61,11 +62,12 @@ let allProducts = [
         role: "USER",
       },
     ],
-    count : 1
   },
 
   {
     id: 2,
+    count : 2,
+
     title: "قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...",
     shopingCart: "#shopping-cart", "status-type": "best-selling-prudacts",
     filter_mod: "best-seller",
@@ -86,11 +88,11 @@ let allProducts = [
         role: "USER",
       },
     ],
-    count : 1
   },
   {
     id: 3,
-    title: "قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...",
+    count : 3,
+    title: "قهوه ایرانی بن مانو مقدار 250 گرم خط دوم اسم ...",
     shopingCart: "#shopping-cart",
     "status-type": "prudacts-offer",
     filter_mod: "papular",
@@ -103,11 +105,11 @@ let allProducts = [
     seller: "مجموعه کافه لاین",
     status: "Available",
     comment: [],
-    count : 1
   },
   {
     id: 4,
-    title: "قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...",
+    count : 3,
+    title: "قهوه ایسلندی بن مانو مقدار 250 گرم خط دوم اسم ...",
     shopingCart: "#shopping-cart",
     filter_mod: "papular",
     "statusype": "cafe",
@@ -119,11 +121,10 @@ let allProducts = [
     price: 98500,
     img: "../../public/products/p4.png",
     comment: [],
-    count : 1
   },
   {
     id: 5,
-    title: "قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...",
+    title: "قهوه فرانسوی بن مانو مقدار 250 گرم خط دوم اسم ...",
     shopingCart: "#shopping-cart",
     filter_mod: "offer",
     "status-type": "cafe",
@@ -140,7 +141,7 @@ let allProducts = [
   },
   {
     id: 6,
-    title: "قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...",
+    title: "قهوه برزیلی بن مانو مقدار 250 گرم خط دوم اسم ...",
     shopingCart: "#shopping-cart",
     filter_mod: "offer",
     "status-type": "cafe",
@@ -156,7 +157,7 @@ let allProducts = [
   },
   {
     id: 7,
-    title: "قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...",
+    title: "قهوه نیجریه بن مانو مقدار 250 گرم خط دوم اسم ...",
     shopingCart: "#shopping-cart",
     "status-type": "cafe",
     filter_mod: "offer",
@@ -172,7 +173,7 @@ let allProducts = [
   },
   {
     id: 8,
-    title: "قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...",
+    title: "قهوه پاکستانی بن مانو مقدار 250 گرم خط دوم اسم ...",
     shopingCart: "#shopping-cart",
     filter_mod: "offer",
     "status-type": "cafe",
@@ -303,19 +304,19 @@ let allProducts = [
 //     {id : 5 , title : "کپسول قهوه" , href : "/tabletCoffe"},]
 
 const menus = [
-  { id: "1", title: "فروشگاه ", href: "./public/pages/allProducts.html" },
+  { id: "1", title: "فروشگاه ", href: "./allProducts.html" },
   {
     id: "2",
     title: "لوازم جانبی ",
-    href: "/accessories",
+    href: "./public/pages/page-Not__Found.html",
     submenus: [
       { id: "1", title: "دسته قهوه ساز" },
       { id: "2", title: "قهوه ساز صنعتی" },
     ],
   },
-  { id: "3", title: "دستگاه اسپرسو ساز", href: "/espressomakers" },
-  { id: "4", title: "بلاگ ", href: "/blog" },
-  { id: "5", title: "درباره ما ", href: "/about" },
+  { id: "3", title: "دستگاه اسپرسو ساز", href: "./public/pages/page-Not__Found.html" },
+  { id: "4", title: "بلاگ ", href: "./public/pages/page-Not__Found.html" },
+  { id: "5", title: "درباره ما ", href: "./public/pages/page-Not__Found.html" },
 ];
 
 export { menus , allProducts};
