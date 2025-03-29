@@ -12,7 +12,7 @@ const allPriceProducts = document.querySelector("#allPrice__products");
 const lengthAddCountOrders = document.querySelectorAll(
   ".length-add__count-orders"
 );
-const wrapperDetailsBuying = document.querySelector("#wrapper-details__buying")
+const wrapperDetailsBuying = document.querySelector("#wrapper-details__buying");
 
 let countProduct = document.getElementsByName("span");
 
@@ -22,7 +22,6 @@ const btnDeleteAllProductsUserBasket = document.querySelector(
 const userBasketdataInLocalStorage = getFromLocalStorage("basket");
 
 const handleUserBasketByLocalStorage = () => {
-
   culcoutorPriceProductsFromLocalStorage(userBasketdataInLocalStorage);
 
   wrapperBasketUser.innerHTML = "";
@@ -43,7 +42,13 @@ const handleUserBasketByLocalStorage = () => {
                                       <div class="flex text-x flex-col">
                                       ${
                                         item.offer
-                                          ? `<span class="leading-4 text-green-500">14.500 تومان تخفیف</span>`
+                                          ? `
+                                        <div class="relative ">
+                                        <span class="absolute w-3rem top-medium-custom h-1-custom bg-red-400"></span>
+                                        <span class="text-slate-300">${item.price}</span>
+                                        <span>تومان</span>
+                                        </div>
+                                        `
                                           : ""
                                       }
                                           <span class="leading-4 ">${
@@ -56,7 +61,7 @@ const handleUserBasketByLocalStorage = () => {
     )
   );
   if (userBasketdataInLocalStorage.length) {
-    wrapperDetailsBuying.style.display = "flex"
+    wrapperDetailsBuying.style.display = "flex";
     btnDeleteAllProductsUserBasket.style.display = "block";
 
     wrapperAllProductsInBasketsPc.innerHTML = "";
@@ -111,8 +116,11 @@ const handleUserBasketByLocalStorage = () => {
                       ${
                         item.offer
                           ? `
+                        <div class="relative">
+                        <span class="absolute top-medium-custom w-full h-1-custom bg-red-400"></span>
                         <span class="text-slate-300">${item.price}</span>
                         <span>تومان</span>
+                        </div>
                         `
                           : ""
                       }
@@ -168,15 +176,41 @@ const deletAllProductsInUserBasket = () => {
   });
 };
 
+// const showWichOnsProductsForOffs = () => {
+//   userBasketdataInLocalStorage.filter((item) => {
+//     if (item.offer) {
+//       console.log(item);
+//     }
+//   });
+// };
+
+let calculatedPricedOffers = 0;
+let notPercentOffer = 0;
+
 const culcoutorPriceProductsFromLocalStorage = (products) => {
-  console.log(Object.entries(products));
+  // Claculated By Percent Products
+  const resultPercentProducts = products.filter((product) => {
+    if (product.offer) {
+      calculatedPricedOffers +=
+        product.price - (product.price * product.offer) / 100;
+    } else {
+      // Not Claculated By Percent Products
+      notPercentOffer += product.price;
+    }
+  });
 
   let sum = 0;
 
-  let produtsPrices = products.map((item) => (sum += item.price));
+  products.map((item) => {
+    if (item.offer) {
+      const calculatorOfferPrice = item.price - (item.price * item.offer) / 100;
+      sum += calculatorOfferPrice;
+    } else {
+      sum += item.price;
+    }
+  });
 
-  console.log(sum);
-  allPriceProducts.innerHTML = sum;
+  allPriceProducts.innerHTML = calculatedPricedOffers + notPercentOffer;
 
   //   wrapperTotalPrice.innerHTML = sum;
   //   pricesAllProductsInBasketPc.innerHTML = sum;
@@ -212,10 +246,10 @@ const deleteOnsProduct = (productID) => {
     (res) => {
       if (res) {
         const newResultForArrayLocalStorageThenDelete =
-        arrayFromLocalStorage.filter((product) => product.id != productID);
+          arrayFromLocalStorage.filter((product) => product.id != productID);
         console.log(newResultForArrayLocalStorageThenDelete);
-        saveInToLocalStorege("basket" , newResultForArrayLocalStorageThenDelete)
-        location.reload()
+        saveInToLocalStorege("basket", newResultForArrayLocalStorageThenDelete);
+        location.reload();
       }
     }
   );
@@ -247,9 +281,9 @@ btnBuyingFainal.addEventListener("click", () => {
             wrapperSucssus.style.top = "-400px";
             wrapperSucssus.style.transition = "all 0.5s ease";
           }, 2000);
-          saveInToLocalStorege("basket" , [])
+          saveInToLocalStorege("basket", []);
           setTimeout(() => {
-            location.reload()
+            location.reload();
           }, 2500);
         } else {
           showSwal(
