@@ -619,12 +619,16 @@ body {
   z-index: 999;
 }
 .top-custom-full{
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
   bottom: 0;
 }
 
 .mt-custom{
   margin-top: 40px;
+}
+
+.bottom__full-custom{
+  bottom: 100%;
 }
 
 .loader-userBasketPage {
