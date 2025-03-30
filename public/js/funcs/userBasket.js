@@ -211,15 +211,10 @@ const culcoutorPriceProductsFromLocalStorage = (products) => {
   }
 
   const calculatorHowMathPercentUserBasket = () => {
-console.log("priceRelative ==>" , priceRelative);
-console.log(calculatedPricedOffers);
-
-console.log("calculatedPricedOffers ==> ", kom = priceRelative - calculatedPricedOffers);
-// console.log(kom - );
 
 
 
-    console.log(priceRelative - calculatedPricedOffers);
+
   }
     
   calculatorHowMathPercentUserBasket()
