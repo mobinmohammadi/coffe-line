@@ -619,8 +619,46 @@ body {
   height: 2px;
 }
 
+.wrapper-menrUserBasket{
+  width: 100%;
+  height: 100%;
+  background-color: #3f3f46;
+  position: absolute;
+  top: 100%;
+  right: 0;  
+}
+
+.loader_basketMenu {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid #f2efef;
+  z-index: 89;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+
 .w-3rem{
   width: 3.5rem;
+}
+
+.max-w-12rem{
+  max-width: 10rem;
+}
+
+.max-w-14rem{
+  max-width: 14rem;
 }
 
 .text-red-500-custom{
@@ -629,6 +667,11 @@ body {
 
 .text-sky-700-custom{
   color: rgb(3 105 161 / var(--tw-text-opacity, 1)) /* #0369a1 */;
+}
+
+.text-zinc-700-custom{
+  color: rgb(63 63 70 / var(--tw-text-opacity, 1)) /* #3f3f46 */;
+
 }
 
 

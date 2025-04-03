@@ -1,12 +1,22 @@
 import { allProducts } from "../Data.js";
-import { getFromLocalStorage, saveInToLocalStorege } from "../utils/utils.js";
+import {
+  getFromLocalStorage,
+  saveInToLocalStorege,
+  showSwal,
+} from "../utils/utils.js";
 const wrapperSucssusAlarm = document.querySelector("#wrapper-sucssus__alarm");
 const progresAddProductBasket = document.querySelector(
   ".progres-addProduct__basket"
 );
+const wrapperMenrUserBasket = document.querySelector(".wrapper-menrUserBasket");
+
+let bodyCategury = document.querySelector(".body-categury");
+
 const countProductsInBaskets = document.querySelector(
   "#count-products__in--baskets"
 );
+const selectorTypeFilter = document.querySelectorAll("#selector-type__filter");
+
 const wrapperAllProductsInBasketsPc = document.querySelector(
   ".wrapper-allProducts__inBaskets--pc"
 );
@@ -62,7 +72,7 @@ let mainPrudacts = () => {
             </div>
             <a href="ons-page.html?name=${
               prudacts.id
-            }" class="text-xs leading-3 min-w-[9rem]">قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...</a>
+            }" class="text-xs leading-3 min-w-[9rem]">${prudacts.title}</a>
             <div>
                 <span class="text-base MorabbaBold text-emerald-500">${
                   prudacts.price
@@ -113,140 +123,223 @@ let mainPrudacts = () => {
   });
 };
 
-// let prodactSection = () => {
-//   let nameCategury = document.querySelector(".name-categury");
-//   let bodyCategury = document.querySelector(".body-categury");
-//   let bodyCateguryChildren = document.querySelector(".body-categury").children;
+let prodactSection = () => {
+  selectorTypeFilter.forEach((selector) => {
+    selector.addEventListener("click", (e) => {
+      selectorTypeFilter.forEach((typeSelector) => {
+        typeSelector.classList.remove("active-categury");
+        e.target.classList.add("active-categury");
+      });
+      filterProductsInHomePageHandler(e.target.dataset.type);
+    });
+  });
 
-//   let nameFilter = [
-//     { id: 1, title: "محصولات پر فروش", "data-type": "best-selling-prudacts" },
-//     { id: 2, title: "محصولات تخفیف خورده", "data-type": "prudacts-offer" },
-//     { id: 3, title: "قهوه ها", "data-type": "cafe" },
-//   ];
-//   let prodacts = [
-//     {
-//       id: 1,
-//       title: "قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...",
-//       "status-type": "all",
-//       price: 129000,
-//       img: "../../public/products/p1.png",
-//     },
-//     {
-//       id: 2,
-//       title: "قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...",
-//       "status-type": "best-selling-prudacts",
-//       price: 265000,
-//       img: "../../public/products/p2.png",
-//     },
-//     {
-//       id: 3,
-//       title: "قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...",
-//       "status-type": "prudacts-offer",
-//       price: 638000,
-//       img: "../../public/products/p3.png",
-//     },
-//     {
-//       id: 4,
-//       title: "قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...",
-//       "status-type": "cafe",
-//       price: 98500,
-//       img: "../../public/products/p4.png",
-//     },
-//     {
-//       id: 5,
-//       title: "قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...",
-//       "status-type": "cafe",
-//       price: 68520,
-//       img: "../../public/products/p5.png",
-//     },
-//   ];
+  let categuryItemName = document.querySelectorAll(".categury-item__name");
 
-//   nameFilter.forEach((categuryName) => {
-//     nameCategury.insertAdjacentHTML(
-//       "beforeend",
-//       `
-//             <li class="categury-item__name text-sm x:text-[16px]" data-type=${categuryName["data-type"]} >${categuryName.title}</li>
-//             `
-//     );
-//   });
+  let activeCategury = document.querySelector(".active-categury");
 
-//   let categuryItemName = document.querySelectorAll(".categury-item__name");
+  // categuryItemName.forEach((link) => {
+  //   link.addEventListener("click", (e) => {
+  //     for (let i = 0; i < categuryItemName.length; i++) {
+  //       categuryItemName[i].classList.remove("active-categury");
+  //     }
+  //     e.target.classList.add("active-categury");
 
-//   let activeCategury = document.querySelector(".active-categury");
+  //     let dataType = e.target.getAttribute("data-type");
+  //     console.log(dataType);
 
-//   categuryItemName.forEach((link) => {
-//     link.addEventListener("click", (e) => {
-//       for (let i = 0; i < categuryItemName.length; i++) {
-//         categuryItemName[i].classList.remove("active-categury");
-//       }
-//       e.target.classList.add("active-categury");
+  //     for (let x = 0; x < bodyCateguryChildren.length; x++) {
+  //       bodyCateguryChildren[x].style.display = "none";
+  //       console.log(bodyCateguryChildren[x].getAttribute("status-type"));
 
-//       let dataType = e.target.getAttribute("data-type");
-//       console.log(dataType);
+  //       if (
+  //         bodyCateguryChildren[x].getAttribute("status-type") == dataType ||
+  //         dataType == "all"
+  //       ) {
+  //         bodyCateguryChildren[x].style.display = "block";
+  //       }
+  //     }
+  //   });
+  // });
 
-//       for (let x = 0; x < bodyCateguryChildren.length; x++) {
-//         bodyCateguryChildren[x].style.display = "none";
-//         console.log(bodyCateguryChildren[x].getAttribute("status-type"));
+  allProducts.forEach((prudacts) => {
+    bodyCategury.insertAdjacentHTML(
+      "beforeend",
 
-//         if (
-//           bodyCateguryChildren[x].getAttribute("status-type") == dataType ||
-//           dataType == "all"
-//         ) {
-//           bodyCateguryChildren[x].style.display = "block";
-//         }
-//       }
-//     });
-//   });
+      `
+            <div class="bg-white relative rounded-2xl overflow-hidden justify-center dark:bg-zinc-700 p-2 text-zinc-700 dark:text-white flex flex-col gap-2">
+            <div class="show-result__save"></div>
+            <div class="w-full flex items-center justify-center ">
+                <img class="w-32 h-32" src="${prudacts.img}" alt="">
+            </div>
+            <a href="ons-page.html?name=${
+              prudacts.id
+            }" class="text-xs leading-3 min-w-[9rem]">${prudacts.title}</a>
+            <div>
+                <span class="text-base MorabbaBold text-emerald-500">${
+                  prudacts.price
+                } تومان</span>
+                ${
+                  prudacts.offer === null
+                    ? ""
+                    : `<span class="text-xs last-price">${
+                        (prudacts.price * 30) / 100
+                      }</span>`
+                }
+            </div>
+            <div class="flex justify-between">
+                <div class="btn-index flex gap-1 ">
+                  <span class="wrapper-btn-shop" onclick="addPrudactsToUserBaskets(${
+                    prudacts.id
+                  })">
+                        <svg class="icon-basket w-4 h-4 x:w-5 x:h-5 cursor-pointer">
+                            <use xlink:href="#shopping-cart"></use>
+                        </svg>
+                    </span>
+                    <svg id="save-icon" class="w-4 h-4 x:w-5 x:h-5 cursor-pointer">
+                        <use xlink:href="#save"></use>
+                    </svg>
 
-//   allProducts.forEach((prudacts) => {
-//     bodyCategury.insertAdjacentHTML(
-//       "beforeend",
-//       `
-//                     <div ${"status-type =" + prudacts["status-type"]}>
-//                      <div class="bg-white relative rounded-2xl overflow-hidden justify-center dark:bg-zinc-700 p-2 text-zinc-700 dark:text-white flex flex-col gap-2">
-//             <div class="show-result__save"></div>
-//             <div class="w-full flex items-center justify-center ">
-//                 <img class="w-32 h-32" src="${prudacts.img}" alt="">
-//             </div>
-//             <a href="#" class="text-xs leading-3 min-w-[9rem]">قهوه ترک بن مانو مقدار 250 گرم خط دوم اسم ...</a>
-//             <div>
-//                 <span class="text-base text-emerald-500">154,000 تومان</span>
-//                 <span class="text-xs last-price">175,000</span>
-//             </div>
-//             <div class="flex justify-between">
-//                 <div class="flex gap-1 ">
-//                     <svg class="w-4 h-4 x:w-5 x:h-5 cursor-pointer">
-//                         <use xlink:href="#shopping-cart"></use>
-//                     </svg>
-//                     <svg id="save-icon" class="w-4 h-4 x:w-5 x:h-5 cursor-pointer">
-//                         <use xlink:href="#save"></use>
-//                     </svg>
+                </div>
+                <div class="flex">
+                    <svg class="w-4 h-4">
+                        <use xlink:href="#star-fill"></use>
+                    </svg>
+                    <svg class="w-4 h-4">
+                        <use xlink:href="#star-fill"></use>
+                    </svg>
+                    <svg class="w-4 h-4">
+                        <use xlink:href="#star-fill"></use>
+                    </svg>
+                    <svg class="w-4 h-4">
+                        <use xlink:href="#star-fill"></use>
+                    </svg>
+                    <svg class="w-4 h-4">
+                        <use xlink:href="#star-fill"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        `
+    );
+  });
+};
 
-//                 </div>
-//                 <div class="flex">
-//                     <svg class="w-4 h-4">
-//                         <use xlink:href="#star-fill"></use>
-//                     </svg>
-//                     <svg class="w-4 h-4">
-//                         <use xlink:href="#star-fill"></use>
-//                     </svg>
-//                     <svg class="w-4 h-4">
-//                         <use xlink:href="#star-fill"></use>
-//                     </svg>
-//                     <svg class="w-4 h-4">
-//                         <use xlink:href="#star-fill"></use>
-//                     </svg>
-//                     <svg class="w-4 h-4">
-//                         <use xlink:href="#star-fill"></use>
-//                     </svg>
-//                 </div>
-//             </div>
-//         </div>
-//                     </div>
-//                 `
-//     );
-//   });
-// };
+const filtredProducts = [];
+
+const filterProductsInHomePageHandler = (namefilter) => {
+  let arrayFilterdTheAfterFindedt = [];
+  console.log(namefilter);
+  switch (namefilter) {
+    case "all":
+      {
+        arrayFilterdTheAfterFindedt = [...allProducts];
+      }
+      break;
+    case "best-seller":
+      {
+        arrayFilterdTheAfterFindedt = [...allProducts].filter(
+          (products) => products.filter_mod == "best-seller"
+        );
+      }
+      break;
+    case "prudacts-offer":
+      {
+        arrayFilterdTheAfterFindedt = [...allProducts].filter(
+          (products) => products.filter_mod == "prudacts-offer"
+        );
+      }
+      break;
+
+    case "papular":
+      {
+        arrayFilterdTheAfterFindedt = [...allProducts].filter(
+          (products) => products.filter_mod == "papular"
+        );
+      }
+      break;
+
+    case "offer":
+      {
+        arrayFilterdTheAfterFindedt = [...allProducts].filter(
+          (products) => products.filter_mod == "offer"
+        );
+      }
+      break;
+  }
+
+  genretorTheHtmlCodeAfterTheFiltred(arrayFilterdTheAfterFindedt);
+};
+
+const genretorTheHtmlCodeAfterTheFiltred = (arrayFilterdTheAfterFindedt) => {
+  bodyCategury.innerHTML = "";
+  console.log(arrayFilterdTheAfterFindedt);
+  arrayFilterdTheAfterFindedt.map((product) =>
+    bodyCategury.insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="bg-white relative rounded-2xl overflow-hidden justify-center dark:bg-zinc-700 p-2 text-zinc-700 dark:text-white flex flex-col gap-2">
+            <div class="show-result__save"></div>
+            <div class="w-full flex items-center justify-center ">
+                <img class="w-32 h-32" src="${product.img}" alt="">
+            </div>
+            <a href="ons-page.html?name=${
+              product.id
+            }" class="text-xs leading-3 min-w-[9rem]">${product.title}</a>
+            <div>
+                ${
+                  product.offer
+                    ? `
+                       <div class="flex flex-col gap-2 ">
+                       <div class="leading-4 dark:text-white text-zinc-700 relative">
+                         <span class=" absolute w-full  border-offer__custom bg-red-700 "></span>
+                         <span class="text-x">${product.price} تومان</span>
+                       </div>
+                         <span class="text-xs">${
+                           product.price - (product.price * product.offer) / 100
+                         } تومان</span>
+                       </div>
+                       `
+                    : `<span class="leading-4 dark:text-white text-zinc-700  ">${product.price} تومان</span>`
+                }
+            </div>
+            <div class="flex justify-between">
+                <div class="btn-index flex gap-1 ">
+                  <span class="wrapper-btn-shop" onclick="addPrudactsToUserBaskets(${
+                    product.id
+                  })">
+                        <svg class="icon-basket w-4 h-4 x:w-5 x:h-5 cursor-pointer">
+                            <use xlink:href="#shopping-cart"></use>
+                        </svg>
+                    </span>
+                    <svg id="save-icon" class="w-4 h-4 x:w-5 x:h-5 cursor-pointer">
+                        <use xlink:href="#save"></use>
+                    </svg>
+
+                </div>
+                <div class="flex">
+                    <svg class="w-4 h-4">
+                        <use xlink:href="#star-fill"></use>
+                    </svg>
+                    <svg class="w-4 h-4">
+                        <use xlink:href="#star-fill"></use>
+                    </svg>
+                    <svg class="w-4 h-4">
+                        <use xlink:href="#star-fill"></use>
+                    </svg>
+                    <svg class="w-4 h-4">
+                        <use xlink:href="#star-fill"></use>
+                    </svg>
+                    <svg class="w-4 h-4">
+                        <use xlink:href="#star-fill"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+      `
+    )
+  );
+};
 
 const useBasket = [];
 
@@ -271,39 +364,49 @@ const ganeratorUserBasket = (arryUserBasket) => {
   } else {
     mainProdactsBaskets.classList.remove("active-style__mainProducts");
   }
-
-  console.log(arryUserBasket);
   wrapperBasketUser.innerHTML = "";
   arryUserBasket.map((item) =>
     wrapperBasketUser.insertAdjacentHTML(
       "beforeend",
       `
-            <div class="flex pt-5 border-b-2 border-solid border-zinc-500 ">
-                            <div class="img flex">
-                                <img class="w-24 h-[80px] object-cover " src="${
-                                  item.img
-                                }" alt=""> 
-                            </div>
-                            <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[140px]">
-                                <span class="leading-6 text-x min-w-full">${
-                                  item.title
-                                }</span>
-                                <div class="flex text-x flex-col">
-                                ${
-                                  item.offer
-                                    ? `<span class="leading-4 text-green-500">14.500 تومان تخفیف</span>`
-                                    : ""
-                                }
-                                    <span class="leading-4 ">${
-                                      item.price
-                                    }</span>
-                                </div>
-                            </div>
-                        </div>
-            `
+                  <div class="flex pt-5 border-b-2 pb-2 border-solid border-slate-200">
+                                  <div class="img flex">
+                                      <img class="w-24 h-[80px] object-cover " src="${
+                                        item.img
+                                      }" alt=""> 
+                                  </div>
+                                  <div class="flex flex-col justify-between  max-h-[5rem]  min-w-[100px] x:min-w-[100px]">
+                                      <span class="leading-6 text-x max-w-12rem">${
+                                        item.title
+                                      }</span>
+                                      <div class="flex text-x flex-col">
+                                       ${
+                                         item.offer
+                                           ? `
+                                          <div class="flex flex-col gap-2 ">
+                                          <div class="leading-4 text-xs dark:text-white text-zinc-700 relative">
+                                            <span class=" absolute text-xs text w-full border-offer__custom bg-red-700 "></span>
+                                            <span>${item.price} تومان</span>
+                                          </div>
+                                            <span class="">${
+                                              item.price -
+                                              (item.price * item.offer) / 100
+                                            } تومان</span>
+                                          </div>
+                                             `
+                                           : `<span class="leading-4 dark:text-white text-zinc-700  ">${item.price} تومان</span>`
+                                       }
+                                       <svg onclick="deleteOnsProduct(${
+                                         item.id
+                                       })" class="w-5 h-5 mt-3 cursor-pointer">
+                                            <use href="#trash"></use>
+                                       </svg>
+                                          
+                                  </div>
+                              </div>
+                  `
     )
   );
-
   if (arryUserBasket.length > 1) {
     wrapperAllProductsInBasketsPc.classList += " active-style__mainProducts ";
   } else {
@@ -329,14 +432,36 @@ const ganeratorUserBasket = (arryUserBasket) => {
 
              <div class="flex pt-5 pb-5  border-b-2 border-solid dark:border-white border-zinc-500 ">
                                   <div class="img flex">
-                                      <img class="w-24 h-[80px] object-cover " src="${product.img}" alt=""> 
+                                      <img class="w-24 h-[80px] object-cover " src="${
+                                        product.img
+                                      }" alt=""> 
                                   </div>
-                                  <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[100px]">
-                                      <span class="leading-6 dark:text-white text-zinc-700 text-x min-w-full">${product.title}</span>
+                                  <div class="flex flex-col justify-between max-h-[5.7rem] min-w-[100px] x:min-w-[100px]">
+                                      <span class="leading-6 dark:text-white text-zinc-700 text-x min-w-full">${
+                                        product.title
+                                      }</span>
                                       <div class="flex text-x flex-col">
                                       
-                                          <span class="leading-4 dark:text-white text-zinc-700  ">129000</span>
-                                      </div>
+ ${
+   product.offer
+     ? `
+                                          <div class="flex flex-col gap-2 ">
+                                          <div class="leading-4 text-xs dark:text-white text-zinc-700 relative">
+                                            <span class=" absolute text-xs text w-full border-offer__custom bg-red-700 "></span>
+                                            <span class="text-x">${
+                                              product.price
+                                            } تومان</span>
+                                          </div>
+                                            <span class="text-xs text-zinc-700-custom">${
+                                              product.price -
+                                              (product.price * product.offer) /
+                                                100
+                                            } تومان</span>
+                                          </div>
+                                             `
+     : `<span class="leading-4 text-xs dark:text-white text-zinc-700  ">${product.price} تومان</span>`
+ }
+                                                                                </div>
                                   </div>
                               </div>
               `
@@ -348,13 +473,26 @@ const ganeratorUserBasket = (arryUserBasket) => {
 };
 
 const handleUserBasketByLocalStorage = () => {
-  
-  console.log(userBasketdataInLocalStorage);
-  countProductsInBaskets.innerHTML = userBasketdataInLocalStorage.length + " مورد"
+  if (userBasketdataInLocalStorage.length > 2) {
+    wrapperAllProductsInBasketsPc.classList += " active-style__mainProducts ";
+  } else {
+    wrapperAllProductsInBasketsPc.classList.remove(
+      "active-style__mainProducts"
+    );
+  }
+
+  if (userBasketdataInLocalStorage.length > 2) {
+    mainProdactsBaskets.classList += " active-style__mainProducts ";
+  } else {
+    mainProdactsBaskets.classList.remove("active-style__mainProducts");
+  }
+
+  countProductsInBaskets.innerHTML =
+    userBasketdataInLocalStorage.length + " مورد";
   btnOrdersPc.innerHTML = `
   <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white p-3">ثبت سفارش
                               </span>
-  `
+  `;
   culcoutorPriceProductsFromLocalStorage(userBasketdataInLocalStorage);
 
   wrapperBasketUser.innerHTML = "";
@@ -362,26 +500,39 @@ const handleUserBasketByLocalStorage = () => {
     wrapperBasketUser.insertAdjacentHTML(
       "beforeend",
       `
-                  <div class="flex pt-5 border-b-4 border-solid border-zinc-500">
+                  <div class="flex pt-5 border-b-2 pb-2 border-solid border-slate-200">
                                   <div class="img flex">
                                       <img class="w-24 h-[80px] object-cover " src="${
                                         item.img
                                       }" alt=""> 
                                   </div>
-                                  <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[100px]">
-                                      <span class="leading-6 text-x min-w-full">${
+                                  <div class="flex flex-col justify-between  max-h-[5rem]  min-w-[100px] x:min-w-[100px]">
+                                      <span class="leading-6 text-x max-w-12rem">${
                                         item.title
                                       }</span>
                                       <div class="flex text-x flex-col">
-                                      ${
-                                        item.offer
-                                          ? `<span class="leading-4 text-green-500">14.500 تومان تخفیف</span>`
-                                          : ""
-                                      }
-                                          <span class="leading-4 ">${
-                                            item.price
-                                          }</span>
-                                      </div>
+                                       ${
+                                         item.offer
+                                           ? `
+                                          <div class="flex flex-col gap-2 ">
+                                          <div class="leading-4 text-xs dark:text-white text-zinc-700 relative">
+                                            <span class=" absolute text-xs text w-full border-offer__custom bg-red-700 "></span>
+                                            <span>${item.price} تومان</span>
+                                          </div>
+                                            <span class="">${
+                                              item.price -
+                                              (item.price * item.offer) / 100
+                                            } تومان</span>
+                                          </div>
+                                             `
+                                           : `<span class="leading-4 dark:text-white text-zinc-700  ">${item.price} تومان</span>`
+                                       }
+
+                                        <svg onclick="deleteOnsProduct(${
+                                          item.id
+                                        })" class="w-5 h-5 mt-3 cursor-pointer">
+                                            <use href="#trash"></use>
+                                       </svg>
                                   </div>
                               </div>
                   `
@@ -398,60 +549,174 @@ const handleUserBasketByLocalStorage = () => {
                                         item.img
                                       }" alt=""> 
                                   </div>
-                                  <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[100px]">
+                                  <div class="flex flex-col justify-between max-h-[5rem]  min-w-[100px] x:min-w-[100px]">
                                       <span class="leading-6 dark:text-white text-zinc-700 text-x min-w-full">${
                                         item.title
                                       }</span>
                                       <div class="flex text-x flex-col">
-                                      ${
-                                        item.offer
-                                          ? `<span class="leading-4 text-green-500">14.500 تومان تخفیف</span>`
-                                          : ""
-                                      }
-                                          <span class="leading-4 dark:text-white text-zinc-700  ">${
-                                            item.price
-                                          }</span>
+                                        ${
+                                          item.offer
+                                            ? `
+                                          <div class="flex flex-col gap-2 ">
+                                          <div class="leading-4 text-xs dark:text-white text-zinc-700 relative">
+                                            <span class=" absolute text-xs text w-full border-offer__custom bg-red-700 "></span>
+                                            <span>${item.price} تومان</span>
+                                          </div>
+                                            <span class="text-zinc-700 font-bold">${
+                                              item.price -
+                                              (item.price * item.offer) / 100
+                                            } تومان</span>
+                                          </div>
+                                             `
+                                            : `<span class="leading-4 dark:text-white text-zinc-700 font-bold ">${item.price} تومان</span>`
+                                        }
+                                          
+                                          
                                       </div>
                                   </div>
                               </div>
                   `
     );
-
   });
-
-
 };
 
+const createdBeforDeleteOnsProducts = (newArrayBefforeDeleteOnsProduct) => {
+  console.log(newArrayBefforeDeleteOnsProduct);
+  
+  mainProdactsBaskets.innerHTML = ""
+  
+  newArrayBefforeDeleteOnsProduct.map(item => {
+    console.log("item ==> " , item);
+    
+    wrapperBasketUser.insertAdjacentHTML("beforeend" , `
+      <div class="flex pt-5 border-b-2 pb-2 border-solid border-slate-200">
+                                  <div class="img flex">
+                                      <img class="w-24 h-[80px] object-cover " src="../../public/products/p1.png" alt=""> 
+                                  </div>
+                                  <div class="flex flex-col justify-between  max-h-[5rem]  min-w-[100px] x:min-w-[100px]">
+                                      <span class="leading-6 text-x max-w-12rem">قهوه برزیلی بن مانو مقدار 800 گرم خط دوم اسم ...</span>
+                                      <div class="flex text-x flex-col">
+                                       <span class="leading-4 dark:text-white text-zinc-700  ">129000 تومان</span>
+                                       <svg onclick="deleteOnsProduct(1)" class="w-5 h-5 mt-3 cursor-pointer">
+                                            <use href="#trash"></use>
+                                       </svg>
+                                          
+                                  </div>
+                              </div>
+                  </div>
+      `)
+  })
+}
+
+const deleteOnsProduct = (productID) => {
+  console.log(productID);
+
+  let newArrayBefforeDeleteOnsProduct = null
+  showSwal(
+    "آیا از حذف این محصول از سبد خریدتان مطمعن هستید؟",
+    "warning",
+    ["خیر", "بله"],
+    (res) => {
+      if (res) {
+          newArrayBefforeDeleteOnsProduct = userBasketdataInLocalStorage.filter((product) => {
+            return product.id !== productID;
+          });
+
+        showSwal(
+          "محصول مورد نظر با موفقیت حذف شد",
+          "succuss",
+          "ممنونم",
+          (result) => {
+            if (result) {
+              saveInToLocalStorege("basket", newArrayBefforeDeleteOnsProduct);
+              createdBeforDeleteOnsProducts(newArrayBefforeDeleteOnsProduct)
+
+              setTimeout(() => {
+                console.log(wrapperMenrUserBasket);
+              }, 2000);
+              wrapperBasketUser.innerHTML = ""
+              newArrayBefforeDeleteOnsProduct.map(item =>
+
+                wrapperBasketUser.insertAdjacentHTML(
+                  "beforeend",
+                  `
+                              <div class="flex pt-5 border-b-2 pb-2 border-solid border-slate-200">
+                                              <div class="img flex">
+                                                  <img class="w-24 h-[80px] object-cover " src="${
+                                                    item.img
+                                                  }" alt="">
+                                              </div>
+                                              <div class="flex flex-col justify-between  max-h-[5rem]  min-w-[100px] x:min-w-[100px]">
+                                                  <span class="leading-6 text-x max-w-12rem">${
+                                                    item.title
+                                                  }</span>
+                                                  <div class="flex text-x flex-col">
+                                                   ${
+                                                     item.offer
+                                                       ? `
+                                                      <div class="flex flex-col gap-2 ">
+                                                      <div class="leading-4 text-xs dark:text-white text-zinc-700 relative">
+                                                        <span class=" absolute text-xs text w-full border-offer__custom bg-red-700 "></span>
+                                                        <span>${item.price} تومان</span>
+                                                      </div>
+                                                        <span class="">${
+                                                          item.price -
+                                                          (item.price * item.offer) / 100
+                                                        } تومان</span>
+                                                      </div>
+                                                         `
+                                                       : `<span class="leading-4 dark:text-white text-zinc-700  ">${item.price} تومان</span>`
+                                                   }
+
+                                                    <svg onclick="deleteOnsProduct(${
+                                                      item.id
+                                                    })" class="w-5 h-5 mt-3 cursor-pointer">
+                                                        <use href="#trash"></use>
+                                                   </svg>
+                                              </div>
+                                          </div>
+                              `
+                )
+              )
+
+              handleUserBasketByLocalStorage();
+
+            }
+          }
+        );
+      }
+    }
+  );
+};
+
+window.deleteOnsProduct = deleteOnsProduct;
 
 const culcoutorPriceProductsFromLocalStorage = (products) => {
-  console.log(Object.entries(products));
-  
-  let sum = 0
+  let sum = 0;
 
-  let produtsPrices =  products.map((item) => (sum += item.price))
-
-
-  console.log(sum);
-  
-   
-
-  // const convertArrayPriceToNumber = Number(priceProducts);
-  // sum += Number(priceProducts);
-
-
-  // priceProducts.map((price) => (sum += price.price));
+  let produtsPrices = products.map((item) => {
+    if (item.offer) {
+      sum += item.price - (item.price * item.offer) / 100;
+    } else {
+      sum += item.price;
+    }
+  });
 
   wrapperTotalPrice.innerHTML = sum;
   pricesAllProductsInBasketPc.innerHTML = sum;
 };
 
 const culcoutorPricProductBasket = (priceProducts) => {
-  // console.log(priceProducts);
-
   let sum = 0;
-  priceProducts.map((price) => (sum += price.price));
+  priceProducts.map((product) => {
+    if (product.offer) {
+      sum += product.price - (product.price * product.offer) / 100;
+    } else {
+      sum += product.price;
+    }
+  });
 
-  wrapperTotalPrice.innerHTML = sum
+  wrapperTotalPrice.innerHTML = sum;
   pricesAllProductsInBasketPc.innerHTML = sum;
 };
 
@@ -485,4 +750,5 @@ export {
   mainPrudacts,
   addPrudactsToUserBaskets,
   handleUserBasketByLocalStorage,
+  prodactSection,
 };

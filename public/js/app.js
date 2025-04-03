@@ -96,7 +96,6 @@ closeMenuMobile.addEventListener("click", () => {
 });
 
 closeUserBasket.addEventListener("click", () => {
-  console.log("ss");
   
   boxBasket.style.left = "-20rem";
   boxBasket.style.transition = "all 0.5s ease";
@@ -104,9 +103,7 @@ closeUserBasket.addEventListener("click", () => {
   layer.style.position = "inherit";
 });
 
-// saveNotIcon.addEventListener("click" , () => {
-//     saveIcons()
-// })
+
 
 let saveIcons = () => {
   saveIcon.classList.remove("hidden");

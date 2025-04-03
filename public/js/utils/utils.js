@@ -1,3 +1,5 @@
+    
+    
     const showSwal = (title, icon, buttons, callback , input) => {
         swal({
         title,
@@ -63,4 +65,6 @@ const filtredArray = (array , typeFitred) => {
 }
 
 
-export { saveInToLocalStorege , getUrlParam , filtredArray , getFromLocalStorage}
+
+
+export { saveInToLocalStorege , getUrlParam , filtredArray , getFromLocalStorage }

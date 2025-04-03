@@ -120,15 +120,15 @@ const handleUserBasketByLocalStorage = () => {
                                             <div class="flex flex-col gap-2 ">
                                             <div class="leading-4 dark:text-white text-zinc-700 relative">
                                               <span class=" absolute w-full border-offer__custom bg-red-700 "></span>
-                                              <span>${item.price}</span>
+                                              <span>${item.price} تومان </span>
                                             </div>
                                               <span>${
                                                 item.price -
                                                 (item.price * item.offer) / 100
-                                              }</span>
+                                              } تومان </span>
                                             </div>
                                             `
-                                              : `<span class="leading-4 dark:text-white text-zinc-700  ">${item.price}</span>`
+                                              : `<span class="leading-4 dark:text-white text-zinc-700  ">${item.price} تومان </span>`
                                           }
                                       </div>
                                   </div>

@@ -3,42 +3,62 @@
 import { getUrlParam } from "../utils/utils.js";
 import { allProducts } from "../Data.js";
 
-const wrapperProductOns = document.querySelector(".main-prudact")
+const wrapperProductOns = document.querySelector(".main-prudact");
 
 let locationUrl = getUrlParam("name");
 
 const onsProducts = () => {
-  let mainProducts = allProducts.find(product => (
-    product.id == locationUrl
-  ))
+  let mainProducts = allProducts.find((product) => product.id == locationUrl);
   console.log(mainProducts);
-  
-  wrapperProductOns.insertAdjacentHTML("beforeend" , `
+
+  wrapperProductOns.insertAdjacentHTML(
+    "beforeend",
+    `
     <div class="container sm:w-full md:w-[80%]">
                     <div class="flex flex-col sm:flex-row gap-4 items-center">
                             <div class="">
-                                <img class="w-[14rem]  sm:w-30  h-[13rem] sm:h-30" src=${mainProducts.img} alt="">
+                                <img class="w-[14rem]  sm:w-30  h-[13rem] sm:h-30" src=${
+                                  mainProducts.img
+                                } alt="">
                             </div>
                             <div class="w-full">
                                 <div class="flex flex-col gap-3 justify-center items-center sm:items-start md:justify-start">
-                                    <div class="flex gap-3 items-center">
+                                    <div class="flex gap-3 flex-col items-center">
+                                        <div class="flex flex-col gap-2 items-center">
+                                        <span class="text-base sm:text-xl max-w-14rem text-center font-bold text-sky-700-custom">نام : ${
+                                          mainProducts.title
+                                        }</span>
+                                        
+                                        </div>
+                                        <div>
                                         <div class="text-[16px] sm:text-xl font-DanaDemiBold">
-                                            <span>${mainProducts.price}</span>
+                                            <span>${mainProducts.price - ((mainProducts.price * mainProducts.offer) / 100)}</span>
                                             <span>تومان</span>
                                         </div>
-                                       ${mainProducts.offer ? `
-                                         <div class="text-[12px] sm:text-lg line-through-rotate text-red-600">
-                                            <span class="text-x sm:text-xs pt-1 pr-2 pb-1 pl-2 text-white flex items-center justify-center font-DanaDemiBold bg-orange-700 rounded-md">${mainProducts.offer}</span>
-                                        </div>` : ""}
+                                        ${
+                                          mainProducts.offer
+                                            ? `
+                                          <div class="text-[12px] sm:text-lg line-through-rotate text-red-600">
+                                             <span class="text-xs sm:text-xs pt-1 pr-2 pb-1 pl-2 text-black dark:text-white flex items-center justify-center font-DanaDemiBold bg-orange-700 rounded-md ">${mainProducts.price} تومان</span>
+                                         </div>`
+                                            : ""
+                                        }
+                                        </div>
                                     </div>
                                     <div class="flex gap-3 text-xs xs:text-xl ">
                                         <div class="x:text-x sm:text-sm ">
                                             <span>فروشنده :</span>
-                                            <span class="text-sky-800">${mainProducts.seller}</span>
+                                            <span class="text-sky-800">${
+                                              mainProducts.seller
+                                            }</span>
                                         </div>
                                         <div class="x:text-x sm:text-sm ">
                                             <span>وضعیت کالا: </span>
-                                            <span class="text-green-600">${mainProducts.status == "Available" ? "موجود" : "اتمام موجودی"}</span>
+                                            <span class="text-green-600">${
+                                              mainProducts.status == "Available"
+                                                ? "موجود"
+                                                : "اتمام موجودی"
+                                            }</span>
                                         </div>
                                     </div>
                                     <hr>
@@ -54,8 +74,12 @@ const onsProducts = () => {
                                 <hr>
                                 <div class="mt-5 gap-2 flex justify-evenly sm:justify-start   lg:gap-3 items-center ">
                                     <div class=" bg-sky-700 p-2 cursor-pointer w-full sm:w-[50%] text-white flex items-center justify-center rounded-md hover:opacity-80 transition-all">
-                                    ${mainProducts.status ? `
-                                      <button class="add-to__btn">افزودن به سبد خرید</button>` : "<span>اتمام موجودی</span>"}    
+                                    ${
+                                      mainProducts.status
+                                        ? `
+                                      <button class="add-to__btn">افزودن به سبد خرید</button>`
+                                        : "<span>اتمام موجودی</span>"
+                                    }    
                                     </div>
                                     <div class="">
                                         <input class="w-16 h-[2rem] pl-1 rounded-md bg-slate-400 pr-5" type="number" name="" id="">
@@ -64,27 +88,18 @@ const onsProducts = () => {
                             </div>
                         </div>
                     </div>
-    `)
-  
-}
-
-
-
-
+    `
+  );
+};
 
 const commentOnsPage = () => {
   console.log("locationUrl", locationUrl);
 
-  let mainComments = allProducts.find(
-    (comment) => comment.id == locationUrl
-  );
-
-
+  let mainComments = allProducts.find((comment) => comment.id == locationUrl);
 
   const wrapperComments = document.querySelector(".wrapper-comments");
   if (mainComments.comment.length) {
     mainComments.comment.map((items) => {
-
       wrapperComments.insertAdjacentHTML(
         "beforeend",
         `
@@ -155,8 +170,8 @@ const commentOnsPage = () => {
                                     </div>
                                     </div>
                                     `
-                                                                : ``
-                                                            }
+                                 : ``
+                             }
                         </div>
                 `
       );
@@ -170,4 +185,4 @@ const commentOnsPage = () => {
     );
 };
 
-export { commentOnsPage , onsProducts};
+export { commentOnsPage, onsProducts };
