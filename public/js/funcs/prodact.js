@@ -26,6 +26,7 @@ const pricesAllProductsInBasketPc = document.querySelector(
 
 const btnOrdersPc = document.querySelector("#btn-orders__pc");
 let iconBaskets = document.querySelectorAll(".icon-basket");
+const wrapperBtnsBasket = document.querySelector(".wrapper-btns__basket")
 let icons = iconBaskets.forEach((shop) => {
   // return shop
 });
@@ -36,6 +37,23 @@ const wrapperTotalPrice = document.querySelector("#wrapper-total__price");
 const userBasketdataInLocalStorage = getFromLocalStorage("basket");
 window.addEventListener("load", () => {
   handleUserBasketByLocalStorage();
+  if(userBasketdataInLocalStorage.length == 0){
+    wrapperBasketUser.insertAdjacentHTML("beforeend" , 
+      `
+       <div class="w-full rounded-lg space-y-8 mt-3 bg-red-700 flex justify-center text-white font-MorabbaBold pt-5 pb-5">
+                            <span class="text-center text-basket">سبد خرید شما خالی میباشد😭</span>
+                        </div>
+      `
+
+    )
+    wrapperTotalPrice.innerHTML = "😴"
+    wrapperBtnsBasket.innerHTML = ""
+    wrapperBtnsBasket.insertAdjacentHTML("beforeend" , `
+      <span  class="pt-3.5 flex items-center justify-center pb-3.5 pl-8 pr-8 bg-slate-400 text-center rounded-xl text-white " type="submit">ثبت سفارش</span>
+      `)
+  }
+  
+  
 });
 
 const mainProdactsBaskets = document.querySelector(".main-prudacts__baskets");
@@ -364,6 +382,14 @@ const ganeratorUserBasket = (arryUserBasket) => {
   } else {
     mainProdactsBaskets.classList.remove("active-style__mainProducts");
   }
+
+  if(userBasketdataInLocalStorage.length > 1 || arryUserBasket.length >= 1 ){
+    
+    wrapperBtnsBasket.innerHTML = ""
+    wrapperBtnsBasket.insertAdjacentHTML("beforeend" , `
+      <a href="./public/pages/user-basket.html" class="pt-3.5 flex items-center justify-center pb-3.5 pl-8 pr-8 bg-emerald-500 text-center rounded-xl text-white " type="submit">ثبت سفارش</a>
+      `)
+}
   wrapperBasketUser.innerHTML = "";
   arryUserBasket.map((item) =>
     wrapperBasketUser.insertAdjacentHTML(
@@ -687,6 +713,8 @@ const deleteOnsProduct = (productID) => {
       }
     }
   );
+
+ 
 
 };
 

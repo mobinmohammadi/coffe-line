@@ -181,7 +181,7 @@ window.addEventListener("load", () => {
     progresAdsMobile.style.transition = "all 4s ease";
     progresAdsPc.style.width = "100%";
     progresAdsPc.style.transition = "all 4s ease";
-  }, 10);
+  }, 4000);
   setTimeout(() => {
     wrapperAdsMobile.style.position = "none";
     wrapperAdsMobile.style.marginTop = "-200px";
@@ -190,7 +190,7 @@ window.addEventListener("load", () => {
     wrapperAdsPc.style.marginRight = "-100%";
     wrapperAdsPc.style.transition = "all 0.5s ease";
     layer.style.position = "inherit";
-  }, 4000);
+  }, 8000);
 });
 
 // wrapperLoader.addEventListener("click" , () => {
