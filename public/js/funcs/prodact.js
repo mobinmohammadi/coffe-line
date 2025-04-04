@@ -383,7 +383,7 @@ const ganeratorUserBasket = (arryUserBasket) => {
     mainProdactsBaskets.classList.remove("active-style__mainProducts");
   }
 
-  if(userBasketdataInLocalStorage.length > 1 || arryUserBasket.length >= 1 ){
+  if(userBasketdataInLocalStorage.length >= 1 || arryUserBasket.length >= 1 ){
     
     wrapperBtnsBasket.innerHTML = ""
     wrapperBtnsBasket.insertAdjacentHTML("beforeend" , `
@@ -644,7 +644,7 @@ const deleteOnsProduct = (productID) => {
     ["خیر", "بله"],
     (res) => {
       if (res) {
-          newArrayBefforeDeleteOnsProduct = userBasketdataInLocalStorage.filter((product) => {
+          newArrayBefforeDeleteOnsProduct = getFromLocalStorage("basket").filter((product) => {
             return product.id !== productID;
           });
 
@@ -654,11 +654,14 @@ const deleteOnsProduct = (productID) => {
           "ممنونم",
           (result) => {
             if (result) {
+              culcoutorPriceProductsFromLocalStorage(newArrayBefforeDeleteOnsProduct)
+              console.log(newArrayBefforeDeleteOnsProduct);
+              
               saveInToLocalStorege("basket", newArrayBefforeDeleteOnsProduct);
               createdBeforDeleteOnsProducts(newArrayBefforeDeleteOnsProduct)
 
               setTimeout(() => {
-                location.reload()
+                // location.reload()
               }, 500);
               wrapperBasketUser.innerHTML = ""
               newArrayBefforeDeleteOnsProduct.map(item =>

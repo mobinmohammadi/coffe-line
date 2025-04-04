@@ -25,14 +25,14 @@ const onsProducts = () => {
                                 <div class="flex flex-col gap-3 justify-center items-center sm:items-start md:justify-start">
                                     <div class="flex gap-3 flex-col items-center">
                                         <div class="flex flex-col gap-2 items-center">
-                                        <span class="text-base sm:text-xl max-w-14rem text-center font-bold text-sky-700-custom">نام : ${
+                                        <span class="text-base sm:text-xl max-w-14rem text-center font-bold dark:text-white text-sky-700-custom">نام : ${
                                           mainProducts.title
                                         }</span>
                                         
                                         </div>
                                         <div>
-                                        <div class="text-[16px] sm:text-xl font-DanaDemiBold">
-                                            <span>${mainProducts.price - ((mainProducts.price * mainProducts.offer) / 100)}</span>
+                                        <div class="text-[16px] dark:text-white sm:text-xl font-DanaDemiBold">
+                                            <span class="">${mainProducts.price - ((mainProducts.price * mainProducts.offer) / 100)}</span>
                                             <span>تومان</span>
                                         </div>
                                         ${
@@ -47,14 +47,14 @@ const onsProducts = () => {
                                     </div>
                                     <div class="flex gap-3 text-xs xs:text-xl ">
                                         <div class="x:text-x sm:text-sm ">
-                                            <span>فروشنده :</span>
-                                            <span class="text-sky-800">${
+                                            <span class="dark:text-sky-700-custom">فروشنده :</span>
+                                            <span class="text-red-600">${
                                               mainProducts.seller
                                             }</span>
                                         </div>
                                         <div class="x:text-x sm:text-sm ">
-                                            <span>وضعیت کالا: </span>
-                                            <span class="text-green-600">${
+                                            <span class="text-sky-700-custom">وضعیت کالا: </span>
+                                            <span class=" text-green-600">${
                                               mainProducts.status == "Available"
                                                 ? "موجود"
                                                 : "اتمام موجودی"
@@ -64,7 +64,7 @@ const onsProducts = () => {
                                     <hr>
                                 </div>
                                 <div class="mt-5 pb-5 flex justify-center items-center sm:items-center sm:justify-start">
-                                    <ul class="flex gap-2 flex-col  text-start">
+                                    <ul class="dark:text-white flex gap-2 flex-col  text-start">
                                         <li>تاریخ تولید :  1404/1/1</li>
                                         <li>تاریخ انقضا : تا 2 سال پس از تولید</li>
                                         <li> وزن : 300 گرمی</li>

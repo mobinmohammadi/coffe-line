@@ -7,7 +7,7 @@
     "tailwindcss": "^3.4.17"
   },
   "dependencies": {
-    "caniuse-lite": "^1.0.30001707",
+    "caniuse-lite": "^1.0.30001710",
     "swal": "^0.1.0",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.17.2"
