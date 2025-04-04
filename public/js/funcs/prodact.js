@@ -583,35 +583,35 @@ const handleUserBasketByLocalStorage = () => {
 const createdBeforDeleteOnsProducts = (newArrayBefforeDeleteOnsProduct) => {
   console.log(newArrayBefforeDeleteOnsProduct);
   
-  mainProdactsBaskets.innerHTML = ""
+  saveInToLocalStorege("basket" , newArrayBefforeDeleteOnsProduct)
   
-  newArrayBefforeDeleteOnsProduct.map(item => {
-    console.log("item ==> " , item);
+  // newArrayBefforeDeleteOnsProduct.map(item => {
+  //   console.log("item ==> " , item);
     
-    wrapperBasketUser.insertAdjacentHTML("beforeend" , `
-      <div class="flex pt-5 border-b-2 pb-2 border-solid border-slate-200">
-                                  <div class="img flex">
-                                      <img class="w-24 h-[80px] object-cover " src="../../public/products/p1.png" alt=""> 
-                                  </div>
-                                  <div class="flex flex-col justify-between  max-h-[5rem]  min-w-[100px] x:min-w-[100px]">
-                                      <span class="leading-6 text-x max-w-12rem">قهوه برزیلی بن مانو مقدار 800 گرم خط دوم اسم ...</span>
-                                      <div class="flex text-x flex-col">
-                                       <span class="leading-4 dark:text-white text-zinc-700  ">129000 تومان</span>
-                                       <svg onclick="deleteOnsProduct(1)" class="w-5 h-5 mt-3 cursor-pointer">
-                                            <use href="#trash"></use>
-                                       </svg>
+  //   wrapperBasketUser.insertAdjacentHTML("beforeend" , `
+  //     <div class="flex pt-5 border-b-2 pb-2 border-solid border-slate-200">
+  //                                 <div class="img flex">
+  //                                     <img class="w-24 h-[80px] object-cover " src="../../public/products/p1.png" alt=""> 
+  //                                 </div>
+  //                                 <div class="flex flex-col justify-between  max-h-[5rem]  min-w-[100px] x:min-w-[100px]">
+  //                                     <span class="leading-6 text-x max-w-12rem">قهوه برزیلی بن مانو مقدار 800 گرم خط دوم اسم ...</span>
+  //                                     <div class="flex text-x flex-col">
+  //                                      <span class="leading-4 dark:text-white text-zinc-700  ">129000 تومان</span>
+  //                                      <svg onclick="deleteOnsProduct(1)" class="w-5 h-5 mt-3 cursor-pointer">
+  //                                           <use href="#trash"></use>
+  //                                      </svg>
                                           
-                                  </div>
-                              </div>
-                  </div>
-      `)
-  })
+  //                                 </div>
+  //                             </div>
+  //                 </div>
+  //     `)
+  // })
 }
 
 const deleteOnsProduct = (productID) => {
   console.log(productID);
 
-  let newArrayBefforeDeleteOnsProduct = null
+  let newArrayBefforeDeleteOnsProduct = []
   showSwal(
     "آیا از حذف این محصول از سبد خریدتان مطمعن هستید؟",
     "warning",
@@ -632,8 +632,8 @@ const deleteOnsProduct = (productID) => {
               createdBeforDeleteOnsProducts(newArrayBefforeDeleteOnsProduct)
 
               setTimeout(() => {
-                console.log(wrapperMenrUserBasket);
-              }, 2000);
+                location.reload()
+              }, 500);
               wrapperBasketUser.innerHTML = ""
               newArrayBefforeDeleteOnsProduct.map(item =>
 
@@ -679,7 +679,7 @@ const deleteOnsProduct = (productID) => {
                 )
               )
 
-              handleUserBasketByLocalStorage();
+              //  ();
 
             }
           }
@@ -687,6 +687,7 @@ const deleteOnsProduct = (productID) => {
       }
     }
   );
+
 };
 
 window.deleteOnsProduct = deleteOnsProduct;
