@@ -3,6 +3,7 @@
 import { getUrlParam } from "../utils/utils.js";
 import { allProducts } from "../Data.js";
 
+const containerMooreProducts = document.querySelector("#container-Moore__products")
 const wrapperProductOns = document.querySelector(".main-prudact");
 
 let locationUrl = getUrlParam("name");
@@ -72,18 +73,18 @@ const onsProducts = () => {
                                     </ul>
                                 </div>
                                 <hr>
-                                <div class="mt-5 gap-2 flex justify-evenly sm:justify-start   lg:gap-3 items-center ">
-                                    <div class=" bg-sky-700 p-2 cursor-pointer w-full sm:w-[50%] text-white flex items-center justify-center rounded-md hover:opacity-80 transition-all">
-                                    ${
-                                      mainProducts.status
-                                        ? `
-                                      <button class="add-to__btn">افزودن به سبد خرید</button>`
-                                        : "<span>اتمام موجودی</span>"
-                                    }    
-                                    </div>
-                                    <div class="">
-                                        <input class="w-16 h-[2rem] pl-1 rounded-md bg-slate-400 pr-5" type="number" name="" id="">
-                                    </div>
+                                <div class="mt-5 flex-col sm:flex-row sm:w-full gap-2 flex justify-evenly sm:justify-start   lg:gap-3 items-center ">
+                                <div class="">
+                                <input class="w-16 h-[2rem] pl-1 rounded-md bg-slate-400 pr-5" type="number" name="" id="">
+                                </div>
+                                <div class="btn-addStyle p-2 cursor-pointer w-full sm:w-[50%] text-white flex items-center justify-center rounded-md hover:opacity-80 transition-all">
+                                ${
+                                  mainProducts.status
+                                    ? `
+                                  <button class="add-to__btn btn-addStyle text-sm bg-sky-700-custom dark:text-white text-zinc-700">افزودن به سبد خرید</button>`
+                                    : "<span>اتمام موجودی</span>"
+                                }    
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -91,6 +92,37 @@ const onsProducts = () => {
     `
   );
 };
+
+const mooreProductsHandlers = () => {
+  containerMooreProducts.innerHTML = ""
+  
+  allProducts.slice(0,4).map(product => (
+
+
+
+    // containerMooreProducts.innerHTML = ""
+        containerMooreProducts.insertAdjacentHTML("beforeend" , 
+          `
+          <div class="pr-2 pl-2 rounded-md bg-slate-200 flex items-center justify-between">
+                                             <div class="flex items-center ">
+                                                 <div class="flex items-center justify-center ">
+                                                     <img class=" w-14 h-14" src="${product.img}" alt="">
+                                                 </div>
+                                                 <span class="text-x x:text-xs md:text-sm font-MorabbaBold">${product.title}{</span>
+                                             </div>
+                                             <div class="flex gap-[4px] items-center text-sky-500">
+                                                 <a class="flex items-center gap-1 text-xs" href="#">
+                                                 <svg class="text-blue-800 w-4 h-4">
+                                                     <use xlink:href="#arrow-left-circle"></use>
+                                                 </svg>
+                                             </a>
+                                             </div>
+                                         </div>
+          `
+        )
+      ))
+  }
+
 
 const commentOnsPage = () => {
   console.log("locationUrl", locationUrl);
@@ -185,4 +217,4 @@ const commentOnsPage = () => {
     );
 };
 
-export { commentOnsPage, onsProducts };
+export { commentOnsPage, onsProducts , mooreProductsHandlers };

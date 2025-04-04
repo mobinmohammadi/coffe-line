@@ -619,6 +619,12 @@ body {
   height: 2px;
 }
 
+.btn-addStyle{
+  background-color: #ef4444;
+  color: white;
+  font-weight: bolder;
+}
+
 .text-skey-800-custom{
   color: #1f3a49 ;
 }

@@ -1,4 +1,4 @@
-import { commentOnsPage , onsProducts  } from "./funcs/onsPage.js";
+import { commentOnsPage , mooreProductsHandlers, onsProducts  } from "./funcs/onsPage.js";
 import { showSwal } from "./utils/utils.js";
 
 
@@ -25,4 +25,5 @@ addComments.addEventListener("click" , () => {
 window.addEventListener("load" , () => {
     commentOnsPage()
     onsProducts()
+    mooreProductsHandlers()
 })
