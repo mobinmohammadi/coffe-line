@@ -304,9 +304,8 @@ let allProducts = [
 //     {id : 5 , title : "کپسول قهوه" , href : "/tabletCoffe"},]
 
 const menus = [
-  { id: "1", title: "فروشگاه ", href: "./allProducts.html" },
   {
-    id: "2",
+    id: "1",
     title: "لوازم جانبی ",
     href: "./public/pages/page-Not__Found.html",
     submenus: [
@@ -314,9 +313,9 @@ const menus = [
       { id: "2", title: "قهوه ساز صنعتی" },
     ],
   },
-  { id: "3", title: "دستگاه اسپرسو ساز", href: "./public/pages/page-Not__Found.html" },
-  { id: "4", title: "بلاگ ", href: "./public/pages/page-Not__Found.html" },
-  { id: "5", title: "درباره ما ", href: "./public/pages/page-Not__Found.html" },
+  { id: "2", title: "دستگاه اسپرسو ساز", href: "./public/pages/page-Not__Found.html" },
+  { id: "3", title: "بلاگ ", href: "./public/pages/page-Not__Found.html" },
+  { id: "4", title: "درباره ما ", href: "./public/pages/page-Not__Found.html" },
 ];
 
 export { menus , allProducts};

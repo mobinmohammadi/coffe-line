@@ -625,6 +625,10 @@ body {
   font-weight: bolder;
 }
 
+.w-166px-custom{
+  width: 100px;
+}
+
 .text-skey-800-custom{
   color: #1f3a49 ;
 }

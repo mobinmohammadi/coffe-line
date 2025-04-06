@@ -397,7 +397,7 @@ const ganeratorUserBasket = (arryUserBasket) => {
       `
                   <div class="flex pt-5 border-b-2 pb-2 border-solid border-slate-200">
                                   <div class="img flex">
-                                      <img class="w-24 h-[80px] object-cover " src="${
+                                      <img class="w-166px-custom h-[80px] object-cover " src="${
                                         item.img
                                       }" alt=""> 
                                   </div>
@@ -458,7 +458,7 @@ const ganeratorUserBasket = (arryUserBasket) => {
 
              <div class="flex pt-5 pb-5  border-b-2 border-solid dark:border-white border-zinc-500 ">
                                   <div class="img flex">
-                                      <img class="w-24 h-[80px] object-cover " src="${
+                                      <img class="w-166px-custom h-[80px] object-cover " src="${
                                         product.img
                                       }" alt=""> 
                                   </div>
@@ -494,6 +494,10 @@ const ganeratorUserBasket = (arryUserBasket) => {
       )
     );
   }
+  else{
+    
+  }
+
 
   culcoutorPricProductBasket(arryUserBasket);
 };
@@ -528,7 +532,7 @@ const handleUserBasketByLocalStorage = () => {
       `
                   <div class="flex pt-5 border-b-2 pb-2 border-solid border-slate-200">
                                   <div class="img flex">
-                                      <img class="w-24 h-[80px] object-cover " src="${
+                                      <img class="w-166px-custom h-[80px] object-cover " src="${
                                         item.img
                                       }" alt=""> 
                                   </div>
@@ -571,7 +575,7 @@ const handleUserBasketByLocalStorage = () => {
       `
                   <div class="flex pt-5 pb-5  border-b-2 border-solid dark:border-white border-zinc-500 ">
                                   <div class="img flex">
-                                      <img class="w-24 h-[80px] object-cover " src="${
+                                      <img class="w-166px-custom h-[80px] object-cover " src="${
                                         item.img
                                       }" alt=""> 
                                   </div>
@@ -671,7 +675,7 @@ const deleteOnsProduct = (productID) => {
                   `
                               <div class="flex pt-5 border-b-2 pb-2 border-solid border-slate-200">
                                               <div class="img flex">
-                                                  <img class="w-24 h-[80px] object-cover " src="${
+                                                  <img class="w-166px-custom h-[80px] object-cover " src="${
                                                     item.img
                                                   }" alt="">
                                               </div>
