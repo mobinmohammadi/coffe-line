@@ -387,7 +387,7 @@ const ganeratorUserBasket = (arryUserBasket) => {
     
     wrapperBtnsBasket.innerHTML = ""
     wrapperBtnsBasket.insertAdjacentHTML("beforeend" , `
-      <a href="./public/pages/user-basket.html" class="pt-3.5 flex items-center justify-center pb-3.5 pl-8 pr-8 bg-emerald-500 text-center rounded-xl text-white " type="submit">ثبت سفارش</a>
+      <a href="../../user-basket.html" class="pt-3.5 flex items-center justify-center pb-3.5 pl-8 pr-8 bg-emerald-500 text-center rounded-xl text-white " type="submit">ثبت سفارش</a>
       `)
 }
   wrapperBasketUser.innerHTML = "";
@@ -446,9 +446,9 @@ const ganeratorUserBasket = (arryUserBasket) => {
 
   if (arryUserBasket.length) {
     // btnOrdersPc.innerHTML = ""
-    btnOrdersPc.innerHTML = ` <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white p-3"
+    btnOrdersPc.innerHTML = ` <a href="../../user-basket.html" class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white p-3"
                                                 >ثبت سفارش
-                              </span>`;
+                              </a>`;
     console.log(btnOrdersPc);
 
     arryUserBasket.map((product) =>
@@ -520,8 +520,8 @@ const handleUserBasketByLocalStorage = () => {
   countProductsInBaskets.innerHTML =
     userBasketdataInLocalStorage.length + " مورد";
   btnOrdersPc.innerHTML = `
-  <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white p-3">ثبت سفارش
-                              </span>
+  <a href="../../user-basket.html" class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white p-3">ثبت سفارش
+                              </a>
   `;
   culcoutorPriceProductsFromLocalStorage(userBasketdataInLocalStorage);
 

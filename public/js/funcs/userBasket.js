@@ -302,12 +302,12 @@ btnBuyingFainal.addEventListener("click", () => {
           closeModal: true,
         },
       }).then((result) => {
-        if (result == "js20") {
+        if (result == "mobin") {
           wrapperSucssus.style.top = "0";
-          wrapperSucssus.style.transition = "all 0.5s ease";
+          wrapperSucssus.style.transition = "all 1s ease";
           setTimeout(() => {
             wrapperSucssus.style.top = "-400px";
-            wrapperSucssus.style.transition = "all 0.5s ease";
+            wrapperSucssus.style.transition = "all 0.8s ease";
           }, 2000);
           saveInToLocalStorege("basket", []);
           setTimeout(() => {

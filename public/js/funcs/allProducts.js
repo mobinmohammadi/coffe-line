@@ -28,9 +28,9 @@ const handleUserBasketByLocalStorage = () => {
     // btnOrdersPc.innerHTML = ""
     wrapperAllProductsInBasketsPc.innerHTML = "";
 
-    btnOrdersPc.innerHTML = ` <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders  bg-gre text-white dark:text-white pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
+    btnOrdersPc.innerHTML = ` <a href="../../user-basket.html" class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders  bg-gre text-white dark:text-white pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
                                                 >ثبت سفارش
-                              </span>`;
+                              </a>`;
     console.log(btnOrdersPc);
     wrapperBasketUser.innerHTML = "";
     userBasketdataInLocalStorage.map((item) =>
@@ -39,7 +39,7 @@ const handleUserBasketByLocalStorage = () => {
         `
                     <div class="flex pt-5 border-b-4 border-solid border-zinc-500">
                                     <div class="img flex">
-                                        <img class="w-24 h-[80px] object-cover " src="${
+                                        <img class="w-166px-custom h-[80px] object-cover " src="${
                                           item.img
                                         }" alt=""> 
                                     </div>
@@ -79,7 +79,7 @@ const handleUserBasketByLocalStorage = () => {
         `
              <div class="flex pt-5 pb-5  border-b-2 border-solid dark:border-white border-zinc-500 ">
                                   <div class="img flex">
-                                      <img class="w-24 h-[80px] object-cover " src="../../public/products/p1.png" alt="">
+                                      <img class="w-166px-custom h-[80px] object-cover " src="../../public/products/p1.png" alt="">
                                   </div>
                                   <div class="flex flex-col justify-between  min-w-[100px] x:min-w-[100px]">
                                       <span class="leading-6 dark:text-white text-zinc-700 text-x min-w-full">قهوه برزیلی بن مانو مقدار 800 گرم خط دوم اسم ...</span>
@@ -104,7 +104,7 @@ const handleUserBasketByLocalStorage = () => {
         `
         <div class="flex pt-5 pb-5  border-b-2 border-solid dark:border-white border-zinc-500 ">
                                   <div class="img flex">
-                                      <img class="w-24 h-[80px] object-cover " src="${
+                                      <img class="w-166px-custom h-[80px] object-cover " src="${
                                         item.img
                                       }" alt=""> 
                                   </div>
@@ -300,7 +300,7 @@ const ganeratorUserBasket = (arryUserBasket) => {
       `
             <div class="flex pt-5 border-b-2 border-solid border-zinc-500 ">
                             <div class="img flex">
-                                <img class="w-24 h-[80px] object-cover " src="${
+                                <img class="w-166px-custom h-[80px] object-cover " src="${
                                   item.img
                                 }" alt=""> 
                             </div>
@@ -346,9 +346,9 @@ const ganeratorUserBasket = (arryUserBasket) => {
 
   if (arryUserBasket.length) {
     // btnOrdersPc.innerHTML = ""
-    btnOrdersPc.innerHTML = ` <span class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
+    btnOrdersPc.innerHTML = ` <a href="../../user-basket.html" class="items-center cursor-pointer flex justify-center rounded-xl text-[8px] lg:text-sm h-[100%] font-bold btn-style__colorOrders   text-white dark:text-white pt-1 pb-1 pl-1  pr-1 lg:pr-3 lg:pl-3"
                                                 >ثبت سفارش
-                              </span>`;
+                              </a>`;
     console.log(btnOrdersPc);
 
     arryUserBasket.map((product) =>
@@ -356,7 +356,7 @@ const ganeratorUserBasket = (arryUserBasket) => {
         "beforeend",
         `
               <div class=" flex gap-3 pb-2 border-b-2 border-solid border-white pt-5 ">
-                                      <img class="w-12 h-12 lg:w-24 lg:h-24" src="${
+                                      <img class="w-12 h-12 lg:w-166px-custom lg:h-24" src="${
                                         product.img
                                       }" alt="">
                                       <div class="flex flex-col justify-between gap-3 lg:gap-6">
