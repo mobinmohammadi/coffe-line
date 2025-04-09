@@ -52,6 +52,8 @@ window.addEventListener("load", () => {
       <span  class="pt-3.5 flex items-center justify-center pb-3.5 pl-8 pr-8 bg-slate-400 text-center rounded-xl text-white " type="submit">ثبت سفارش</span>
       `)
   }
+
+
   
   
 });
@@ -503,6 +505,8 @@ const ganeratorUserBasket = (arryUserBasket) => {
 };
 
 const handleUserBasketByLocalStorage = () => {
+  console.log(getFromLocalStorage("basket"));
+  
   if (userBasketdataInLocalStorage.length > 2) {
     wrapperAllProductsInBasketsPc.classList += " active-style__mainProducts ";
   } else {

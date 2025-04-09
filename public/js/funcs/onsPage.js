@@ -1,12 +1,13 @@
 // import { getToken } from "../utils/utils";
 
-import { getUrlParam } from "../utils/utils.js";
+import { getUrlParam, saveInToLocalStorege } from "../utils/utils.js";
 import { allProducts } from "../Data.js";
 
 const containerMooreProducts = document.querySelector("#container-Moore__products")
 const wrapperProductOns = document.querySelector(".main-prudact");
 
 let locationUrl = getUrlParam("name");
+
 
 const onsProducts = () => {
   let mainProducts = allProducts.find((product) => product.id == locationUrl);
@@ -77,11 +78,11 @@ const onsProducts = () => {
                                 <div class="">
                                 <input class="w-16 h-[2rem] pl-1 rounded-md bg-slate-400 pr-5" type="number" name="" id="">
                                 </div>
-                                <div class="btn-addStyle p-2 cursor-pointer w-full sm:w-[50%] text-white flex items-center justify-center rounded-md hover:opacity-80 transition-all">
+                                <div  onclick="addToUserBasket(${mainProducts.id})" class="btn-addStyle p-2 cursor-pointer w-full sm:w-[50%] text-white flex items-center justify-center rounded-md hover:opacity-80 transition-all">
                                 ${
                                   mainProducts.status
                                     ? `
-                                  <button class="add-to__btn btn-addStyle text-sm bg-sky-700-custom dark:text-white text-zinc-700">افزودن به سبد خرید</button>`
+                                  <button id="" class=" add-to__btn btn-addStyle text-sm bg-sky-700-custom dark:text-white text-zinc-700">افزودن به سبد خرید</button>`
                                     : "<span>اتمام موجودی</span>"
                                 }    
                                 </div>
@@ -92,6 +93,15 @@ const onsProducts = () => {
     `
   );
 };
+
+const addToUserBasket = (productID) => {
+ const findetProductsInOnsPageInfos =  allProducts.filter(products => (products.id == productID))
+  console.log(findetProductsInOnsPageInfos);
+
+// 
+  saveInToLocalStorege("basket" , [findetProductsInOnsPageInfos])
+  
+}
 
 const mooreProductsHandlers = () => {
   containerMooreProducts.innerHTML = ""
@@ -216,5 +226,7 @@ const commentOnsPage = () => {
     `
     );
 };
+
+window.addToUserBasket = addToUserBasket
 
 export { commentOnsPage, onsProducts , mooreProductsHandlers };
